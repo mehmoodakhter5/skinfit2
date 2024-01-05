@@ -1,8 +1,4 @@
-  
-  
-  
-  
-  <!-- plugins:js -->
+<!-- plugins:js -->
   <script src="{{asset('back/assets/vendors/js/vendor.bundle.base.js')}}"></script>
   <script src="{{asset('back/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
   <!-- endinject -->
