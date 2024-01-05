@@ -28,14 +28,16 @@ class register extends Controller
 }
 protected function authenticated(LoginRequest $request, $user) 
 {
+    session(['name' => $user->name,'email'=> $user->email]);
+
     return redirect('/admin');
 }
 
 public function clear()
     {
-        Session::flush();
         
-        Auth::logout();
+        session()->flush();
+
 
         return redirect('login');
     }

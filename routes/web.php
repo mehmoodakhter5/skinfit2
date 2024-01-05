@@ -21,7 +21,24 @@ Route::POST('auth',  [Register::class, 'login']);
 Route::get('/admin', [Admin::class, 'index']);
 Route::get('/admin/product', [Admin::class, 'product']);
 Route::get('/admin/add-new-product', [Admin::class, 'productadd']);
+Route::get('/admin/category', [Admin::class, 'category']);
+Route::get('/admin/add-new-category', [Admin::class, 'add_category']);
+Route::get('/admin/sub-category', [Admin::class, 'subcategory']);
+Route::get('admin/add-new-sub-category', [Admin::class, 'addsubcategory']);
+Route::get('/admin/sub-category-1', [Admin::class, 'subcategory1']);
+Route::get('admin/add-new-sub-category-1', [Admin::class, 'addsubcategory1']);
+Route::get('admin/brands', [Admin::class, 'brands']);
+Route::get('admin/add-new-brand', [Admin::class, 'add_brand']);
 
+
+
+Route::get('/logout', function(){
+    auth()->logout();
+    Session()->flush();
+
+    return Redirect::to('/');
+
+});
 
 
 

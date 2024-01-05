@@ -23,8 +23,16 @@
   <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.2.6/jquery.inputmask.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 
 
+<script>
+  new DataTable('#category');
+  new DataTable('#subcategory');
+  new DataTable('#subcategory1');
+
+  
+  </script> 
 <script>
   var form = document.getElementById("add-product");
 
@@ -66,7 +74,7 @@ $(document).ready(function() {
           ['image', 'code-block']
         ]
       },
-      placeholder: 'Product Short Descriptionc...',
+      placeholder: 'Product Short Description...',
       theme: 'snow' // or 'bubble'
     });
   
@@ -111,6 +119,33 @@ $(document).ready(function() {
       ]
     },
     placeholder: 'Product Precautions?',
+    theme: 'snow' // or 'bubble'
+  });
+  
+  var quill = new Quill('#textarea5', {
+    modules: {
+      toolbar: [
+        [{
+          header: [1, 2, false]
+        }],
+        ['bold', 'italic', 'underline'],
+        ['image', 'code-block']
+      ]
+    },
+    placeholder: 'Category Text',
+    theme: 'snow' // or 'bubble'
+  });
+  var quill = new Quill('#textarea6', {
+    modules: {
+      toolbar: [
+        [{
+          header: [1, 2, false]
+        }],
+        ['bold', 'italic', 'underline'],
+        ['image', 'code-block']
+      ]
+    },
+    placeholder: 'Brand Text',
     theme: 'snow' // or 'bubble'
   });
   var quillText = quill.getText();

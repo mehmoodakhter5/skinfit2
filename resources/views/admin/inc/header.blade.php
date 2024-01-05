@@ -27,8 +27,7 @@
 <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 <link rel="stylesheet" href="{{asset('back/assets/css/custom.css')}}">
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-
-
+<link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 </head>
 
 
@@ -52,7 +51,7 @@
     <div class="navbar-menu-wrapper d-flex align-items-top">
       <ul class="navbar-nav">
         <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
-          <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">John Doe</span></h1>
+          <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">{{Session::get('name')}}</span></h1>
           <h3 class="welcome-sub-text">Your performance summary this week </h3>
         </li>
       </ul>
@@ -192,8 +191,8 @@
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
             <div class="dropdown-header text-center">
               <img class="img-md rounded-circle" src="../assets/images/faces/face8.jpg" alt="Profile image">
-              <p class="mb-1 mt-3 font-weight-semibold">Allen Moreno</p>
-              <p class="fw-light text-muted mb-0">allenmoreno@gmail.com</p>
+              <p class="mb-1 mt-3 font-weight-semibold">{{Session::get('name')}}</p>
+              <p class="fw-light text-muted mb-0">{{Session::get('email')}}</p>
             </div>
             <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My
               Profile <span class="badge badge-pill badge-danger">1</span></a>
@@ -203,7 +202,7 @@
               Activity</a>
             <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i>
               FAQ</a>
-            <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+            <a class="dropdown-item" href='{{route("logout")}}'><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
           </div>
         </li>
       </ul>
@@ -425,19 +424,15 @@
     <li class="nav-item nav-category">Navigation</li>
     <li class="nav-item">
       <a class="nav-link collapsed" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-        <i class="menu-icon mdi mdi-package"></i>
-        <span class="menu-title">Inventory</span>
+        <i class="menu-icon mdi mdi-sitemap"></i>
+        <span class="menu-title">All Categories</span>
         <i class="menu-arrow"></i> 
       </a>
       <div class="collapse" id="ui-basic" style="">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" href="">Accordions</a></li>
-          <li class="nav-item"> <a class="nav-link" href="">Buttons</a></li>
-          <li class="nav-item"> <a class="nav-link" href="">Badges</a></li>
-          <li class="nav-item"> <a class="nav-link" href="">Breadcrumbs</a></li>
-          <li class="nav-item"> <a class="nav-link" href="">Dropdowns</a></li>
-          <li class="nav-item"> <a class="nav-link" href="">Modals</a></li>
-    
+          <li class="nav-item"> <a class="nav-link" href="{{url('admin/category')}}">Category</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{{url('admin/sub-category')}}">Sub Category</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{{url('admin/sub-category-1')}}">Sub Category level 2 </a></li>
         </ul>
       </div>
     </li>
@@ -445,15 +440,27 @@
       <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false"
         aria-controls="form-elements">
         <i class="menu-icon mdi mdi-card-text-outline"></i>
-        <span class="menu-title">Form elements</span>
+        <span class="menu-title">Inventory</span>
         <i class="menu-arrow"></i>
       </a>
       <div class="collapse" id="form-elements">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"><a class="nav-link" href="../pages/forms/basic_elements.html">Basic Elements</a></li>
+          <li class="nav-item"><a class="nav-link" href="../pages/forms/basic_elements.html">Inventory</a></li>
         </ul>
       </div>
     </li>
+    <div class="collapse" id="form-elements">
+      <ul class="nav flex-column sub-menu">
+        <li class="nav-item"><a class="nav-link" href="../pages/forms/basic_elements.html">Supplier</a></li>
+      </ul>
+    </div>
+  </li>
+  <div class="collapse" id="form-elements">
+    <ul class="nav flex-column sub-menu">
+      <li class="nav-item"><a class="nav-link" href="{{url('admin/brands')}}">Brands</a></li>
+    </ul>
+  </div>
+</li>
     <li class="nav-item">
       <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
         <i class="menu-icon mdi mdi-chart-line"></i>
