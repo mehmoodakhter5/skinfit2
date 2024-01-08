@@ -33,21 +33,21 @@
 
   
   </script> 
+
+
+
+
 <script>
-  var form = document.getElementById("add-product");
-
-form.onsubmit = function() {
-  var name = document.querySelector('input[name=body]');
-  name.value = JSON.stringify(quill.getContents());
-
-  return true; // submit form
-}
+  $("div#dropzone").dropzone({ url: "{{'insert-product'}}" });
+  
 </script>
-
-
-
 <script>
-  $("div#dropzone").dropzone({ url: "/file/post" });
+  $(document).ready(function () {
+    var myDropzone = new Dropzone("#dropzone2", { 
+      url: "insert-product",
+      uploadMultiple: false
+    });
+  });
 </script>
 <script>
 $(document).ready(function(){
@@ -64,7 +64,7 @@ $(document).ready(function() {
   <!-- End custom js for this page-->
 
    <script>
-        var quill = new Quill('#textarea1', {
+        var textarea1 = new Quill('#textarea1', {
       modules: {
         toolbar: [
           [{
@@ -75,10 +75,14 @@ $(document).ready(function() {
         ]
       },
       placeholder: 'Product Short Description...',
-      theme: 'snow' // or 'bubble'
+      theme: 'snow' 
+    
     });
-  
-    var quill = new Quill('#textarea2', {
+    textarea1.on('text-change', function(delta, source) {
+   var justHtml = textarea1.root.innerHTML;
+   document.getElementById('product_short_description').innerHTML = justHtml;
+});
+    var textarea2 = new Quill('#textarea2', {
       modules: {
         toolbar: [
           [{
@@ -89,9 +93,13 @@ $(document).ready(function() {
         ]
       },
       placeholder: 'Product Long Description...',
-      theme: 'snow' // or 'bubble'
+      theme: 'snow' 
     });
-    var quill = new Quill('#textarea3', {
+    textarea2.on('text-change', function(delta, source) {
+   var justHtml = textarea2.root.innerHTML;
+   document.getElementById('product_long_description').innerHTML = justHtml;
+});
+    var textarea3 = new Quill('#textarea3', {
     modules: {
       toolbar: [
         [{
@@ -102,13 +110,16 @@ $(document).ready(function() {
       ]
     },
     placeholder: 'How to Use?...',
-    theme: 'snow' // or 'bubble'
+    theme: 'snow' 
   });
+  textarea3.on('text-change', function(delta, source) {
+   var justHtml = textarea3.root.innerHTML;
+   document.getElementById('product_description_one').innerHTML = justHtml;
+});
 
 
 
-
-  var quill = new Quill('#textarea4', {
+  var textarea4 = new Quill('#textarea4', {
     modules: {
       toolbar: [
         [{
@@ -119,10 +130,13 @@ $(document).ready(function() {
       ]
     },
     placeholder: 'Product Precautions?',
-    theme: 'snow' // or 'bubble'
+    theme: 'snow' 
   });
-  
-  var quill = new Quill('#textarea5', {
+  textarea4.on('text-change', function(delta, source) {
+   var justHtml = textarea4.root.innerHTML;
+   document.getElementById('product_description_two').innerHTML = justHtml;
+});
+  var textarea5 = new Quill('#textarea5', {
     modules: {
       toolbar: [
         [{
@@ -133,9 +147,9 @@ $(document).ready(function() {
       ]
     },
     placeholder: 'Category Text',
-    theme: 'snow' // or 'bubble'
+    theme: 'snow' 
   });
-  var quill = new Quill('#textarea6', {
+  var textarea6 = new Quill('#textarea6', {
     modules: {
       toolbar: [
         [{
@@ -146,10 +160,9 @@ $(document).ready(function() {
       ]
     },
     placeholder: 'Brand Text',
-    theme: 'snow' // or 'bubble'
+    theme: 'snow'
   });
-  var quillText = quill.getText();
-  console.log(quillText);
+ 
   </script>
 
 </body>

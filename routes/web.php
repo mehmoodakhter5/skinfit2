@@ -1,8 +1,11 @@
 <?php
 
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Register;
 use App\Http\Controllers\Admin;
+use App\Http\Controllers\Process;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +32,7 @@ Route::get('/admin/sub-category-1', [Admin::class, 'subcategory1']);
 Route::get('admin/add-new-sub-category-1', [Admin::class, 'addsubcategory1']);
 Route::get('admin/brands', [Admin::class, 'brands']);
 Route::get('admin/add-new-brand', [Admin::class, 'add_brand']);
+Route::POST('insert-product', [Process::class, 'insert_product']);
 
 
 

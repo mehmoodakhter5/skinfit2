@@ -28,7 +28,7 @@ class register extends Controller
 }
 protected function authenticated(LoginRequest $request, $user) 
 {
-    session(['name' => $user->name,'email'=> $user->email]);
+    session(['name' => $user->name,'email'=> $user->email,'id'=>$user->id]);
 
     return redirect('/admin');
 }
