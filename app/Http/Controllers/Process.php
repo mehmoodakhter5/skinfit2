@@ -11,13 +11,27 @@ use Illuminate\Support\Facades\Storage;
 class Process extends Controller
 {
     public function insert_product(Request $request){
-        // $fileName = time() . '.' . $request->product_image->extension();
-        // $request->image->storeAs('public/product/', $fileName);
+        $singleimage = time() . '.' . $request->product_image->extension();
+        $request->product_image->storeAs('public/product/', $singleimage);
+        
+
+        $multipleImages = [];
+
+        if ($request->hasfile('product_multiple_images')) {
+            foreach ($request->product_multiple_images as $image) {
+                $multipleImage = time() . '_' . $image->getClientOriginalName();
+                $image->storeAs('public/product/', $multipleImage);
+                $multipleImages[] = $multipleImage;
+            }
+        }
+        
+        
         $Product= new Product();
         $Product->product_name=$request->product_name;
         $Product->product_slug=Str::slug($request->product_name);
         $Product->product_category_id=implode(",", $request->product_category_id);
-        $Product->product_image=1;
+        $Product->product_image=$singleimage;
+        $Product->product_multiple_images=implode(',',$multipleImages);
         $Product->product_image_cloud='png';
         $Product->product_short_description=$request->product_short_description;
         $Product->product_long_description=$request->product_long_description;

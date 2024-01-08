@@ -1,7 +1,7 @@
 @include('admin.inc.header');
 <div class="col-md-8 grid-margin stretch-card">
     <div class="card">
-        <form action="{{url('insert-product')}}" method="post" id="add-product">
+        <form action="{{url('insert-product')}}" method="post"  enctype="multipart/form-data"  class="dropzone" id="ProductaddNew" >
             @csrf
             <div class="card-body">
                 <h4 class="card-title">Add New Product</h4>
@@ -136,18 +136,28 @@
                 <div class="form-group row">
                     <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Product Image</label>
                     <div class="col-sm-9">
-                        <div class='fileupload dropzone' id="dropzone2">
+                        <div class="fileupload" id="drag-and-drop">
+                            <p>Drag and drop a file here or click to select</p>
+                            <input type="file" name="product_image" id="fileInput" />
                         </div>
                         <div class="form-group row">
-                            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Product Images</label>
-                            <div class="col-sm-9 dropzone" id="dropzone"></div>
+                            <div class="dropzone-previews"></div>
+                            <label for="exampleInputEmail2" class="col-sm-3 col-form-label" >Product Images</label>
+                            
+                            <div class="fallback"> 
+                                <div style="height: 300px">
+                            <input type="file" name="product_multiple_images[]" id="product_multiple_images" multiple>
                         </div>
-                        <button type="submit" class="btn btn-primary me-2">Submit</button>
-                        <button class="btn btn-light">Cancel</button>
+                        </div>
                     </div>
+                    
+                    <button type="submit" id="submit-all" class="btn btn-primary me-2">Submit</button>
+                    <button class="btn btn-light" type="submit">Cancel</button>
                 </div>
+               
             </div>
         </form>
-        @include('admin.inc.footer');
+       
     </div>
 </div>
+@include('admin.inc.footer')

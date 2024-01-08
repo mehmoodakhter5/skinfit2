@@ -1,4 +1,5 @@
 <!-- plugins:js -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script src="{{asset('back/assets/vendors/js/vendor.bundle.base.js')}}"></script>
   <script src="{{asset('back/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
   <!-- endinject -->
@@ -37,18 +38,28 @@
 
 
 
+
 <script>
-  $("div#dropzone").dropzone({ url: "{{'insert-product'}}" });
-  
+  Dropzone.options.ProductaddNew = {
+
+autoProcessQueue: true,
+uploadMultiple: true,
+parallelUploads: 25,
+maxFiles: 10,
+
+init: function() {
+    var myDropzone = this;
+
+
+    $("#submit-all").click(function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        myDropzone.processQueue();
+    }); 
+}
+}
 </script>
-<script>
-  $(document).ready(function () {
-    var myDropzone = new Dropzone("#dropzone2", { 
-      url: "insert-product",
-      uploadMultiple: false
-    });
-  });
-</script>
+
 <script>
 $(document).ready(function(){
   $("input").inputmask();
