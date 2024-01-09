@@ -33,9 +33,10 @@ Route::get('admin/add-new-sub-category-1', [Admin::class, 'addsubcategory1']);
 Route::get('admin/brands', [Admin::class, 'brands']);
 Route::get('admin/add-new-brand', [Admin::class, 'add_brand']);
 Route::POST('insert-product', [Process::class, 'insert_product']);
+Route::POST('post-category', [Process::class, 'add_category']);
+Route::POST('post-brand', [Process::class, 'add_brand']);
 
-
-
+Route::get('getproduct',[Admin::class,'getproduct']);
 Route::get('/logout', function(){
     auth()->logout();
     Session()->flush();

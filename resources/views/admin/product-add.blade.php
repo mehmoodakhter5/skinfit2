@@ -1,5 +1,6 @@
-@include('admin.inc.header');
+@include('admin.inc.header')
 <div class="col-md-8 grid-margin stretch-card">
+    
     <div class="card">
         <form action="{{url('insert-product')}}" method="post"  enctype="multipart/form-data"  class="dropzone" id="ProductaddNew" >
             @csrf
@@ -9,8 +10,9 @@
                     <label class="col-sm-3 col-form-label">Category</label>
                     <div class="col-sm-9">
                         <select class="js-example-basic-multiple" name="product_category_id[]" multiple="multiple">
-                            <option value="1">Alabama</option>
-                            <option value="2">Wyoming</option>
+                            @foreach($category as $cat)
+                            <option value="{{$cat->category_id}}">{{$cat->category_name}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>

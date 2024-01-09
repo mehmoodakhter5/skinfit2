@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use App\Models\Product;
+use App\Models\Category;
+use App\Models\Countries;
+
+
+use Response;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -13,6 +19,7 @@ class Admin extends Controller
     {
         $user = Auth::user();
         if ($user) {
+    
             return view("admin.index");
         } else {
             return redirect('/');
@@ -28,13 +35,19 @@ class Admin extends Controller
             return redirect('/');
         }
     }
+    public function getproduct(){
+        $products =Product::all();
+        return Response::json($products);
+    }
 
     public function productadd()
     {
 
         $user = Auth::user();
         if ($user) {
-            return view("admin.product-add");
+            $category=Category::all();
+
+            return view("admin.product-add",["category"=> $category]);
         } else {
             return redirect('/');
         }
@@ -65,6 +78,7 @@ class Admin extends Controller
 
         $user = Auth::user();
         if ($user) {
+
             return view("admin.sub-category");
         } else {
             return redirect('/');
@@ -75,7 +89,9 @@ class Admin extends Controller
 
         $user = Auth::user();
         if ($user) {
-            return view("admin.add-sub-category");
+            $category=Category::all();
+
+            return view("admin.add-sub-category",["category"=> $category]);
         } else {
             return redirect('/');
         }
@@ -111,7 +127,8 @@ public function add_brand(){
     $user = Auth::user();
 
     if ($user) {
-return view("admin.add-brand");
+        $Countries=Countries::all();
+return view("admin.add-brand",["Countries"=> $Countries]);
 } else {
 return redirect('/');
 }

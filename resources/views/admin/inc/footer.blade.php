@@ -1,5 +1,5 @@
 <!-- plugins:js -->
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="{{asset('back/assets/vendors/js/vendor.bundle.base.js')}}"></script>
   <script src="{{asset('back/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
   <!-- endinject -->
@@ -20,12 +20,36 @@
   <!-- Custom js for this page-->
   <script src="{{asset('back/assets/js/jquery.cookie.js')}}" type="text/javascript"></script>
   <script src="{{asset('back/assets/js/dashboard.js')}}"></script>
-  <script src="{{asset('back/assets/js/proBanner.js')}}"></script>
   <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.2.6/jquery.inputmask.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-
+<script>
+  
+  $('#password, #confirm_password').on('keyup', function () {
+  if ($('#password').val() == $('#confirm_password').val()) {
+    $('#message').html('Matched!').css('color', 'green');
+  } else 
+    $('#message').html('Not Matching').css('color', 'red');
+});
+</script>
+  <script>
+let table = new DataTable('#ProductTable', {
+  ajax: "{{ url('getproduct') }}",
+  responsive: {
+    details: false
+  },
+  columns: [
+    { data: 'id', title: 'ID' },
+    { data: 'product_name', title: 'Product Name' },
+    { data: 'product_image', title: 'Image' },
+    { data: 'product_regular_price', title: 'Regular Price' },
+  ],
+  drawCallback: function(settings) {
+    console.log('Draw Callback:', settings);
+  }
+});
+  </script>
 
 <script>
   new DataTable('#category');
@@ -147,6 +171,29 @@ $(document).ready(function() {
    var justHtml = textarea4.root.innerHTML;
    document.getElementById('product_description_two').innerHTML = justHtml;
 });
+
+  </script>
+  <script>
+      var textarea6 = new Quill('#textarea6', {
+    modules: {
+      toolbar: [
+        [{
+          header: [1, 2, false]
+        }],
+        ['bold', 'italic', 'underline'],
+        ['image', 'code-block']
+      ]
+    },
+    placeholder: 'Brand Text',
+    theme: 'snow'
+  });
+  textarea6.on('text-change', function(delta, source) {
+   var justHtml = textarea6.root.innerHTML;
+   document.getElementById('brand_text').innerHTML = justHtml;
+});
+ 
+  </script>
+<script>
   var textarea5 = new Quill('#textarea5', {
     modules: {
       toolbar: [
@@ -160,22 +207,11 @@ $(document).ready(function() {
     placeholder: 'Category Text',
     theme: 'snow' 
   });
-  var textarea6 = new Quill('#textarea6', {
-    modules: {
-      toolbar: [
-        [{
-          header: [1, 2, false]
-        }],
-        ['bold', 'italic', 'underline'],
-        ['image', 'code-block']
-      ]
-    },
-    placeholder: 'Brand Text',
-    theme: 'snow'
-  });
- 
-  </script>
-
+  textarea5.on('text-change', function(delta, source) {
+   var justHtml = textarea5.root.innerHTML;
+   document.getElementById('category_text').innerHTML = justHtml;
+});
+</script>
 </body>
 
 </html>

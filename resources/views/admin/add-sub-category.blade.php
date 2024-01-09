@@ -9,12 +9,11 @@
         <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Category</label>
         <div class="col-sm-9">
 
-            <select class="form-control" name="" id="">
+            <select class="form-control" name="category_id" id="">
                 <option value="">Select Category</option>
-                <option value="">cs</option>
-                <option value="">cs</option>
-                <option value="">cs</option>
-                <option value="">cs</option>
+                @foreach($category as $cat)
+                <option value="{{$cat->category_id}}">{{$cat->category_name}}</option>
+                @endforeach
 
             </select>
         </div>
@@ -22,13 +21,14 @@
     <div class="form-group row">
         <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Sub Category Name</label>
         <div class="col-sm-9">
-            <input type="text" class="form-control" name="product_name" id="exampleInputEmail2" placeholder="Category Name">
+            <input type="text" class="form-control" name="sub_category_name" id="exampleInputEmail2" placeholder="Category Name">
         </div>
     </div>
+    
     <div class="form-group row">
         <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Sub Category Text</label>
         <div class="col-sm-9">
-            <textarea " rows="10"  class="form-control"  name="Category Sort Id" id="exampleInputEmail2" ></textarea>
+            <textarea " rows="10"  class="form-control"  name="sub_category_text" id="exampleInputEmail2" ></textarea>
         </div>
     </div>
    

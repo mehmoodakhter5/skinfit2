@@ -6,11 +6,13 @@ use App\Models\Category;
 use App\Models\Brand;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class Process extends Controller
 {
     public function insert_product(Request $request){
+        $user = Auth::user();
+        if($user){
         $singleimage = time() . '.' . $request->product_image->extension();
         $request->product_image->storeAs('public/product/', $singleimage);
         
@@ -24,7 +26,6 @@ class Process extends Controller
                 $multipleImages[] = $multipleImage;
             }
         }
-        
         
         $Product= new Product();
         $Product->product_name=$request->product_name;
@@ -50,60 +51,56 @@ class Process extends Controller
         $Product->product_brand_id=$request->product_brand_id;
         $Product->save();
         return $Product;
+    }else{
+        return redirect('/');
+    }
     }
 
     public function add_category(Request $request){
-        $fileName = time() . '.' . $request->category_image->extension();
-        $request->image->storeAs('public/product/', $fileName);
       
         $Category = new Category();
-        $Category->category_name=('');
+        $Category->category_name=$request->category_name;
         $Category->category_slug=Str::slug($request->category_name);
-        $Category->category_image=$fileName;
         $Category->category_text=$request->category_text;
-        $Category->category_feature=$request->category_feature;
         $Category->category_sort=$request->category_sort;
-        $Category->attribute_ids=$request->attribute_ids;
-        $Category->category_created_by='';
-        $Category->category_updated_by='';
+        $Category->category_created_by=$request->session()->get('id');
+        $Category->category_updated_by=$request->session()->get('id');
         $Category->save();
         return $Category;
 
     }
 
-    public function add_brand(){
-        $Brand = new Brand();
-        $Brand->brand_name=('');
-        $Brand->brand_slug=('');
-        $Brand->brand_featured=('');
-        $Brand->brand_rack=('');
-        $Brand->brand_most_search=('');
-        $Brand->brand_supplier=('');
-        $Brand->logistics_type=('');
-        $Brand->brand_active=('');
-        $Brand->brand_text=('');
-        $Brand->brand_image=('');
-        $Brand->brand_banner=('');
-        $Brand->country_id=('');
-        $Brand->brand_created_by=('');
-        $Brand->brand_updated_by=('');
 
+    public function add_brand(Request $request){
+        if($request->hasFile('brand_image')){
+            $image = sha1(time()). '.' . $request->brand_image->extension();
+        $request->brand_image->storeAs('public/brand/', $image);
+        }else{
+            $image=1;
+        }
+
+        if($request->hasFile('brand_banner')){
+        $banner = Str::random(5). '.' . $request->brand_banner->extension();
+        $request->brand_banner->storeAs('public/brand/', $banner);
+        }else{
+            $banner=1;
+        };
+
+        $Brand = new Brand();
+        $Brand->brand_name=$request->brand_name;
+        $Brand->brand_slug=Str::slug($request->brand_name);
+        $Brand->brand_featured=$request->brand_featured;
+        $Brand->brand_rack=$request->brand_rack;
+        $Brand->brand_most_search=$request->brand_most_search;
+        $Brand->brand_supplier=$request->brand_supplier;
+        $Brand->logistics_type=$request->logistics_type;
+        $Brand->brand_text=$request->brand_text;
+        $Brand->brand_image=$image;
+        $Brand->brand_banner=$banner;
+        $Brand->country_id=$request->country_id;
+        $Brand->brand_created_by=$request->session()->get('id');
+        $Brand->brand_updated_by=$request->session()->get('id');
         $Brand->save();
         return $Brand;
-
-
-
-
-
-
-
-        
-
-
-
-
-
-    
-
     }
 }

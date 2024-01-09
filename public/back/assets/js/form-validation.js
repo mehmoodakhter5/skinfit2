@@ -6,7 +6,6 @@
     }
   });
   $(function() {
-    // validate the comment form when it is submitted
     $("#commentForm").validate({
       errorPlacement: function(label, element) {
         label.addClass('mt-2 text-danger');
@@ -17,10 +16,9 @@
         $(element).addClass('form-control-danger')
       }
     });
-    // validate signup form on keyup and submit
-    $("#signupForm").validate({
+    $("#ProductaddNew").validate({
       rules: {
-        firstname: "required",
+        product_name: "required",
         lastname: "required",
         username: {
           required: true,
@@ -46,7 +44,7 @@
         agree: "required"
       },
       messages: {
-        firstname: "Please enter your firstname",
+        product_name: "Please enter your product_name",
         lastname: "Please enter your lastname",
         username: {
           required: "Please enter a username",
@@ -74,7 +72,6 @@
         $(element).addClass('form-control-danger')
       }
     });
-    // propose username by combining first- and lastname
     $("#username").focus(function() {
       var firstname = $("#firstname").val();
       var lastname = $("#lastname").val();
@@ -82,13 +79,10 @@
         this.value = firstname + "." + lastname;
       }
     });
-    //code to hide topic selection, disable for demo
     var newsletter = $("#newsletter");
-    // newsletter topics are optional, hide at first
     var inital = newsletter.is(":checked");
     var topics = $("#newsletter_topics")[inital ? "removeClass" : "addClass"]("gray");
     var topicInputs = topics.find("input").attr("disabled", !inital);
-    // show when newsletter is checked
     newsletter.on("click", function() {
       topics[this.checked ? "removeClass" : "addClass"]("gray");
       topicInputs.attr("disabled", !this.checked);
