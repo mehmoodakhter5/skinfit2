@@ -1,7 +1,8 @@
 @include('admin.inc.header');
 <div class="col-md-8 grid-margin stretch-card">
 <div class="card">
-    <form action="" method="post" id='add-product'>
+    <form action="{{url('post-sub-category')}}" method="post" >
+        @csrf
 <div class="card-body">
     <h4 class="card-title">Add New Sub Category</h4>
    
@@ -21,14 +22,14 @@
     <div class="form-group row">
         <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Sub Category Name</label>
         <div class="col-sm-9">
-            <input type="text" class="form-control" name="sub_category_name" id="exampleInputEmail2" placeholder="Category Name">
+            <input type="text" class="form-control inputsproduct"  onkeyup="checkFilled()" name="sub_category_name" id="exampleInputEmail2" placeholder="Category Name">
         </div>
     </div>
     
     <div class="form-group row">
         <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Sub Category Text</label>
         <div class="col-sm-9">
-            <textarea " rows="10"  class="form-control"  name="sub_category_text" id="exampleInputEmail2" ></textarea>
+            <textarea " rows="10"  class="form-control inputsproduct"  onkeyup="checkFilled()"  name="sub_category_text" id="exampleInputEmail2" ></textarea>
         </div>
     </div>
    

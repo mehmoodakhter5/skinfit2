@@ -6,6 +6,11 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Countries;
+use App\Models\Sub_category;
+use App\Models\Brand;
+use App\Models\Sub_category_1;
+
+
 
 
 use Response;
@@ -39,6 +44,14 @@ class Admin extends Controller
         $products =Product::all();
         return Response::json($products);
     }
+    public function getcategory(){
+        $category =Category::all();
+        return Response::json($category);
+    }
+    public function getbrand(){
+        $brand =Brand::all();
+        return Response::json($brand);
+    }
 
     public function productadd()
     {
@@ -46,8 +59,10 @@ class Admin extends Controller
         $user = Auth::user();
         if ($user) {
             $category=Category::all();
-
-            return view("admin.product-add",["category"=> $category]);
+            $sub=Sub_category::all();
+            $sub2=Sub_category_1::all();
+            $brand=Brand::all();
+            return view("admin.product-add",["category"=> $category,'sub'=>$sub,'sub2'=>$sub2,'brand'=>$brand]);
         } else {
             return redirect('/');
         }
@@ -109,7 +124,8 @@ class Admin extends Controller
         $user = Auth::user();
 
             if ($user) {
-        return view("admin.add-sub-categorylvl1");
+            $subcaegory=Sub_category::all();    
+        return view("admin.add-sub-categorylvl1",['subcategory'=>$subcaegory]);
     } else {
         return redirect('/');
  }

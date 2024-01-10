@@ -35,8 +35,15 @@ Route::get('admin/add-new-brand', [Admin::class, 'add_brand']);
 Route::POST('insert-product', [Process::class, 'insert_product']);
 Route::POST('post-category', [Process::class, 'add_category']);
 Route::POST('post-brand', [Process::class, 'add_brand']);
+Route::POST('post-sub-category',[Process::class,'add_sub_category']);
+Route::POST('post-sub-category-1',[Process::class,'add_sub_category_1']);
+Route::get('getproduct',[Admin::class,'getproduct'])->name('getproduct');
+Route::get('getbrand',[Admin::class,'getbrand'])->name('getbrand');
+Route::get('getcategory',[Admin::class,'getcategory'])->name('getcategory');
 
-Route::get('getproduct',[Admin::class,'getproduct']);
+
+
+
 Route::get('/logout', function(){
     auth()->logout();
     Session()->flush();

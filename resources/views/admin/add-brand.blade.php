@@ -11,7 +11,7 @@
         <div class="col-sm-9">
 
             <select class="form-control" id="country_id" name="country_id" required="">
-                <option selected="" value="">Please Select</option>
+                <option selected="" value="" required>Please Select</option>
                     @foreach($Countries as $country)
                     <option value="{{$country->id}}">{{$country->name}}</option>
                     @endforeach
@@ -22,7 +22,7 @@
         <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Rack No</label>
         <div class="col-sm-9">
 
-            <select class="form-control" id="brand_rack" name="brand_rack">
+            <select class="form-control" id="brand_rack" name="brand_rack" required>
                 <option value="">Select</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -75,19 +75,19 @@
     <div class="form-group row">
         <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Brand Name</label>
         <div class="col-sm-9">
-            <input type="text" class="form-control" name="brand_name" id="exampleInputEmail2" placeholder="Brand Name">
+            <input type="text" class="form-control inputsproduct"  onkeyup="checkFilled()" name="brand_name" id="exampleInputEmail2" placeholder="Brand Name">
         </div>
     </div>
     <div class="form-group row">
         <label for="exampleInputEmail244" class="col-sm-3 col-form-label">Brand Image</label>
         <div class="col-sm-9">
-            <input type="file" class="form-control" name="brand_image" id="exampleInputEmail244">
+            <input type="file" class="form-control inputsproduct"  onkeyup="checkFilled()" name="brand_image" id="exampleInputEmail244">
         </div>
     </div>
     <div class="form-group row">
         <label for="exampleInputEmail2as" class="col-sm-3 col-form-label">Brand Banner</label>
         <div class="col-sm-9">
-            <input type="file" class="form-control" name="brand_banner" id="exampleInputEmail2as">
+            <input type="file" class="form-control inputsproduct"  onkeyup="checkFilled()" name="brand_banner" id="exampleInputEmail2as">
         </div>
     </div>
     <div class="form-group row">

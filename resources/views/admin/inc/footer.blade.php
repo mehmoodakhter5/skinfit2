@@ -1,54 +1,120 @@
-<!-- plugins:js -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="{{asset('back/assets/vendors/js/vendor.bundle.base.js')}}"></script>
   <script src="{{asset('back/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page -->
   <script src="{{asset('back/assets/vendors/chart.js/Chart.min.js')}}"></script>
   <script src="{{asset('back/assets/vendors/progressbar.js/progressbar.min.js')}}"></script>
   <script src="{{asset('back/assets/vendors/jquery-file-upload/jquery.uploadfile.min.js')}}"></script>
   <script src="{{asset('back/assets/vendors/dropzone/dropzone.js')}}"></script>
 
-  <!-- End plugin js for this page -->
-  <!-- inject:js -->
   <script src="{{asset('back/assets/js/off-canvas.js')}}"></script>
   <script src="{{asset('back/assets/js/hoverable-collapse.js')}}"></script>
   <script src="{{asset('back/assets/js/template.js')}}"></script>
   <script src="{{asset('back/assets/js/settings.js')}}"></script>
   <script src="{{asset('back/assets/js/todolist.js')}}"></script>
-  <!-- endinject -->
-  <!-- Custom js for this page-->
   <script src="{{asset('back/assets/js/jquery.cookie.js')}}" type="text/javascript"></script>
   <script src="{{asset('back/assets/js/dashboard.js')}}"></script>
   <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.2.6/jquery.inputmask.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-<script>
-  
-  $('#password, #confirm_password').on('keyup', function () {
-  if ($('#password').val() == $('#confirm_password').val()) {
-    $('#message').html('Matched!').css('color', 'green');
-  } else 
-    $('#message').html('Not Matching').css('color', 'red');
-});
-</script>
+
+
   <script>
-let table = new DataTable('#ProductTable', {
-  ajax: "{{ url('getproduct') }}",
-  responsive: {
-    details: false
+    function checkFilled()  {
+        var interests = document.getElementsByClassName("inputsproduct");
+        for (var i = 0; i<interests.length; i++)  {
+            if (interests[i].value == '')  {
+                interests[i].style.borderColor = 'red';
+            } else {
+                interests[i].style.borderColor = 'green';
+            }   
+        }
+    }
+</script>
+
+<script>
+  let table = new DataTable('#ProductTable', {
+    "ajax": {
+      
+    "url": "{{ route('getproduct') }}",
+    "dataSrc": ""
   },
-  columns: [
-    { data: 'id', title: 'ID' },
-    { data: 'product_name', title: 'Product Name' },
-    { data: 'product_image', title: 'Image' },
-    { data: 'product_regular_price', title: 'Regular Price' },
-  ],
-  drawCallback: function(settings) {
-    console.log('Draw Callback:', settings);
-  }
-});
+  deferRender: true,
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+    responsive: true,
+    pagingType: 'full_numbers',
+    columns: [
+      { data: 'product_name'},
+      { data: 'product_regular_price' },
+      { 
+        data: null,
+        render: function (data, type, row) {
+          return '<img src="' + '{{ Storage::url('product/') }}' + row.product_image + '" alt="Product Image" height="50" />';
+        }
+      }
+
+    ]
+    
+  });
+  </script>
+
+<script>
+  let table2 = new DataTable('#brand', {
+    "ajax": {
+      
+    "url": "{{ route('getbrand') }}",
+    "dataSrc": ""
+  },
+  deferRender: true,
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+    responsive: true,
+    pagingType: 'full_numbers',
+    columns: [
+      { data: 'brand_name'},
+      { data: 'brand_featured' },
+      { data: 'brand_rack' },
+      { data: 'brand_most_search' },
+      { data: 'logistics_type' },
+
+
+
+      { 
+        data: null,
+        render: function (data, type, row) {
+          return '<img src="' + '{{ Storage::url('brand/') }}' + row.brand_image + '" alt="Product Image" height="50" />';
+        }
+      }
+
+    ]
+    
+  });
+  </script>
+
+
+
+<script>
+  let table3 = new DataTable('#category', {
+    "ajax": {
+      
+    "url": "{{ route('getcategory') }}",
+    "dataSrc": ""
+  },
+  deferRender: true,
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+    responsive: true,
+    pagingType: 'full_numbers',
+    columns: [
+      { data: 'category_name'},
+      {data:'category_feature'},
+    ]
+    
+  });
   </script>
 
 <script>

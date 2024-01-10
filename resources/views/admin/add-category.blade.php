@@ -10,13 +10,13 @@
     <div class="form-group row">
         <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Category Name</label>
         <div class="col-sm-9">
-            <input type="text" class="form-control" name="category_name" id="exampleInputEmail2" placeholder="Category Name">
+            <input type="text" class="form-control inputsproduct"  onkeyup="checkFilled()" name="category_name" id="exampleInputEmail2" placeholder="Category Name">
         </div>
     </div>
     <div class="form-group row">
         <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Category Sort Id</label>
         <div class="col-sm-9">
-            <input type="number" class="form-control" name="category_sort" id="exampleInputEmail2" placeholder="Category Sort">
+            <input type="number" class="form-control inputsproduct"  onkeyup="checkFilled()" name="category_sort" id="exampleInputEmail2" placeholder="Category Sort">
         </div>
     </div>
     <div class="form-group row">

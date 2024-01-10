@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Brand;
+use App\Models\Sub_category;
+use App\Models\Sub_category_1;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use DeDmytro\CloudflareImages\Facades\CloudflareApi;
+use DeDmytro\CloudflareImages\Http\Responses\DetailsResponse;
+use DeDmytro\CloudflareImages\Http\Entities\Image;
 
 class Process extends Controller
 {
@@ -16,7 +21,9 @@ class Process extends Controller
         $singleimage = time() . '.' . $request->product_image->extension();
         $request->product_image->storeAs('public/product/', $singleimage);
         
-
+        $response = CloudflareApi::images()->upload($request->product_image);
+        $image = $response->result;
+        
         $multipleImages = [];
 
         if ($request->hasfile('product_multiple_images')) {
@@ -33,7 +40,7 @@ class Process extends Controller
         $Product->product_category_id=implode(",", $request->product_category_id);
         $Product->product_image=$singleimage;
         $Product->product_multiple_images=implode(',',$multipleImages);
-        $Product->product_image_cloud='png';
+        $Product->product_image_cloud=$image->id;
         $Product->product_short_description=$request->product_short_description;
         $Product->product_long_description=$request->product_long_description;
         $Product->product_description_one=$request->product_description_one;
@@ -102,5 +109,32 @@ class Process extends Controller
         $Brand->brand_updated_by=$request->session()->get('id');
         $Brand->save();
         return $Brand;
+    }
+
+
+    Public function add_sub_category(Request $request){
+
+        $Sub_category = new Sub_category();
+        $Sub_category->category_id=$request->category_id;
+        $Sub_category->sub_category_name=$request->sub_category_name;
+        $Sub_category->sub_category_slug=Str::slug($request->sub_category_name);
+        $Sub_category->sub_category_text=$request->sub_category_text;
+        $Sub_category->sub_category_created_by=$request->session()->get('id');
+        $Sub_category->sub_category_updated_by=$request->session()->get('id');
+        $Sub_category->save();
+        return $Sub_category;
+    }
+
+    public function add_sub_category_1(Request $request){
+        $Sub_category_1 = new Sub_category_1();
+       $Sub_category_1->sub_category_id=$request->sub_category_id;
+        $Sub_category_1->sub_category_level_2_name=$request->sub_category_level_2_name;
+        $Sub_category_1->sub_category_level_2_slug=Str::slug($request->sub_category_level_2_name);
+        $Sub_category_1->sub_category_level_2_text=$request->sub_category_level_2_text;
+        $Sub_category_1->sub_category_level_2_created_by=$request->session()->get('id');
+        $Sub_category_1->sub_category_level_2_updated_by=$request->session()->get('id');
+        $Sub_category_1->save();
+        return $Sub_category_1;
+
     }
 }

@@ -9,7 +9,7 @@
                 <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Category</label>
                     <div class="col-sm-9">
-                        <select class="js-example-basic-multiple" name="product_category_id[]" multiple="multiple">
+                        <select class="js-example-basic-multiple" name="product_category_id[]" multiple="multiple" required>
                             @foreach($category as $cat)
                             <option value="{{$cat->category_id}}">{{$cat->category_name}}</option>
                             @endforeach
@@ -19,47 +19,52 @@
                 <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Sub Category</label>
                     <div class="col-sm-9">
-                        <select class="js-example-basic-multiple" name="product_sub_category_id[]" multiple="multiple">
-                            <option value="4">Alabama</option>
-                            <option value="5">Wyoming</option>
+                        <select class="js-example-basic-multiple" name="product_sub_category_id[]" multiple="multiple" required>
+                            <option>Select</option>
+                            @foreach($sub as $subs)
+                            <option value="{{$subs->sub_category_id}}">{{$subs->sub_category_name}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Sub Category Level 2</label>
                     <div class="col-sm-9">
-                        <select class="js-example-basic-multiple" name="product_sub_category_id_level_two[]" multiple="multiple">
-                            <option value="6">Alabama</option>
-                            <option value="7">Wyoming</option>
+                        <select class="js-example-basic-multiple" name="product_sub_category_id_level_two[]" multiple="multiple" required>
+                            <option>Select</option>
+                            @foreach($sub2 as $subs2)
+                            <option value="{{$subs2->sub_category_level_2_id}}">{{$subs2->sub_category_level_2_name}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Select Brand</label>
                     <div class="col-sm-9">
-                        <select class="form-control" name="product_brand_id">
+                        <select class="form-control" name="product_brand_id" required>
                             <option>Select Brand</option>
-                            <option value="8">Alabama</option>
-                            <option value="9">Wyoming</option>
+                            @foreach($brand as $brands)
+                            <option value="{{$brands->brand_id}}">{{$brands->brand_name}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Product Name</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="product_name" id="exampleInputEmail2" placeholder="Product Name" />
+                        <input type="text" class="form-control inputsproduct" name="product_name"  onkeypress="checkFilled()" id="exampleInputEmail2" placeholder="Product Name" required />
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Product Bar Code</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="product_barcode" id="exampleInputEmail2" placeholder="Product Barcode" />
+                        <input type="text" class="form-control inputsproduct" onkeypress="checkFilled()" name="product_barcode" id="exampleInputEmail2" placeholder="Product Barcode" required/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Product Placement</label>
                     <div class="col-sm-9">
-                        <select class="form-control" name="product_dropship">
+                        <select class="form-control inputsproduct"  onkeypress="checkFilled()" name="product_dropship"  required>
                             <option>Select Brand</option>
                             <option value="ture">Yes</option>
                             <option value="false">No</option>
@@ -73,7 +78,7 @@
                         type="text"
                         name="product_regular_price"
                         placeholder="Enter Regular Price"
-                        class="form-control"
+                        class="form-control inputsproduct"  onkeypress="checkFilled()"
                         id="currency2"
                         data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true, 'digits': 0, 'digitsOptional': false, 'prefix': '', 'placeholder': '0'"
                         style="text-align: left;"
@@ -126,13 +131,13 @@
                 <div class="form-group row">
                     <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Product labels</label>
                     <div class="col-sm-9">
-                        <input type="text" placeholder="Enter labels" name="product_label" class="form-control" />
+                        <input type="text" placeholder="Enter labels" name="product_label" class="form-control inputsproduct"  onkeyup="checkFilled()" required/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Product Volume</label>
                     <div class="col-sm-9">
-                        <input type="text" placeholder="Enter Volume" name="product_volume" class="form-control" />
+                        <input type="text" placeholder="Enter Volume" name="product_volume" class="form-control inputsproduct"  onkeyup="checkFilled()" required />
                     </div>
                 </div>
                 <div class="form-group row">
@@ -140,7 +145,7 @@
                     <div class="col-sm-9">
                         <div class="fileupload" id="drag-and-drop">
                             <p>Drag and drop a file here or click to select</p>
-                            <input type="file" name="product_image" id="fileInput" />
+                            <input type="file" name="product_image" id="fileInput" required/>
                         </div>
                         <div class="form-group row">
                             <div class="dropzone-previews"></div>
@@ -148,7 +153,7 @@
                             
                             <div class="fallback"> 
                                 <div style="height: 300px">
-                            <input type="file" name="product_multiple_images[]" id="product_multiple_images" multiple>
+                            <input type="file" name="product_multiple_images[]" id="product_multiple_images" required multiple>
                         </div>
                         </div>
                     </div>

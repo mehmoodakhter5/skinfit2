@@ -51,7 +51,7 @@
     <div class="navbar-menu-wrapper d-flex align-items-top">
       <ul class="navbar-nav">
         <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
-          <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">{{Session::get('name')}}</span></h1>
+          <h1 class="welcome-text">{{Session::get('time')}}, <span class="text-black fw-bold">{{Session::get('name')}}</span></h1>
           <h3 class="welcome-sub-text">Your performance summary this week </h3>
         </li>
       </ul>
@@ -214,7 +214,6 @@
   </nav>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
-      <!-- partial:partials/_settings-panel.html -->
       <div class="theme-setting-wrapper">
   <div id="settings-trigger"><i class="ti-settings"></i></div>
   <div id="theme-settings" class="settings-panel">
