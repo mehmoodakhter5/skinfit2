@@ -20,7 +20,8 @@ use App\Http\Controllers\Process;
 Route::get('/', function () {
     return view('admin.login');
 });
-Route::POST('auth',  [Register::class, 'login']);
+
+//Get Request FOR WEBSTIE (EXAMPLE PAGE VIEWS)
 Route::get('/admin', [Admin::class, 'index']);
 Route::get('/admin/product', [Admin::class, 'product']);
 Route::get('/admin/add-new-product', [Admin::class, 'productadd']);
@@ -32,18 +33,35 @@ Route::get('/admin/sub-category-1', [Admin::class, 'subcategory1']);
 Route::get('admin/add-new-sub-category-1', [Admin::class, 'addsubcategory1']);
 Route::get('admin/brands', [Admin::class, 'brands']);
 Route::get('admin/add-new-brand', [Admin::class, 'add_brand']);
+Route::get('admin/supplier', [Admin::class, 'supplier']);
+Route::get('admin/add-supplier', [Admin::class, 'addsupplier']);
+
+
+
+//POST REQUESTS (POST SUBMISSION)
+Route::POST('auth',  [Register::class, 'login']);
 Route::POST('insert-product', [Process::class, 'insert_product']);
 Route::POST('post-category', [Process::class, 'add_category']);
 Route::POST('post-brand', [Process::class, 'add_brand']);
 Route::POST('post-sub-category',[Process::class,'add_sub_category']);
 Route::POST('post-sub-category-1',[Process::class,'add_sub_category_1']);
+Route::POST('post-supplier',[Process::class,'post_supplier']);
+Route::POST('import-product',[Process::class,'product_import']);
+
+
+
+//API REQUEST FOR TABLES 
 Route::get('getproduct',[Admin::class,'getproduct'])->name('getproduct');
 Route::get('getbrand',[Admin::class,'getbrand'])->name('getbrand');
 Route::get('getcategory',[Admin::class,'getcategory'])->name('getcategory');
+Route::get('getsupplier',[Admin::class,'getsupplier'])->name('getsupplier');
 
 
 
 
+
+
+//LOGOUT FUNCTION 
 Route::get('/logout', function(){
     auth()->logout();
     Session()->flush();
@@ -51,9 +69,6 @@ Route::get('/logout', function(){
     return Redirect::to('/');
 
 });
-
-
-
 
 
 

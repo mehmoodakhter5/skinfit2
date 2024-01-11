@@ -1,8 +1,11 @@
 @include('admin.inc.header')
 <div class="col-md-8 grid-margin stretch-card">
-    
     <div class="card">
+       
         <form action="{{url('insert-product')}}" method="post"  enctype="multipart/form-data"  class="dropzone" id="ProductaddNew" >
+            <div class="text-left">
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal-4" data-whatever="@getbootstrap">Import Product From Excel</button>
+                </div>
             @csrf
             <div class="card-body">
                 <h4 class="card-title">Add New Product</h4>
@@ -164,7 +167,8 @@
                
             </div>
         </form>
-       
+
     </div>
 </div>
+
 @include('admin.inc.footer')

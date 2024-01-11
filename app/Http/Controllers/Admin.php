@@ -9,6 +9,8 @@ use App\Models\Countries;
 use App\Models\Sub_category;
 use App\Models\Brand;
 use App\Models\Sub_category_1;
+use App\Models\Supplier;
+
 
 
 
@@ -40,18 +42,27 @@ class Admin extends Controller
             return redirect('/');
         }
     }
-    public function getproduct(){
-        $products =Product::all();
-        return Response::json($products);
+    public function supplier()
+    {
+
+        $user = Auth::user();
+        if ($user) {
+            return view("admin.supplier");
+        } else {
+            return redirect('/');
+        }
     }
-    public function getcategory(){
-        $category =Category::all();
-        return Response::json($category);
+    public function addsupplier()
+    {
+
+        $user = Auth::user();
+        if ($user) {
+            return view("admin.add-supplier");
+        } else {
+            return redirect('/');
+        }
     }
-    public function getbrand(){
-        $brand =Brand::all();
-        return Response::json($brand);
-    }
+
 
     public function productadd()
     {
@@ -149,4 +160,47 @@ return view("admin.add-brand",["Countries"=> $Countries]);
 return redirect('/');
 }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+//Tables API GET 
+public function getproduct(){
+    $products =Product::all();
+    return Response::json($products);
+}
+public function getcategory(){
+    $category =Category::all();
+    return Response::json($category);
+}
+public function getbrand(){
+    $brand =Brand::all();
+    return Response::json($brand);
+}
+public function getsupplier(){
+    $supplier =Supplier::all();
+    return Response::json($supplier);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

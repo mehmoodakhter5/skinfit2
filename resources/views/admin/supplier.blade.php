@@ -5,12 +5,12 @@
     <div class="col-lg-12 grid-margin">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">All Products</h4>
+          <h4 class="card-title">All Suppliers</h4>
           <div class="text-left">
-            <a  class="btn btn-inverse-primary btn-fw justify-content-corner" href="{{url('admin/add-new-product')}}">Add New Product</a>
+            <a  class="btn btn-inverse-primary btn-fw justify-content-corner" href="{{url('admin/add-supplier')}}">Add New Supplier</a>
           </div>
           <div class="table-responsive">
-            <table id="ProductTable" class="display responsive">
+            <table id="Supplier" class="display responsive nowrap">
               <thead>
                 <tr>          
               </tr>
@@ -27,6 +27,4 @@
     </div>
   </div>
 </div>
-
-
   @include('admin.inc.footer')

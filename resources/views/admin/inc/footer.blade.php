@@ -1,3 +1,31 @@
+
+<div class="modal fade" id="exampleModal-4" tabindex="-1" aria-labelledby="ModalLabel" aria-modal="true" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel">Import Products</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="{{url('import-product')}}" method="POST" enctype="multipart/form-data">
+          @csrf
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Upload File:</label>
+            <input type="file" name="excel_file" id="message-text">
+          </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-success">Send message</button>
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </form>
+  </div>
+</div>
+
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="{{asset('back/assets/vendors/js/vendor.bundle.base.js')}}"></script>
   <script src="{{asset('back/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
@@ -116,6 +144,30 @@
     
   });
   </script>
+  <script>
+    let table4 = new DataTable('#Supplier', {
+      "ajax": {
+        
+      "url": "{{ route('getsupplier') }}",
+      "dataSrc": ""
+    },
+    deferRender: true,
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      responsive: true,
+      pagingType: 'full_numbers',
+      columns: [
+        { data: 'supplier_name'},
+        {data:'supplier_contact_person'},
+        {data:'supplier_contact_person_number'},
+        {data:'supplier_source'},
+
+
+      ]
+      
+    });
+    </script>
 
 <script>
   new DataTable('#category');

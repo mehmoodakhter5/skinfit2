@@ -6,13 +6,15 @@ use App\Models\Category;
 use App\Models\Brand;
 use App\Models\Sub_category;
 use App\Models\Sub_category_1;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use DeDmytro\CloudflareImages\Facades\CloudflareApi;
 use DeDmytro\CloudflareImages\Http\Responses\DetailsResponse;
 use DeDmytro\CloudflareImages\Http\Entities\Image;
-
+use App\Imports\ImageImport;
+use Maatwebsite\Excel\Facades\Excel;
 class Process extends Controller
 {
     public function insert_product(Request $request){
@@ -137,4 +139,31 @@ class Process extends Controller
         return $Sub_category_1;
 
     }
+
+    public function post_supplier(Request $request){
+    
+        $Supplier = new Supplier();
+        $Supplier->supplier_name=$request->supplier_name;
+        $Supplier->supplier_contact_person=$request->supplier_contact_person;
+        $Supplier->supplier_contact_person_number=$request->supplier_contact_person_number;
+        $Supplier->supplier_source=$request->supplier_source;
+        $Supplier->supplier_created_by=$request->session()->get('id');
+        $Supplier->supplier_updated_by=$request->session()->get('id');
+        $Supplier->save();
+         return $Supplier;
+    
+    }
+
+    public function product_import(Request $request)
+    {
+        try {
+            $result = Excel::import(new ImageImport(), $request->file('excel_file'));
+
+            return $result;
+        } catch (\Exception $e) {
+            // Log the exception or handle it as needed
+            return redirect()->back()->with('error', 'An error occurred during the import process.');
+        }
+    }
+
 }

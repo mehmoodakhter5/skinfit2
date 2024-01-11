@@ -21,7 +21,7 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="{{asset('back/assets/css/vertical-layout-light/style.css')}}">
   <!-- endinject -->
-  <link rel="shortcut icon" href="{{asset('back/assets/images/favicon.png')}}" />
+  <link rel="shortcut icon" href="{{asset('back/assets/images/TheSkinFit-Icon.webp')}}" />
   <link rel="stylesheet" href="{{asset('back/assets/vendors/dropzone/dropzone.css')}}">
 
 <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
@@ -31,7 +31,6 @@
 </head>
 
 
-      <!-- partial:partials/_navbar.html -->
       <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
       <div class="me-3">
@@ -40,11 +39,11 @@
         </button>
       </div>
       <div>
-        <a class="navbar-brand brand-logo" href="../index.html">
-          <img src="../assets/images/logo.svg" alt="logo" />
+        <a class="navbar-brand brand-logo" href="{{url('admin')}}">
+          <img src="{{asset('back/assets/images/TheSkinFit-Icon.webp')}}" alt="logo" />
         </a>
-        <a class="navbar-brand brand-logo-mini" href="../index.html">
-          <img src="../assets/images/logo-mini.svg" alt="logo" />
+        <a class="navbar-brand brand-logo-mini" href="{{url('admin')}}">
+          <img src="{{asset('back/assets/images/TheSkinFit-Icon.webp')}}" alt="logo" />
         </a>
       </div>
     </div>
@@ -405,7 +404,7 @@
         <span class="menu-title">Dashboard</span>
       </a>
     </li>
-    <li class="nav-item nav-category">Products</li>
+    <li class="nav-item nav-category">Quick Navigation</li>
     <li class="nav-item">
       <a class="nav-link"  href="{{url('admin/product')}}" aria-expanded="false" >
         <i class="menu-icon mdi mdi-cube-outline"></i>
@@ -413,13 +412,7 @@
       </a>
    
     </li>
-    <li class="nav-item">
-      <a class="nav-link"  href="{{url('admin/add-new-product')}}" aria-expanded="false" >
-        <i class="menu-icon mdi mdi-cube-outline"></i>
-        <span class="menu-title">Add New Product</span>
-      </a>
-   
-    </li>
+ 
     <li class="nav-item nav-category">Navigation</li>
     <li class="nav-item">
       <a class="nav-link collapsed" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
@@ -450,7 +443,7 @@
     </li>
     <div class="collapse" id="form-elements">
       <ul class="nav flex-column sub-menu">
-        <li class="nav-item"><a class="nav-link" href="../pages/forms/basic_elements.html">Supplier</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{url('admin/supplier')}}">Supplier</a></li>
       </ul>
     </div>
   </li>

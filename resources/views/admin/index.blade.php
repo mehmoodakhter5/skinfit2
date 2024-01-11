@@ -1,4 +1,4 @@
-@include('admin.inc.header');
+@include('admin.inc.header')
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
@@ -715,4 +715,4 @@
   </div>
   <!-- container-scroller -->
 
-  @include('admin.inc.footer');
+  @include('admin.inc.footer')
