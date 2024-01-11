@@ -161,9 +161,7 @@ class Process extends Controller
 
             return $result;
         } catch (\Exception $e) {
-            // Log the exception or handle it as needed
             return redirect()->back()->with('error', 'An error occurred during the import process.');
         }
     }
-
 }
