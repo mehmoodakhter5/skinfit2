@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Category;
@@ -11,8 +10,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use DeDmytro\CloudflareImages\Facades\CloudflareApi;
-use DeDmytro\CloudflareImages\Http\Responses\DetailsResponse;
-use DeDmytro\CloudflareImages\Http\Entities\Image;
 use App\Imports\ImageImport;
 use Maatwebsite\Excel\Facades\Excel;
 class Process extends Controller
@@ -55,7 +52,6 @@ class Process extends Controller
         $Product->product_updated_by= $request->session()->get('id');
         $Product->product_barcode=$request->product_barcode;
         $Product->product_sub_category_id=implode(",", $request->product_sub_category_id);
-        $Product->product_sub_category_id_level_two=implode(",",$request->product_sub_category_id_level_two);
         $Product->product_sub_category_id_level_two=implode(",",$request->product_sub_category_id_level_two);
         $Product->product_brand_id=$request->product_brand_id;
         $Product->save();
@@ -158,10 +154,15 @@ class Process extends Controller
     {
         try {
             $result = Excel::import(new ImageImport(), $request->file('excel_file'));
-
-            return $result;
+            if ($result) {
+                return $result;
+            } else {
+                return response()->json(['error' => 'Import failed']);
+            }
+    
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'An error occurred during the import process.');
+            return response()->json(['error' => 'An error occurred during the import process.']);
         }
     }
+    
 }
