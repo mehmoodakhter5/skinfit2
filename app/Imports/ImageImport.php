@@ -30,7 +30,7 @@ class ImageImport implements ToCollection, WithHeadingRow
 
                 $shortDescription = $row['product_short_description'] ?? null;
                 $longDescription = $row['product_long_description'] ?? null;
-
+                
                 $products[] = new Product([
                     'product_name' => $row['product_name'],
                     'product_slug' => Str::slug($row['product_name']),
@@ -53,7 +53,11 @@ class ImageImport implements ToCollection, WithHeadingRow
                 ]);
 
             }
+            foreach($products as $prduct){
+                $prduct->save();
+            };
+            return($products);  
+
         }
-        return $products;  
     }
 }
