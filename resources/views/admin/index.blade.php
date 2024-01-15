@@ -157,7 +157,7 @@
                                         </td>
                                         <td>
                                           <div class="d-flex ">
-                                            <img src="assets/images/faces/face1.jpg" alt="">
+                                            <img src="" alt="">
                                             <div>
                                               <h6>Brandon Washington</h6>
                                               <p>Head admin</p>
@@ -195,7 +195,7 @@
                                         </td>
                                         <td>
                                           <div class="d-flex">
-                                            <img src="assets/images/faces/face2.jpg" alt="">
+                                            <img src="" alt="">
                                             <div>
                                               <h6>Laura Brooks</h6>
                                               <p>Head admin</p>
@@ -233,7 +233,7 @@
                                         </td>
                                         <td>
                                           <div class="d-flex">
-                                            <img src="assets/images/faces/face3.jpg" alt="">
+                                            <img src="" alt="">
                                             <div>
                                               <h6>Wayne Murphy</h6>
                                               <p>Head admin</p>
@@ -271,7 +271,7 @@
                                         </td>
                                         <td>
                                           <div class="d-flex">
-                                            <img src="assets/images/faces/face4.jpg" alt="">
+                                            <img src="" alt="">
                                             <div>
                                               <h6>Matthew Bailey</h6>
                                               <p>Head admin</p>
@@ -309,7 +309,7 @@
                                         </td>
                                         <td>
                                           <div class="d-flex">
-                                            <img src="assets/images/faces/face5.jpg" alt="">
+                                            <img src="" alt="">
                                             <div>
                                               <h6>Katherine Butler</h6>
                                               <p>Head admin</p>
@@ -617,7 +617,7 @@
                                       <div
                                         class="wrapper d-flex align-items-center justify-content-between py-2 border-bottom">
                                         <div class="d-flex">
-                                          <img class="img-sm rounded-10" src="assets/images/faces/face1.jpg"
+                                          <img class="img-sm rounded-10" src=""
                                             alt="profile">
                                           <div class="wrapper ms-3">
                                             <p class="ms-1 mb-1 fw-bold">Brandon Washington</p>
@@ -631,7 +631,7 @@
                                       <div
                                         class="wrapper d-flex align-items-center justify-content-between py-2 border-bottom">
                                         <div class="d-flex">
-                                          <img class="img-sm rounded-10" src="assets/images/faces/face2.jpg"
+                                          <img class="img-sm rounded-10" src=""
                                             alt="profile">
                                           <div class="wrapper ms-3">
                                             <p class="ms-1 mb-1 fw-bold">Wayne Murphy</p>
@@ -645,7 +645,7 @@
                                       <div
                                         class="wrapper d-flex align-items-center justify-content-between py-2 border-bottom">
                                         <div class="d-flex">
-                                          <img class="img-sm rounded-10" src="assets/images/faces/face3.jpg"
+                                          <img class="img-sm rounded-10" src=""
                                             alt="profile">
                                           <div class="wrapper ms-3">
                                             <p class="ms-1 mb-1 fw-bold">Katherine Butler</p>
@@ -659,7 +659,7 @@
                                       <div
                                         class="wrapper d-flex align-items-center justify-content-between py-2 border-bottom">
                                         <div class="d-flex">
-                                          <img class="img-sm rounded-10" src="assets/images/faces/face4.jpg"
+                                          <img class="img-sm rounded-10" src=""
                                             alt="profile">
                                           <div class="wrapper ms-3">
                                             <p class="ms-1 mb-1 fw-bold">Matthew Bailey</p>
@@ -672,7 +672,7 @@
                                       </div>
                                       <div class="wrapper d-flex align-items-center justify-content-between pt-2">
                                         <div class="d-flex">
-                                          <img class="img-sm rounded-10" src="assets/images/faces/face5.jpg"
+                                          <img class="img-sm rounded-10" src=""
                                             alt="profile">
                                           <div class="wrapper ms-3">
                                             <p class="ms-1 mb-1 fw-bold">Rafell John</p>

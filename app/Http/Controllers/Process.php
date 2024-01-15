@@ -6,6 +6,7 @@ use App\Models\Brand;
 use App\Models\Sub_category;
 use App\Models\Sub_category_1;
 use App\Models\Supplier;
+use App\Models\Inventory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
@@ -163,6 +164,23 @@ class Process extends Controller
         } catch (\Exception $e) {
             return response()->json(['error' => 'An error occurred during the import process.']);
         }
+    }
+    public function post_inventory(Request $request){
+        $inventory= new Inventory();
+        $inventory->inventory_supplier_id=$request->inventory_supplier_id;
+        $inventory->inventory_logistics_type=$request->inventory_logistics_type;
+        $inventory->inventory_brand_id=$request->inventory_brand_id;
+        $inventory->inventory_product_id=$request->inventory_product_id;
+        $inventory->inventory_batch_number=$request->inventory_batch_number;
+        $inventory->inventory_reference_number=$request->inventory_reference_number;
+        $inventory->inventory_expiry_date=$request->inventory_expiry_date;
+        $inventory->inventory_quantity=$request->inventory_quantity;
+        $inventory->inventory_price=$request->inventory_price;
+        $inventory->inventory_created_by=$request->session()->get('id');
+        $inventory->inventory_updated_by=$request->session()->get('id');
+        $inventory->save();
+        return $inventory;
+
     }
     
 }

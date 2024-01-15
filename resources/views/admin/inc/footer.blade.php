@@ -168,7 +168,52 @@
       
     });
     </script>
-
+      <script>
+        let table5 = new DataTable('#InventoryTable', {
+          "ajax": {
+            
+          "url": "{{ route('getinventory') }}",
+          "dataSrc": ""
+        },
+        deferRender: true,
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          responsive: true,
+          pagingType: 'full_numbers',
+          columns: [
+            { data: 'inventory_logistics_type'},
+            {data:'inventory_batch_number'},
+            {data:'inventory_reference_number'},
+            {data:'inventory_expiry_date'},
+            {data:'inventory_quantity'},
+            {data:'inventory_price'},    
+          ]
+          
+        });
+</script>
+<script>
+  let table6 = new DataTable('#userTable', {
+    "ajax": {
+      
+    "url": "{{ route('users') }}",
+    "dataSrc": ""
+  },
+  deferRender: true,
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+    responsive: true,
+    pagingType: 'full_numbers',
+    columns: [
+      { data: 'name'},
+      {data:'email'},
+      {data:'type'},
+  
+    ]
+    
+  });
+</script>
 <script>
   new DataTable('#category');
   new DataTable('#subcategory');

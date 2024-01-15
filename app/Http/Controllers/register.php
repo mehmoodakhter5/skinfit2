@@ -36,7 +36,6 @@ protected function authenticated(LoginRequest $request, $user)
 
     }
     session(['name' => $user->name,'email'=> $user->email,'id'=>$user->id,'time'=>$time]);
-
     return redirect('/admin');
 }
 
@@ -48,4 +47,5 @@ public function clear()
 
         return redirect('login');
     }
+  
 }

@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Register;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\Process;
+use App\Http\Controllers\Roles;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +38,10 @@ Route::get('admin/add-new-brand', [Admin::class, 'add_brand']);
 Route::get('admin/supplier', [Admin::class, 'supplier']);
 Route::get('admin/add-supplier', [Admin::class, 'addsupplier']);
 Route::get('admin/inventory', [Admin::class, 'inventroy']);
+Route::get('admin/add-new-inventory', [Admin::class, 'add_inventroy']);
+Route::get('admin/add-new-user', [Roles::class, 'view']);
+Route::get('admin/all-user', [Roles::class, 'index']);
+
 
 
 //POST REQUESTS (POST SUBMISSION)
@@ -47,6 +53,10 @@ Route::POST('post-sub-category',[Process::class,'add_sub_category']);
 Route::POST('post-sub-category-1',[Process::class,'add_sub_category_1']);
 Route::POST('post-supplier',[Process::class,'post_supplier']);
 Route::POST('import-product',[Process::class,'product_import']);
+Route::POST('post-inventory',[Process::class,'post_inventory']);
+Route::POST('post-user',[Roles::class,'store']);
+
+
 
 
 
@@ -55,7 +65,8 @@ Route::get('getproduct',[Admin::class,'getproduct'])->name('getproduct');
 Route::get('getbrand',[Admin::class,'getbrand'])->name('getbrand');
 Route::get('getcategory',[Admin::class,'getcategory'])->name('getcategory');
 Route::get('getsupplier',[Admin::class,'getsupplier'])->name('getsupplier');
-
+Route::get('getinventory',[Admin::class,'getinventory'])->name('getinventory');
+Route::get('users',[Roles::class,'getuser'])->name('users');
 
 
 

@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Countries;
 use App\Models\Sub_category;
 use App\Models\Brand;
+use App\Models\Inventory;
 use App\Models\Sub_category_1;
 use App\Models\Supplier;
 
@@ -166,14 +167,16 @@ public function inventroy(){
         return view('admin.inventory');
     }
 }
+    public function add_inventroy(){
+        $user=Auth::user();
+        if($user){
+            $brand=Brand::all();
+            $supplier=Supplier::all();
+            return view('admin.add-inventory',['brand'=>$brand,'supplier'=>$supplier]);
+        }
+    }
 
-
-
-
-
-
-
-
+  
 
 
 
@@ -194,6 +197,10 @@ public function getbrand(){
 public function getsupplier(){
     $supplier =Supplier::all();
     return Response::json($supplier);
+}
+public function getinventory(){
+    $inventory=Inventory::all();
+    return Response::json($inventory);
 }
 
 
