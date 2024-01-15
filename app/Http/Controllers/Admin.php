@@ -150,15 +150,21 @@ class Admin extends Controller
     return redirect('/');
 }
 }
-public function add_brand(){
-    $user = Auth::user();
+    public function add_brand(){
+         $user = Auth::user();
 
-    if ($user) {
+        if ($user) {
         $Countries=Countries::all();
-return view("admin.add-brand",["Countries"=> $Countries]);
-} else {
-return redirect('/');
+        return view("admin.add-brand",["Countries"=> $Countries]);
+    } else {
+    return redirect('/');
+    }
 }
+public function inventroy(){
+    $user=Auth::user();
+    if($user){
+        return view('admin.inventory');
+    }
 }
 
 

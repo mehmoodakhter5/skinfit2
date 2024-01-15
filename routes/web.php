@@ -35,7 +35,7 @@ Route::get('admin/brands', [Admin::class, 'brands']);
 Route::get('admin/add-new-brand', [Admin::class, 'add_brand']);
 Route::get('admin/supplier', [Admin::class, 'supplier']);
 Route::get('admin/add-supplier', [Admin::class, 'addsupplier']);
-
+Route::get('admin/inventory', [Admin::class, 'inventroy']);
 
 
 //POST REQUESTS (POST SUBMISSION)
