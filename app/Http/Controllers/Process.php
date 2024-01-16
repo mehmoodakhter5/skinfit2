@@ -56,7 +56,9 @@ class Process extends Controller
         $Product->product_sub_category_id_level_two=implode(",",$request->product_sub_category_id_level_two);
         $Product->product_brand_id=$request->product_brand_id;
         $Product->save();
+        activity()->performedOn($Product)->causedBy($user)->withProperties(['change' => 'New added.'])->log('New Product added');
         return $Product;
+
     }else{
         return redirect('/');
     }
@@ -103,6 +105,7 @@ class Process extends Controller
         $Brand->brand_text=$request->brand_text;
         $Brand->brand_image=$image;
         $Brand->brand_banner=$banner;
+        $Brand->brand_banner_extra1=1;
         $Brand->country_id=$request->country_id;
         $Brand->brand_created_by=$request->session()->get('id');
         $Brand->brand_updated_by=$request->session()->get('id');

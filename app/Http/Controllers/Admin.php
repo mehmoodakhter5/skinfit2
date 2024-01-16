@@ -11,15 +11,9 @@ use App\Models\Brand;
 use App\Models\Inventory;
 use App\Models\Sub_category_1;
 use App\Models\Supplier;
-
-
-
-
-
+use Spatie\Activitylog\Models\Activity;
 use Response;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 
 class Admin extends Controller
 {
@@ -27,8 +21,8 @@ class Admin extends Controller
     {
         $user = Auth::user();
         if ($user) {
-    
-            return view("admin.index");
+            $activity=Activity::all();
+            return view("admin.index",['activity'=>$activity]);
         } else {
             return redirect('/');
         }
