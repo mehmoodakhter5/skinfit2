@@ -162,6 +162,7 @@ class Process extends Controller
             }
     
         } catch (\Exception $e) {
+            echo ($e->getMessage());
             return response()->json(['error' => 'An error occurred during the import process.']);
         }
     }

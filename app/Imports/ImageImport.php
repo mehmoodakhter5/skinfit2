@@ -36,6 +36,7 @@ class ImageImport implements ToCollection, WithHeadingRow
                     'product_slug' => Str::slug($row['product_name']),
                     'product_category_id' => $row['product_category_id'],
                     'product_image' => $imageName,
+                    'product_image_cloud'=>$imageName,
                     'product_short_description' => $shortDescription,
                     'product_long_description' => $longDescription,
                     'product_description_one' => $row['product_description_one'] ?? null,
