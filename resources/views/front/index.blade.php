@@ -1,4 +1,4 @@
-<?php include 'inc/header.php';?>
+@include('front.inc.header')
 
     <section class="index-banner-wrapper">
         <div class="container">
@@ -2143,5 +2143,4 @@
             </div>
         </div>
     </section>
-
-<?php include 'inc/footer.php';?>
+    @include('front.inc.footer')

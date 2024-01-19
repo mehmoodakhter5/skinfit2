@@ -368,15 +368,15 @@
         </div>
     </footer>
 
-    <script src="assets/front/js/jquery-3.6.3.min.js"></script>
-    <script src="assets/front/js/popper.min.js"></script>
-    <script src="assets/front/js/bootstrap.min.js"></script>
+    <script src="{{asset('front/assets/js/jquery-3.6.3.min.js')}}"></script>
+    <script src="{{asset('front/assets/js/popper.min.js')}}"></script>
+    <script src="{{asset('front/assets/js/bootstrap.min.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="assets/front/js/owl.carousel.min.js"></script>
-    <script src="assets/front/js/scrolltrigger.min.js"></script>
-    <script src="assets/front/js/gsap.min.js"></script>
-    <script src="assets/front/js/aos.js"></script>
-    <script src="assets/front/js/custom.js"></script>
+    <script src="{{asset('front/assets/js/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('front/assets/js/scrolltrigger.min.js')}}"></script>
+    <script src="{{asset('front/assets/js/gsap.min.js')}}"></script>
+    <script src="{{asset('front/assets/js/aos.js')}}"></script>
+    <script src="{{asset('front/assets/js/custom.js')}}"></script>
     <script>
         AOS.init();
     </script>

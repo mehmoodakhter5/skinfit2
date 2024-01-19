@@ -18,8 +18,10 @@ use App\Http\Controllers\Roles;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
+    return view('front.index');
+});
+Route::get('/admin/login', function () {
     return view('admin.login');
 });
 
