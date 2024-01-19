@@ -65,7 +65,7 @@ class Process extends Controller
     }
 
     public function add_category(Request $request){
-      
+        $user= Auth::user();
         $Category = new Category();
         $Category->category_name=$request->category_name;
         $Category->category_slug=Str::slug($request->category_name);
@@ -74,6 +74,7 @@ class Process extends Controller
         $Category->category_created_by=$request->session()->get('id');
         $Category->category_updated_by=$request->session()->get('id');
         $Category->save();
+        activity()->performedOn($Category)->causedBy($user)->withProperties(['change' => 'New Category added.'])->log('New Category added');
         return $Category;
 
     }

@@ -33,10 +33,8 @@
 <script src="{{asset('back/assets/vendors/progressbar.js/progressbar.min.js')}}"></script>
 <script src="{{asset('back/assets/vendors/jquery-file-upload/jquery.uploadfile.min.js')}}"></script>
 <script src="{{asset('back/assets/vendors/dropzone/dropzone.js')}}"></script>
-
 <script src="{{asset('back/assets/js/off-canvas.js')}}"></script>
 <script src="{{asset('back/assets/js/hoverable-collapse.js')}}"></script>
-<script src="{{asset('back/assets/js/template.js')}}"></script>
 <script src="{{asset('back/assets/js/settings.js')}}"></script>
 <script src="{{asset('back/assets/js/todolist.js')}}"></script>
 <script src="{{asset('back/assets/js/jquery.cookie.js')}}" type="text/javascript"></script>
