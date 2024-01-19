@@ -27,20 +27,20 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="{{asset('back/assets/vendors/js/vendor.bundle.base.js')}}"></script>
-  <script src="{{asset('back/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
-  <script src="{{asset('back/assets/vendors/chart.js/Chart.min.js')}}"></script>
-  <script src="{{asset('back/assets/vendors/progressbar.js/progressbar.min.js')}}"></script>
-  <script src="{{asset('back/assets/vendors/jquery-file-upload/jquery.uploadfile.min.js')}}"></script>
-  <script src="{{asset('back/assets/vendors/dropzone/dropzone.js')}}"></script>
+<script src="{{asset('back/assets/vendors/js/vendor.bundle.base.js')}}"></script>
+<script src="{{asset('back/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
+<script src="{{asset('back/assets/vendors/chart.js/Chart.min.js')}}"></script>
+<script src="{{asset('back/assets/vendors/progressbar.js/progressbar.min.js')}}"></script>
+<script src="{{asset('back/assets/vendors/jquery-file-upload/jquery.uploadfile.min.js')}}"></script>
+<script src="{{asset('back/assets/vendors/dropzone/dropzone.js')}}"></script>
 
-  <script src="{{asset('back/assets/js/off-canvas.js')}}"></script>
-  <script src="{{asset('back/assets/js/hoverable-collapse.js')}}"></script>
-  <script src="{{asset('back/assets/js/template.js')}}"></script>
-  <script src="{{asset('back/assets/js/settings.js')}}"></script>
-  <script src="{{asset('back/assets/js/todolist.js')}}"></script>
-  <script src="{{asset('back/assets/js/jquery.cookie.js')}}" type="text/javascript"></script>
-  <script src="{{asset('back/assets/js/dashboard.js')}}"></script>
+<script src="{{asset('back/assets/js/off-canvas.js')}}"></script>
+<script src="{{asset('back/assets/js/hoverable-collapse.js')}}"></script>
+<script src="{{asset('back/assets/js/template.js')}}"></script>
+<script src="{{asset('back/assets/js/settings.js')}}"></script>
+<script src="{{asset('back/assets/js/todolist.js')}}"></script>
+<script src="{{asset('back/assets/js/jquery.cookie.js')}}" type="text/javascript"></script>
+<script src="{{asset('back/assets/js/dashboard.js')}}"></script>
   <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.2.6/jquery.inputmask.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
