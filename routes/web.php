@@ -30,6 +30,9 @@ Route::get('/signin', function () {
 Route::get('/signup', function () {
     return view('front.signup');
 });
+Route::get('/about-us',function(){
+    return view('front.about');
+});
 Route::get('/auth/facebook', function () {
     return Socialite::driver('facebook')->redirect();
 });
