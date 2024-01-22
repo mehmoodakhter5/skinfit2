@@ -36,8 +36,6 @@ Route::get('/about-us',function(){
 });
 
 
-
-
 Route::get('/auth/facebook', function () {
     return Socialite::driver('facebook')->redirect();
 });
