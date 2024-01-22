@@ -1,4 +1,5 @@
 <?php
+use App\Models\Category;
 
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,10 @@ Route::get('/signup', function () {
 Route::get('/about-us',function(){
     return view('front.about');
 });
+
+
+
+
 Route::get('/auth/facebook', function () {
     return Socialite::driver('facebook')->redirect();
 });
