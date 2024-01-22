@@ -1,5 +1,4 @@
-<?php include 'inc/header.php';?>
-
+@include('front.inc.header')
 <section class="about-banner-wrapper">
     <div class="container">
         <div class="row">
@@ -11,7 +10,7 @@
             </div>
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                 <div class="about-banner-wrap-img">
-                    <img src="assets/front/images/about-banner.jpg" alt="" class="img-fluid">
+                    <img src="{{asset('front/assets/images/about-banner.jpg')}}" alt="" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -81,7 +80,7 @@
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                 <div class="about-fourth-wrap-img">
-                    <img src="assets/front/images/about-banner-01.png" alt="" class="img-fluid">
+                    <img src="{{asset('front/assets/images/about-banner-01.png')}}" alt="" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -98,13 +97,13 @@
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
                 </div>
                 <div class="about-fifth-wrap-sign">
-                    <img src="assets/front/images/sign.png" alt="" class="img-fluid">
+                    <img src="{{asset('front/assets/images/sign.png')}}" alt="" class="img-fluid">
                     <p>Founder at TheSkinFit</p>
                 </div>
             </div>
             <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4">
                 <div class="about-fifthimg">
-                    <img src="assets/front/images/aboutb1.png" alt="" class="img-fluid">
+                    <img src="{{asset('front/assets/images/aboutb1.png')}}" alt="" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -130,10 +129,10 @@
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                 <div class="about-eight-wrap-flex">
                     <div class="about-eight-wrap-img">
-                        <img src="assets/front/images/aboutb2.png" alt="" class="img-fluid">
+                        <img src="{{asset('front/assets/images/aboutb2.png')}}" alt="" class="img-fluid">
                     </div>
                     <div class="about-eight-wrap-img">
-                        <img src="assets/front/images/aboutb3.png" alt="" class="img-fluid">
+                        <img src="{{asset('front/assets/images/aboutb3.png')}}" alt="" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -173,4 +172,4 @@
     </div>
 </section>
 
-<?php include 'inc/footer.php';?>
+@include('front.inc.footer')

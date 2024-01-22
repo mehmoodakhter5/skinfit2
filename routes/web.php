@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Register;
 use App\Http\Controllers\Admin;
@@ -30,6 +29,11 @@ Route::get('/signin', function () {
 Route::get('/signup', function () {
     return view('front.signup');
 });
+Route::get('/about-us',function(){
+    return view('front.about');
+});
+
+
 Route::get('/auth/facebook', function () {
     return Socialite::driver('facebook')->redirect();
 });
