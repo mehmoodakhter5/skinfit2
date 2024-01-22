@@ -46,7 +46,7 @@
                         </a>
                     </div>
                     <div class="signup-first-wrapmain-feild1">
-                        <a href="#!">
+                        <a href="{{url('auth/facebook')}}">
                             <img src="{{asset('front/assets/images/facebooksign.png')}}" alt="Singup With Facebook">
                             Sign in with Facebook
                         </a>

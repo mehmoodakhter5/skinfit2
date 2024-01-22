@@ -6,8 +6,9 @@ use App\Http\Controllers\Register;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\Process;
 use App\Http\Controllers\Roles;
-
-
+use Laravel\Socialite\Facades\Socialite;
+use App\Models\Customer;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,8 +30,25 @@ Route::get('/signin', function () {
 Route::get('/signup', function () {
     return view('front.signup');
 });
-
-
+Route::get('/auth/facebook', function () {
+    return Socialite::driver('facebook')->redirect();
+});
+Route::get('/auth/callback', function () {
+    $FbUser = Socialite::driver('facebook')->user();
+    
+    $user = Customer::updateOrCreate([
+        'customer_facebok_id' => $FbUser->id,
+    ], [
+        'customer_first_name' => $FbUser->name,
+        'customer_email' => $FbUser->email,
+        'customer_facebook_token' => $FbUser->token,
+        'customer_facebook_refreshtoken' => $FbUser->refreshToken,
+    ]);
+ 
+    Auth::login($user);
+ 
+    // return redirect('/');
+});
 
 
 //Get Request FOR WEBSTIE (ADMIN PAGE VIEWS)
