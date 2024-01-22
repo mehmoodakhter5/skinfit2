@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TheSkinFit</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.theskinfit.com/uploads/settings/TheSkinFit-Icon.png">
+
     <link rel="stylesheet" href="{{asset('front/assets/css/bootstrap.min.css')}}" />
     <link rel="stylesheet" href="{{asset('front/assets/css/owl.carousel.css')}}" />
     <link rel="stylesheet" href="{{asset('front/assets/css/owl.theme.default.css')}}" />
@@ -17,14 +19,14 @@
 <div class="fade_wrap"></div>
     <header class="header-main-wrapper">
         <div class="header-main-wrap-top">
-            <a href="#!"><img src="assets/front/images/top-header-banner.jpg" alt="" class="img-fluid"></a>
+            <a href="#!"><img src="{{asset('front/assets/images/top-header-banner.jpg')}}" alt="" class="img-fluid"></a>
         </div>
         <div class="header-main-wrap-middle">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxxl-3">
                         <div class="header-logo">
-                            <a href="index.php"><img src="assets/front/images/logo.png" alt="" class="img-fluid"></a>
+                            <a href="index.php"><img src="{{asset('front/assets/images/logo.png')}}" alt="" class="img-fluid"></a>
                         </div>
                     </div>
                     <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 col-xxxl-5">
@@ -52,10 +54,10 @@
                     <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxxl-4">
                         <div class="header-desktop-flex">
                             <div class="header-user-desktop">
-                                <a href="#!"><img src="assets/front/images/cart.png" alt=""></a>
+                                <a href="{{url('signin')}}"><img src="{{asset('front/assets/images/cart.png')}}" alt=""></a>
                             </div>
                             <div class="header-bag-desktop">
-                                <a href="#!"><img src="assets/front/images/bag.png" alt=""></a>
+                                <a href="#!"><img src="{{asset('front/assets/images/bag.png')}}" alt=""></a>
                             </div>
                         </div>
                     </div>

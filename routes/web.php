@@ -18,14 +18,25 @@ use App\Http\Controllers\Roles;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+//FRONTEND VIEWS.
 Route::get('/', function () {
     return view('front.index');
 });
+Route::get('/signin', function () {
+    return view('front.signin');
+});
+Route::get('/signup', function () {
+    return view('front.signup');
+});
+
+
+
+
+//Get Request FOR WEBSTIE (ADMIN PAGE VIEWS)
 Route::get('/admin/login', function () {
     return view('admin.login');
 });
-
-//Get Request FOR WEBSTIE (EXAMPLE PAGE VIEWS)
 Route::get('/admin', [Admin::class, 'index']);
 Route::get('/admin/product', [Admin::class, 'product']);
 Route::get('/admin/add-new-product', [Admin::class, 'productadd']);
