@@ -1,7 +1,5 @@
 <?php
-use App\Models\Category;
 
-use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Register;
 use App\Http\Controllers\Admin;
