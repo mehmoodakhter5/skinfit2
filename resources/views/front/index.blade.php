@@ -102,8 +102,9 @@
                         <div class="swiper-wrapper">
 
                             @foreach($products as $product)
-                            <a href="{{url('product/'.$product->product_slug)}}">
                             <div class="swiper-slide">
+                                <a href="{{url('product/'.$product->product_slug)}}">
+
                                 <div class="index-product-desktop-main-wrap">
                                     <div class="index-product-desktop-img">
                                         <img src="{{asset('front/assets/images/hp-1.jpg')}}" alt="" class="img-fluid">
@@ -144,8 +145,9 @@
                                         </div>
                                     </div>
                                 </div>
+                            </a>
                             </div>
-                        </a>
+                     
                             @endforeach
                         </div>
                     </div>

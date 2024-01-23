@@ -104,20 +104,9 @@
                         <option value="">Similar Shades</option>
                     </select>
                 </div>
-                <div class="product-detail-first-wrap-text7">
-                    <div class="date-time">
-                        <div id="field1">
-                            <button type="button" id="sub" class="minus">-</button>
-                            <input type="number" id="1" value="1" min="1" class='quantity' max="10" />
-                            <button type="button" id="add" class="plus">+</button>
-                        </div>
-                    </div>
-                    <div class="product-detail-first-wrap-btn5">
-                        <a href="#!">Add to Cart</a>
-                    </div>
-                </div>
+            <livewire:addtocart :id="$product->id">
                 <div class="product-detail-first-wrap-text8">
-                    <div class="product-detail-wishlist-btn">
+                    <div class="product-detail-wishlist-btn">   
                         <a href="#!">
                             <img src="assets/front/images/wishlist-heart.png" alt="">
                             Add to wishlist

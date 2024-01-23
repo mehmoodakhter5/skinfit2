@@ -1,5 +1,6 @@
 <?php
-
+use App\Http\Livewire\Addtocart;
+use App\Http\Controllers\Front\Ecommerce;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Register;
 use App\Http\Controllers\Admin;
@@ -54,6 +55,32 @@ Route::get('/auth/callback', function () {
  
     // return redirect('/');
 });
+
+
+
+///FRONTEND POST METHODS 
+Route::post('addtocart/',[Addtocart::class,'addToCart']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //Get Request FOR WEBSTIE (ADMIN PAGE VIEWS)

@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="{{asset('front/assets/css/aos.css')}}" />
     <link rel="stylesheet" href="{{asset('front/assets/css/main.css')}}" />
     <link rel="stylesheet" href="{{asset('front/assets/css/responsive.css')}}" />
+    @livewireStyles
+
 </head>
 <body>
 <div class="fade_wrap"></div>
@@ -57,7 +59,7 @@
                                 <a href="{{url('signin')}}"><img src="{{asset('front/assets/images/cart.png')}}" alt=""></a>
                             </div>
                             <div class="header-bag-desktop">
-                                <a href="#!"><img src="{{asset('front/assets/images/bag.png')}}" alt=""></a>
+                                <a href="#!"><img src="{{asset('front/assets/images/bag.png')}}" alt="">    <livewire:counter />                                 </a>
                             </div>
                         </div>
                     </div>
