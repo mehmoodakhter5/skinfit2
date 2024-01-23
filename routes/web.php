@@ -32,7 +32,13 @@ Route::get('/signup', function () {
 Route::get('/about-us',function(){
     return view('front.about');
 });
+Route::get('/contact-us',function(){
+    return view('front.contact');
+});
 
+Route::get('/tracking',function(){
+    return view('front.track-your-order1');
+});
 
 Route::get('/auth/facebook', function () {
     return Socialite::driver('facebook')->redirect();

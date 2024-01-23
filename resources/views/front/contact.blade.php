@@ -1,4 +1,4 @@
-<?php include 'inc/header.php';?>
+@include('front.inc.header')
 
 <section class="checkout-banner-wrapper">
     <div class="container">
@@ -83,4 +83,4 @@
     </div>
 </section>
 
-<?php include 'inc/footer.php';?>
+@include('front.inc.footer');
