@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Register;
 use App\Http\Controllers\Admin;
+use App\Http\Controllers\Front\Main;
+use App\Http\Controllers\Front\Catalog;
 use App\Http\Controllers\Process;
 use App\Http\Controllers\Roles;
 use Laravel\Socialite\Facades\Socialite;
@@ -20,9 +22,8 @@ use Illuminate\Support\Facades\Auth;
 */
 
 //FRONTEND VIEWS.
-Route::get('/', function () {
-    return view('front.index');
-});
+Route::get('/', [Main::class,'index']);
+Route::get('/product/{slug}',[Catalog::class,'Productview']);
 Route::get('/signin', function () {
     return view('front.signin');
 });

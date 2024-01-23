@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "darryldecode/cart": "^4.2",
         "dedmytro/laravel-cloudflare-images": "^0.1.10",
         "doctrine/dbal": "^3.7",
         "guzzlehttp/guzzle": "^7.2",

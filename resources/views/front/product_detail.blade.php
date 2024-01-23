@@ -1,5 +1,4 @@
-<?php include 'inc/header.php';?>
-
+@include('front.inc.header')
 <section class="product-detail-first-wrapper">
     <div class="container">
         <div class="row">
@@ -7,7 +6,7 @@
                 <div thumbsSlider="" class="swiper thumb_product1">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <img src="assets/front/images/product-detail1.png" class="img-fluid" />
+                            <img src="https://imagedelivery.net/V8gK1_2VVoan1sk2mbDlgA/{{$product->product_image_cloud}}/public" class="img-fluid" />
                         </div>
                         <div class="swiper-slide">
                             <img src="assets/front/images/product-detail1.png" class="img-fluid" />
@@ -42,7 +41,7 @@
                     <h6>Brand: <span>Ogx Shampoo</span></h6>
                 </div>
                 <div class="product-detail-first-wrap-text2">
-                    <h6>Ogx Shampoo Strength & Length+ Keratin Oil 13oz</h6>
+                    <h6>{{$product->product_name}}</h6>
                 </div>
                 <div class="product-detail-first-wrap-text2">
                     <div class="product-detail-first-wrap-star">
@@ -594,4 +593,4 @@
     </div>
 </section>
 
-<?php include 'inc/footer.php';?>
+@include('front.inc.footer')
