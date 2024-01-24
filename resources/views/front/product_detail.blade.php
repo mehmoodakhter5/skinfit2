@@ -38,7 +38,7 @@
             </div>
             <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
                 <div class="product-detail-first-wrap-text1">
-                    <h6>Brand: <span>Ogx Shampoo</span></h6>
+                    <h6>Brand: <span>{{$product->brand_name}}</span></h6>
                 </div>
                 <div class="product-detail-first-wrap-text2">
                     <h6>{{$product->product_name}}</h6>
@@ -69,30 +69,36 @@
                 </div>
                 <div class="product-detail-first-wrap-text3">
                     <div class="product-detail-price">
+                        @if($product->product_discounted_price)
                         <div class="product-detail-price-cut">
-                            <h6>Rs 16,700</h6>
+                            <h6>Rs {{$product->product_regular_price}}</h6>
                         </div>
                         <div class="product-detail-price-original">
-                            <h6>Rs 16,700</h6>
+                            <h6>Rs {{$product->product_discounted_price}}</h6>
                         </div>
+                        @else
+                        <div class="product-detail-price-original">
+                            <h6>Rs {{$product->product_regular_price}}</h6>
+                        </div>
+                        @endif
                     </div>
                     <div class="product-detail-main-stock">
                         <h6>IN STOCK</h6>
                     </div>
                 </div>
                 <div class="product-detail-first-wrap-text4">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                    <p>{{strip_tags($product->product_short_description)}}</p>
                 </div>
                 <div class="product-detail-first-wrap-text5">
                     <ul>
                         <li>
-                            Volume: <span>123</span>
+                            Volume: <span>{{$product->product_volume}}</span>
                         </li>
                         <li>
                             SKU: <span>BE45VGRT</span>
                         </li>
                         <li>
-                            Category: <span>Concealer</span>
+                            Category: <span>{{$product->category_name}}</span>
                         </li>
                     </ul>
                 </div>
@@ -104,23 +110,14 @@
                         <option value="">Similar Shades</option>
                     </select>
                 </div>
-                @if(session()->has('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
 
-@if(session()->has('error'))
-    <div class="alert alert-danger">
-        {{ session('error') }}
-    </div>
-@endif
 <livewire:addtocart :id="$product->id" />
+  
 
                 <div class="product-detail-first-wrap-text8">
                     <div class="product-detail-wishlist-btn">   
                         <a href="#!">
-                            <img src="assets/front/images/wishlist-heart.png" alt="">
+                            <img src="{{asset('front/assets/images/wishlist-heart.png')}}" alt="">
                             Add to wishlist
                         </a>
                     </div>
@@ -130,16 +127,16 @@
                     <div class="product-detail-social-icon">
                         <ul>
                             <li class="facebook-icon">
-                                <img src="assets/front/images/pro-facebook.png" alt="">
+                                <img src="{{asset('front/assets/images/pro-facebook.png')}}" alt="">
                             </li>
                             <li class="twitter-icon">
-                                <img src="assets/front/images/pro-twitter.png" alt="">
+                                <img src="{{asset('front/assets/images/pro-twitter.png')}}" alt="">
                             </li>
                             <li class="instagram-icon">
-                                <img src="assets/front/images/pro-instagram.png" alt="">
+                                <img src="{{asset('front/assets/images/pro-instagram.png')}}" alt="">
                             </li>
                             <li class="pinterest-icon">
-                                <img src="assets/front/images/pro-pinterest.png" alt="">
+                                <img src="{{asset('front/assets/images/pro-pinterest.png')}}" alt="">
                             </li>
                         </ul>
                     </div>
@@ -167,9 +164,7 @@
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                         <div class="product-detail-second-wrap-paragraph">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                           {!! $product->product_long_description !!}
                         </div>    
                     </div>
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
