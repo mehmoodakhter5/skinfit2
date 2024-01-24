@@ -12,6 +12,10 @@ class Main extends Controller
        
         return view('front.index',['products'=>$products]);
     }
+    public function cart(){
+        $cart=\Cart::getContent();
+        return view('front.checkout3',['cart'=>$cart]);
+    }
    
 
 }

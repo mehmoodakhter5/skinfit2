@@ -9,10 +9,13 @@ class Counter extends Component
     public $count = 0;
     public function counter()
     {
+        $this->count++;
+
     }
     public function render()
     {
-        $this->count= \Cart::getContent()->count();
+        $this->count=  \Cart::getContent()->count();
+
 
         return view('livewire.counter');
     }

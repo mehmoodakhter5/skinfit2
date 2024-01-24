@@ -1,5 +1,4 @@
-<?php include 'inc/header.php';?>
-
+@include('front.inc.header')
 <section class="checkout-banner-wrapper">
     <div class="container">
         <div class="row">
@@ -59,13 +58,14 @@
                                     <span>REMOVE</span>
                                 </div>
                             </div>
+                            @foreach($cart as $carts)
                             <div class="checkout3-th1-flex">
                                 <div class="checkout3-thh1">
-                                    <img src="assets/front/images/product-cart.jpg" alt="">
-                                    <span>Ogx Shampoo Strength & Length+ Keratin Oil 13oz</span>
+                                    <img src="https://imagedelivery.net/V8gK1_2VVoan1sk2mbDlgA/{{$carts['attributes']['image']}}/public" alt="">
+                                    <span>{{$carts->name}}</span>
                                 </div>
                                 <div class="checkout3-thh2">
-                                    <span>Rs 3,000</span>
+                                    <span>Rs {{$carts->price}}</span>
                                 </div>
                                 <div class="checkout3-thh3">
                                     <div class="date-time">
@@ -80,9 +80,10 @@
                                     <span>Rs 3,000</span>
                                 </div>
                                 <div class="checkout3-thh5">
-                                    <img src="assets/front/images/cross.png" alt="">
+                                    <img src="{{asset('front/assets/images/cross.png')}}" alt="Remove">
                                 </div>
                             </div>
+                            @endforeach
                             <div class="checkout3-th2-flex">
                                 <div class="checkout3-th2-main">
                                     <div class="checkout3-th2-input">
@@ -152,7 +153,7 @@
                             <ul>    
                                 <li>
                                     Subtotal
-                                    <h5>Rs.3,590</h5>
+                                    <h5>Rs.{{\Cart::getSubTotal()}}</h5>
                                 </li>
                                 <li>
                                     Shipping Charges
@@ -160,7 +161,7 @@
                                 </li>
                                 <li>
                                     Total
-                                    <span>Rs.3,740</span>
+                                    <span>Rs.{{\Cart::getTotal()}}</span>
                                 </li>
                             </ul>
                         </div>
@@ -179,4 +180,4 @@
     </div>
 </section>
 
-<?php include 'inc/footer.php';?>
+@include('front.inc.footer')

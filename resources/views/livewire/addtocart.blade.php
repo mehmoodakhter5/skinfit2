@@ -1,6 +1,7 @@
 <div>
     <div class="product-detail-first-wrap-text7">
         <form wire:submit.prevent="addToCart">
+            @csrf
             <div class="date-time">
                 <div id="field1">
                     <button type="button" id="sub" class="minus">-</button>

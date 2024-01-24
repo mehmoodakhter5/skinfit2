@@ -3437,7 +3437,7 @@ section.range-slider input[type=range]::-moz-focus-outer {
     align-items: center;
     height: 45px;
 }
-.product-detail-first-wrap-btn5 input {
+.product-detail-first-wrap-btn5 button {
 	width: 149px;
 	height: 45px;
 	background-color: var(--pink);
@@ -3448,7 +3448,7 @@ section.range-slider input[type=range]::-moz-focus-outer {
 	transition: 0.5s;
 	border: 1px solid var(--pink);
 }
-.product-detail-first-wrap-btn5 input:hover {
+.product-detail-first-wrap-btn5 button:hover {
 	background-color: transparent;
 	color: var(--pink);
 }

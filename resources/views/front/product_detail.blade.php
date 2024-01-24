@@ -104,7 +104,19 @@
                         <option value="">Similar Shades</option>
                     </select>
                 </div>
-            <livewire:addtocart :id="$product->id">
+                @if(session()->has('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if(session()->has('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+<livewire:addtocart :id="$product->id" />
+
                 <div class="product-detail-first-wrap-text8">
                     <div class="product-detail-wishlist-btn">   
                         <a href="#!">
