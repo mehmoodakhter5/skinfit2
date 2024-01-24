@@ -1,4 +1,4 @@
-<?php include 'inc/header.php';?>
+@include('front.inc.header')
 
 <section class="checkout-banner-wrapper">
     <div class="container">
@@ -41,7 +41,7 @@
                     </div>
                     <div class="dashboard301-main-text2">
                         <h6>
-                            <img src="assets/front/images/flight.png" alt="">
+                            <img src="{{asset('front/assets/images/flight.png')}}" alt="">
                             Estimated Delivery: 5 March 2023
                         </h6>
                     </div>
@@ -70,7 +70,7 @@
                             </li>
                         </ul>
                         <div class="tabbar-img">
-                            <img src="assets/front/images/bar-img.png" alt="" class="img-fluid">
+                            <img src="{{asset('front/assets/images/bar-img.png')}}" alt="" class="img-fluid">
                         </div>
                     </div>
                 </div>
@@ -122,12 +122,11 @@
                     <h6>Order waiting at Courier Pick-up point "Waiting for Self Collection":</h6>
                     <p>Once you have agreed to collect your order from the courier service pick-up point, your order status will appear as "Waiting for Self Collection". At this point, your parcel is now ready to be picked-up.</p>
 
-                    <h6>Order delayed "Out for delivery – Delay Expected":</h6>
+                    <h6>Order delayed "Out for delivery - Delay Expected":</h6>
                     <p>Your order maybe delayed due to some technical reasons mid-transit. At this point, your order status will appear as "Out for delivery – Delay Expected". In this case, please be patient. We will have it delivered to you as soon as possible.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-<?php include 'inc/footer.php';?>
+@include('front.inc.footer')

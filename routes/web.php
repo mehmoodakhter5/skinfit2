@@ -35,6 +35,13 @@ Route::get('/about-us',function(){
     return view('front.about');
 });
 Route::get('/my-cart',[Main::class,'cart']);
+Route::get('/contact-us',function(){
+    return view('front.contact');
+});
+
+Route::get('/tracking',function(){
+    return view('front.track-your-order1');
+});
 
 Route::get('/auth/facebook', function () {
     return Socialite::driver('facebook')->redirect();
@@ -104,6 +111,7 @@ Route::get('admin/inventory', [Admin::class, 'inventroy']);
 Route::get('admin/add-new-inventory', [Admin::class, 'add_inventroy']);
 Route::get('admin/add-new-user', [Roles::class, 'view']);
 Route::get('admin/all-user', [Roles::class, 'index']);
+Route::get('admin/blog',[Admin::class,'blog']);
 
 
 
