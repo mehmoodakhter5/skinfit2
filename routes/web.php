@@ -82,6 +82,7 @@ Route::get('admin/inventory', [Admin::class, 'inventroy']);
 Route::get('admin/add-new-inventory', [Admin::class, 'add_inventroy']);
 Route::get('admin/add-new-user', [Roles::class, 'view']);
 Route::get('admin/all-user', [Roles::class, 'index']);
+Route::get('admin/blog',[Admin::class,'blog']);
 
 
 

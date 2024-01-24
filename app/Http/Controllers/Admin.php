@@ -161,14 +161,21 @@ public function inventroy(){
         return view('admin.inventory');
     }
 }
-    public function add_inventroy(){
-        $user=Auth::user();
-        if($user){
-            $brand=Brand::all();
-            $supplier=Supplier::all();
-            return view('admin.add-inventory',['brand'=>$brand,'supplier'=>$supplier]);
-        }
+public function add_inventroy(){
+    $user=Auth::user();
+    if($user){
+        $brand=Brand::all();
+        $supplier=Supplier::all();
+        return view('admin.add-inventory',['brand'=>$brand,'supplier'=>$supplier]);
     }
+}
+
+public function blog(){
+    $user = Auth::user();
+    if($user){
+        return view('admin.blog');
+    }
+}
 
   
 
@@ -177,26 +184,29 @@ public function inventroy(){
 
 //Tables API GET 
 public function getproduct(){
-    $products =Product::all();
+    $products = Product::all();
     return Response::json($products);
 }
 public function getcategory(){
-    $category =Category::all();
+    $category = Category::all();
     return Response::json($category);
 }
 public function getbrand(){
-    $brand =Brand::all();
+    $brand = Brand::all();
     return Response::json($brand);
 }
 public function getsupplier(){
-    $supplier =Supplier::all();
+    $supplier = Supplier::all();
     return Response::json($supplier);
 }
 public function getinventory(){
-    $inventory=Inventory::all();
+    $inventory = Inventory::all();
     return Response::json($inventory);
 }
-
+public function getblog(){
+    $blog = Blog::all();
+    return Response::json($blog);
+}
 
 
 
