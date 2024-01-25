@@ -20,7 +20,7 @@
             <div class="date-time">
                 <div id="field1">
                     <button type="button" id="sub" class="minus">-</button>
-                    <input type="number" wire:model="qty" value="1" class="quantity" min="1" max="10" />
+                    <input type="number" wire:model.live="qty" value="1" class="quantity" min="1" max="10"/>
                     <button type="button" id="add" class="plus">+</button>
                 </div>
             </div>

@@ -367,7 +367,8 @@
             </div>
         </div>
     </footer>
-   
+    @livewireScripts
+
     <script src="{{asset('front/assets/js/jquery-3.6.3.min.js')}}"></script>
     <script src="{{asset('front/assets/js/popper.min.js')}}"></script>
     <script src="{{asset('front/assets/js/bootstrap.min.js')}}"></script>
@@ -377,9 +378,9 @@
     <script src="{{asset('front/assets/js/gsap.min.js')}}"></script>
     <script src="{{asset('front/assets/js/aos.js')}}"></script>
     <script src="{{asset('front/assets/js/custom.js')}}"></script>
+
     <script>
         AOS.init();
     </script>
- @livewireScripts
 </body>
 </html>

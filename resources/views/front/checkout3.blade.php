@@ -71,7 +71,7 @@
                                     <div class="date-time">
                                         <div id="field1">
                                             <button type="button" id="sub" class="minus">-</button>
-                                            <input type="number" id="1" value="1" min="1" class="quantity" max="10">
+                                            <input type="number" id="1" value="{{$carts->quantity}}" min="1" class="quantity">
                                             <button type="button" id="add" class="plus">+</button>
                                         </div>
                                     </div>
