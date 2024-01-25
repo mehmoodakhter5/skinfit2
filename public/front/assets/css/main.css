@@ -2167,7 +2167,7 @@ body::-webkit-scrollbar-thumb:hover {
 .signup-first-wrapmain-btn {
 	margin: 0px 0px 20px 0px;
 }
-.signup-first-wrapmain-btn a {
+.signup-first-wrapmain-btn button {
 	width: 100%;
 	height: 45px;
 	display: inline-flex;
@@ -2181,7 +2181,7 @@ body::-webkit-scrollbar-thumb:hover {
 	text-align: center;
 	margin: 0px 0px 20px 0px;
 }
-.signup-first-wrapmain-btn1 a {
+.signup-first-wrapmain-btn1 button {
 	font-size: 15px;
 	font-family: var(--visbycf-medium);
 	color: var(--grey);
