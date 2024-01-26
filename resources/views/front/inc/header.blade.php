@@ -248,7 +248,7 @@
                             </div>
                         </div>
                         <div class="megamenu-dropdown-2">
-                            <img src="assets/front/images/dropdown1.png" alt="">
+                            <img src="{{asset('front/assets/images/dropdown1.png')}}" alt="dropdown">
                         </div>
                     </div>
                 </div>

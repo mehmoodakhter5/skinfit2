@@ -200,17 +200,17 @@
                                 <ul>
                                     <li>
                                         <a href="#!">
-                                            <img src="assets/front/images/payment1.png" alt="">
+                                            <img src="{{asset('front/assets/images/payment1.png')}}" alt="">
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#!">
-                                            <img src="assets/front/images/payment2.png" alt="">
+                                            <img src="{{asset('front/assets/images/payment2.png')}}" alt="">
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#!">
-                                            <img src="assets/front/images/payment3.png" alt="">
+                                            <img src="{{asset('front/assets/images/payment3.png')}}" alt="">
                                         </a>
                                     </li>
                                 </ul>
@@ -374,7 +374,7 @@
     <script src="{{asset('front/assets/js/bootstrap.min.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="{{asset('front/assets/js/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('front/assets/js/scrolltrigger.min.js')}}"></script>
+    {{-- <script src="{{asset('front/assets/js/scrolltrigger.min.js')}}"></script> --}}
     <script src="{{asset('front/assets/js/gsap.min.js')}}"></script>
     <script src="{{asset('front/assets/js/aos.js')}}"></script>
     <script src="{{asset('front/assets/js/custom.js')}}"></script>

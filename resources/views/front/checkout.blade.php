@@ -33,7 +33,7 @@
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                 <div class="checkout-first-wrap-topheading">
                     <h6>
-                        <img src="assets/front/images/checkout-icon.png" alt="">
+                        <img src="{{asset('front/assets/images/checkout-icon.png')}}" alt="">
                         Have a coupon? Click here to enter your code
                     </h6>
                 </div>
@@ -64,7 +64,7 @@
                             <h6>Add <span>Rs 5000</span> to cart and get free shipping!</h6>
                         </div>   
                         <div class="checkout-first-wrap-detail-bar">
-                            <img src="assets/front/images/checkout-bar.png" alt="" class="img-fluid">
+                            <img src="{{asset('front/assets/images/checkout-bar.png')}}" alt="" class="img-fluid">
                         </div>
                         <div class="checkout-first-wrapbillingtext">
                             <h6>BILLING DETAILS</h6>
