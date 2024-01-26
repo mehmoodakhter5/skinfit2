@@ -16,6 +16,10 @@ class Main extends Controller
         $cart=\Cart::getContent();
         return view('front.checkout3',['cart'=>$cart]);
     }
+    public function checkout(){
+        $checkout=\Cart::getContent();
+        return view('front.checkout',['checkout'=>$checkout]);
+    }
    
 
 }

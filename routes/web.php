@@ -35,6 +35,7 @@ Route::get('/about-us',function(){
     return view('front.about');
 });
 Route::get('/my-cart',[Main::class,'cart']);
+Route::get('/checkout',[Main::class,'checkout']);
 Route::get('/contact-us',function(){
     return view('front.contact');
 });
@@ -67,7 +68,7 @@ Route::get('/auth/callback', function () {
 
 ///FRONTEND POST METHODS 
 Route::post('addtocart/',[Addtocart::class,'addToCart']);
-
+Route::post('post-checkout',[Ecommerce::class,'checkout']);
 
 
 

@@ -37,7 +37,7 @@
                             <h6>Add <span>Rs 5000</span> to cart and get free shipping!</h6>
                         </div>   
                         <div class="checkout-first-wrap-detail-bar">
-                            <img src="assets/front/images/checkout-bar.png" alt="" class="img-fluid">
+                            <img src="{{asset('front/assets/images/checkout-bar.png')}}" alt="" class="img-fluid">
                         </div>
                         <!-- CHECKOUT3-FIRST-WRAP-TABLE-DESKTOP -->
                         <div class="checkout3-first-wrap-table-flex checkout3-desktop">
@@ -77,7 +77,7 @@
                                     </div>
                                 </div>
                                 <div class="checkout3-thh4">
-                                    <span>Rs 3,000</span>
+                                    <span>Rs {{$carts->price}}</span>
                                 </div>
                                 <div class="checkout3-thh5">
                                     <img src="{{asset('front/assets/images/cross.png')}}" alt="Remove">
@@ -167,7 +167,7 @@
                         </div>
                         <div class="checkout-first-wrap-bankdetail">
                             <div class="checkout-first-wrap-bankdetail-btn checkout3-first-wrap-bankdetail-btn">
-                                <a href="#!">Proceed to Checkout</a>
+                                <a href="{{url('checkout')}}">Proceed to Checkout</a>
                             </div>
                             <div class="checkout-first-wrap-bankdetail-btn checkout3-first-wrap-bankdetail-btn1">
                                 <a href="#!">Continue Shopping</a>

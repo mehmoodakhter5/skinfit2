@@ -1,5 +1,4 @@
-<?php include 'inc/header.php';?>
-
+@include('front.inc.header')
 <section class="checkout-banner-wrapper">
     <div class="container">
         <div class="row">
@@ -55,6 +54,8 @@
                 </div>
             </div>
         </div>
+        <form action="{{url('post-checkout')}}" method="post">
+            @csrf
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                 <div class="checkout-first-wrap-desktop-flex">
@@ -99,7 +100,7 @@
                             <select name="Location" id="Location" required>
                                 <option value="" disabled selected>Select The City</option>
                                 <option value="Islamabad">Islamabad</option>
-                                <option value="" disabled>Punjab Cities</option>
+                                <optgroup label="Punjab Cities">
                                 <option value="Ahmed Nager Chatha">Ahmed Nager Chatha</option>
                                 <option value="Ahmadpur East">Ahmadpur East</option>
                                 <option value="Ali Khan Abad">Ali Khan Abad</option>
@@ -202,7 +203,8 @@
                                 <option value="Vehari">Vehari</option>
                                 <option value="Wah Cantonment">Wah Cantonment</option>
                                 <option value="Wazirabad">Wazirabad</option>
-                                <option value="" disabled>Sindh Cities</option>
+                            </optgroup>
+                            <optgroup label="Sindh Cities">
                                 <option value="Badin">Badin</option>
                                 <option value="Bhirkan">Bhirkan</option>
                                 <option value="Rajo Khanani">Rajo Khanani</option>
@@ -259,7 +261,8 @@
                                 <option value="Thatta">Thatta</option>
                                 <option value="Umerkot">Umerkot</option>
                                 <option value="Warah">Warah</option>
-                                <option value="" disabled>Khyber Cities</option>
+                            </optgroup>
+                            <optgroup label="Khyber Cities">
                                 <option value="Abbottabad">Abbottabad</option>
                                 <option value="Adezai">Adezai</option>
                                 <option value="Alpuri">Alpuri</option>
@@ -306,7 +309,8 @@
                                 <option value="Thall">Thall</option>
                                 <option value="Timergara">Timergara</option>
                                 <option value="Tordher">Tordher</option>
-                                <option value="" disabled>Balochistan Cities</option>
+                            </optgroup>
+                            <optgroup label="Balochistan Cities">
                                 <option value="Awaran">Awaran</option>
                                 <option value="Barkhan">Barkhan</option>
                                 <option value="Chagai">Chagai</option>
@@ -339,6 +343,8 @@
                                 <option value="Washuk">Washuk</option>
                                 <option value="Zhob">Zhob</option>
                                 <option value="Ziarat">Ziarat</option>
+                            </optgroup>
+
                             </select>
                         </div>
                         <div class="checkout-first-wrap-feildmain">
@@ -373,17 +379,19 @@
                                     Product
                                     <h5>Subtotal</h5>
                                 </li>
+                                @foreach($checkout as $carts)
                                 <li>
-                                    Ogx Shampoo Strength & Length+ Keratin Oil 13oz
-                                    <span>Rs.3,590</span>
+                                    {{$carts->name}}
+                                    <span>Rs.{{$carts->price}}</span>
                                 </li>
+                                @endforeach
                                 <li>
                                     Shipping Charges
                                     <span>Rs.150</span>
                                 </li>
                                 <li>
                                     Total
-                                    <h6>Rs.3,740</h6>
+                                    <h6>Rs.{{\Cart::getTotal()}}</h6>
                                 </li>
                             </ul>
                         </div>
@@ -426,7 +434,8 @@
                 </div>
             </div>
         </div>
+    </form>
     </div>
 </section>
 
-<?php include 'inc/footer.php';?>
+@include('front.inc.footer')
