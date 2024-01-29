@@ -71,7 +71,7 @@
                         </div>
                         <div class="checkout-first-wrap-emailfeild">
                             <h6>Email..*</h6>
-                            <input type="text" placeholder="">
+                            <input type="text" placeholder="" name='order_customer_email'>
                         </div>
                         <div class="checkout-first-wrap-checkbox">
                             <div class="form-group">
@@ -81,23 +81,23 @@
                         </div>
                         <div class="checkout-first-wrap-feildmain">
                             <h6>First Name..*</h6>
-                            <input type="text" placeholder="">
+                            <input type="text" placeholder="" name='order_customer_first_name'>
                         </div>
                         <div class="checkout-first-wrap-feildmain">
                             <h6>Last Name..*</h6>
-                            <input type="text" placeholder="">
+                            <input type="text" placeholder="" name='order_customer_last_name'> 
                         </div>
                         <div class="checkout-first-wrap-feildmain">
                             <h6>Address..*</h6>
-                            <input type="text" placeholder="">
+                            <input type="text" placeholder="" name='order_customer_address'>
                         </div>
                         <div class="checkout-first-wrap-feildmain">
                             <h6>Nearest Landmark..*</h6>
-                            <input type="text" placeholder="">
+                            <input type="text" placeholder="" name='order_customer_landmark'>
                         </div>
                         <div class="checkout-first-wrap-feildmain">
                             <h6>City..*</h6>
-                            <select name="Location" id="Location" required>
+                            <select name="order_customer_city" id="Location" required>
                                 <option value="" disabled selected>Select The City</option>
                                 <option value="Islamabad">Islamabad</option>
                                 <optgroup label="Punjab Cities">
@@ -349,11 +349,11 @@
                         </div>
                         <div class="checkout-first-wrap-feildmain">
                             <h6>Mobile Number..*</h6>
-                            <input type="text" placeholder="">
+                            <input type="text" placeholder="" name='order_customer_phone'>
                         </div>
                         <div class="checkout-first-wrap-feildmain">
                             <h6>Whatsapp Number..*</h6>
-                            <input type="text" placeholder="">
+                            <input type="text" placeholder="" name="order_customer_whatsapp_phone">
                         </div>
                         <div class="checkout-first-wrap-checkbox">
                             <div class="form-group">
@@ -366,7 +366,7 @@
                         </div>
                         <div class="checkout-first-wrap-feildmain">
                             <h6>Order notes (optional)</h6>
-                            <input type="text" placeholder="Notes about your order, eg. special notes for delivery.">
+                            <input type="text" name='order_notes' placeholder="Notes about your order, eg. special notes for delivery.">
                         </div>
                     </div>
                     <div class="checkout-first-wrap-slip">
@@ -398,7 +398,7 @@
                         <div class="checkout-first-wrap-bankdetail">
                             <div class="bankdetail-radiobtn-text">
                                 <div class="radio">
-                                    <input id="radio-1" name="radio" type="radio" checked>
+                                    <input id="radio-1" name="order_payment_type" type="radio" checked>
                                     <label for="radio-1" class="radio-label">DIRECT BANK TRANSFER</label>
                                 </div>
                             </div>
@@ -407,13 +407,13 @@
                             </div>
                             <div class="bankdetail-radiobtn-text">
                                 <div class="radio">
-                                    <input id="radio-2" name="radio" type="radio" checked>
+                                    <input id="radio-2" name="order_payment_type" type="radio" checked>
                                     <label for="radio-2" class="radio-label">CREDIT CARD</label>
                                 </div>
                             </div>
                             <div class="bankdetail-radiobtn-text">
                                 <div class="radio">
-                                    <input id="radio-3" name="radio" type="radio" checked>
+                                    <input id="radio-3" name="order_payment_type" type="radio" checked>
                                     <label for="radio-3" class="radio-label">CASH ON DELIVERY</label>
                                 </div>
                             </div>
@@ -427,7 +427,7 @@
                                 </div>
                             </div>
                             <div class="checkout-first-wrap-bankdetail-btn">
-                                <a href="#!">Place Order</a>
+                               <button type='Submit'>Place Order</button>
                             </div>
                         </div>
                     </div>

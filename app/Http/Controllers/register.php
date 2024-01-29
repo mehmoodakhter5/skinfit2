@@ -29,7 +29,7 @@ class register extends Controller
 }
 protected function authenticated(LoginRequest $request, $user) 
 {
-    if (Carbon::now()->hour > 12) {
+    if (Carbon::now()->hour < 12) {
        $time= "Good Morning";
     }else{
         $time= "Good Night";

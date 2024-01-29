@@ -1258,7 +1258,7 @@ body::-webkit-scrollbar-thumb:hover {
 	font-size: 24px;
 	color: var(--grey);
 }
-.checkout-first-wrap-bankdetail-btn a {
+.checkout-first-wrap-bankdetail-btn button {
 	background-color: var(--pink);
 	color: var(--white);
 	width: 100%;
@@ -1270,7 +1270,7 @@ body::-webkit-scrollbar-thumb:hover {
 	justify-content: center;
 	border: 1px solid transparent;
 }
-.checkout-first-wrap-bankdetail-btn a:hover {
+.checkout-first-wrap-bankdetail-btn button:hover {
 	background-color: transparent;
 	border: 1px solid var(--pink);
 	color: var(--pink);
