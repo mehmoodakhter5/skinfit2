@@ -20,6 +20,16 @@ class ProductSeeder extends Seeder
         $firstline = true;
         while (($data = fgetcsv($csvFile, 6170, ",")) !== FALSE) {
             if (!$firstline) {
+                 if($data['34']=='active'){
+                    $c='true';
+                }else{
+                    $c= 'false';
+                }
+                if($data['36']=='enable'){
+                    $condition='true';
+                }else{
+                    $condition= 'false';
+                }
                 Product::create([
                     "id" => $data['0'],
                     "product_category_id" => $data['1'],
@@ -42,8 +52,8 @@ class ProductSeeder extends Seeder
                     'product_volume'=>$data['27'],
                     'product_featured'=>'false',
                     'product_dropship'=>'false',
-                    'product_active'=>'true',
-                    'product_status'=>'true',
+                    'product_active'=>$c,
+                    'product_status'=>$condition,
                     'product_created_by'=>1,
                     'product_updated_by'=>1,
                 ]);    
