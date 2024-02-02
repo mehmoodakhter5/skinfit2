@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class Main extends Controller
 {
     public function index(){
-        $products = DB::table('product')->where('product_status','true')->limit(100)->get();
+        $products = DB::table('product')->where('product_status','true')->where('product_active','true')->limit(100)->orderBy('id','DESC')->get();
         return view('front.index',['products'=>$products]);
     }
     public function cart(){

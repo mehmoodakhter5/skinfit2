@@ -107,7 +107,7 @@
 
                                 <div class="index-product-desktop-main-wrap">
                                     <div class="index-product-desktop-img">
-                                        <img src="{{asset('front/assets/images/hp-1.jpg')}}" alt="" class="img-fluid">
+                                        <img src="https://imagedelivery.net/V8gK1_2VVoan1sk2mbDlgA/{{$product->product_image_cloud}}/public" alt="" class="img-fluid">
                                     </div>
                                     <div class="index-product-desktop-text">
                                         <h6>{{$product->product_name}}</h6>
