@@ -95,21 +95,23 @@
                             Volume: <span>{{$product->product_volume}}</span>
                         </li>
                         <li>
-                            SKU: <span>BE45VGRT</span>
+                            SKU: <span>{{$product->product_sku}}</span>
                         </li>
+                        @if($cate)
                         <li>
-                            Category: <span>{{$product->category_name}}</span>
+                            Category: <span>{{$cate[0]->category_name}}</span>
                         </li>
+                        @endif
                     </ul>
                 </div>
-                <div class="product-detail-first-wrap-text6">
+                {{-- <div class="product-detail-first-wrap-text6">
                     <select name="" id="">
                         <option value="">Similar Shades</option>
                         <option value="">Similar Shades</option>
                         <option value="">Similar Shades</option>
                         <option value="">Similar Shades</option>
                     </select>
-                </div>
+                </div> --}}
 
 <livewire:addtocart :id="$product->id" />
   

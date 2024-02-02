@@ -59,7 +59,7 @@
                                 <a href="{{url('signin')}}"><img src="{{asset('front/assets/images/cart.png')}}" alt=""></a>
                             </div>
                             <div class="header-bag-desktop">
-                                <a href="{{url('my-cart')}}"><img src="{{asset('front/assets/images/bag.png')}}" alt="">    <livewire:counter />                                 </a>
+                                <a href="{{url('my-cart')}}"><img src="{{asset('front/assets/images/bag.png')}}" alt="">    <livewire:counter lazy />                                 </a>
                             </div>
                         </div>
                     </div>
