@@ -41,7 +41,7 @@ class Addtocart extends Component
 
         if ($added) {
             session()->flash('success', 'Product added to cart successfully.');
-            $this->emit('counter');
+            $this->dispatch('counter');
         } else {
             session()->flash('error', 'Failed to add product to cart.');
         }

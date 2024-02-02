@@ -14,25 +14,25 @@
                     <div class="signup-first-wrapmain-feild">
                         <form wire:submit='register'>
                         <div class="signup-first-wrapmain-feild1">
-                            <input type="text" placeholder="Email Address" wire:model="customer_email">
+                            <input type="text" placeholder="Email Address" wire:model.live="customer_email">
                             <div>
                                 @error('customer_email') <span class="error">{{ $message }}</span> @enderror 
                             </div>
                         </div>
                         <div class="signup-first-wrapmain-feild1">
-                            <input type="text" placeholder="First Name" wire:model="customer_first_name">
+                            <input type="text" placeholder="First Name" wire:model.live="customer_first_name">
                             <div>
                                 @error('customer_first_name') <span class="error">{{ $message }}</span> @enderror 
                             </div>
                         </div>
                         <div class="signup-first-wrapmain-feild1">
-                            <input type="text" placeholder="Last Name" wire:model="customer_last_name">
+                            <input type="text" placeholder="Last Name" wire:model.live="customer_last_name">
                             <div>
                                 @error('customer_last_name') <span class="error">{{ $message }}</span> @enderror 
                             </div>
                         </div>
                         <div class="signup-first-wrapmain-feild1">
-                            <input type="text" placeholder="Mobile phone number (optional)" wire:model="customer_phone_number"> 
+                            <input type="text" placeholder="Mobile phone number (optional)" wire:model.live="customer_phone_number"> 
                             <div>
                                 @error('customer_phone_number') <span class="error">{{ $message }}</span> @enderror 
                             </div>
@@ -41,7 +41,7 @@
                             <div class="feild1-show">
                                 <h6>Show</h6>
                             </div>
-                            <input type="password" placeholder="Create password" wire:model="customer_password">
+                            <input type="password" placeholder="Create password" wire:model.live="customer_password">
                             <div>
                                 @error('customer_password') <span class="error">{{ $message }}</span> @enderror 
                             </div>
