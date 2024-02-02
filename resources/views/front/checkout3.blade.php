@@ -94,7 +94,7 @@
                                     </div>
                                 </div>
                                 <div class="checkout3-th2-remove">
-                                    <a href="#!">Remove All</a>   
+                                    <a href="{{url('clear')}}">Remove All</a>   
                                 </div>
                             </div>
                         </div>

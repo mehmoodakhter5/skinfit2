@@ -47,6 +47,12 @@ Route::get('/tracking',function(){
 Route::get('/auth/facebook', function () {
     return Socialite::driver('facebook')->redirect();
 });
+Route::get('/clear',function(){
+   $cleared = \Cart::clear();
+   if($cleared){
+    return redirect('/');
+   }
+});
 Route::get('/auth/callback', function () {
     $FbUser = Socialite::driver('facebook')->user();
     

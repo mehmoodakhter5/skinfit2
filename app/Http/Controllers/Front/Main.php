@@ -9,7 +9,8 @@ class Main extends Controller
 {
     public function index(){
         $products = DB::table('product')->where('product_status','true')->where('product_active','true')->limit(100)->orderBy('id','DESC')->get();
-        return view('front.index',['products'=>$products]);
+        $featured = DB::table('product')->where('product_status','true')->where('product_active','true')->where('product_featured',true)->limit(100)->orderBy('id','DESC')->get();
+        return view('front.index',['products'=>$products,'featured'=>$featured]);
     }
     public function cart(){
         $cart=\Cart::getContent();

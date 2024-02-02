@@ -194,7 +194,7 @@
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxxl-12">
                         <div class="copyright-flex">
                             <div class="copyright-text">
-                                <p>All rights Reserved. TheSkinFit 2023</p>
+                                <p>All rights Reserved. TheSkinFit <?php echo date('Y');?></p>
                             </div>
                             <div class="copyright-payment">
                                 <ul>
