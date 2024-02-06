@@ -161,6 +161,14 @@ public function inventroy(){
         return view('admin.inventory');
     }
 }
+public function po(){
+    $user=Auth::user();
+    if($user){
+        return view('admin.po');
+    }else{
+        return redirect('admin');
+    }
+}
 public function add_inventroy(){
     $user=Auth::user();
     if($user){

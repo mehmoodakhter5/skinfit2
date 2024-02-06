@@ -412,6 +412,13 @@
       </a>
    
     </li>
+    <li class="nav-item">
+      <a class="nav-link"  href="{{url('admin/po')}}" aria-expanded="false" >
+        <i class="menu-icon mdi mdi-cube-outline"></i>
+        <span class="menu-title">Purchase Order</span>
+      </a>
+   
+    </li>
  
     <li class="nav-item nav-category">Navigation</li>
     <li class="nav-item">

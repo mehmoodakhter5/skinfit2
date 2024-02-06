@@ -26,17 +26,36 @@
   </div>
 </div>
 
+<div class="modal fade" id="pomodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="{{asset('back/assets/vendors/js/vendor.bundle.base.js')}}"></script>
 <script src="{{asset('back/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
 <script src="{{asset('back/assets/vendors/chart.js/Chart.min.js')}}"></script>
-<script src="{{asset('back/assets/vendors/progressbar.js/progressbar.min.js')}}"></script>
+{{-- <script src="{{asset('back/assets/vendors/progressbar.js/progressbar.min.js')}}"></script> --}}
 <script src="{{asset('back/assets/vendors/jquery-file-upload/jquery.uploadfile.min.js')}}"></script>
 <script src="{{asset('back/assets/vendors/dropzone/dropzone.js')}}"></script>
 <script src="{{asset('back/assets/js/off-canvas.js')}}"></script>
 <script src="{{asset('back/assets/js/hoverable-collapse.js')}}"></script>
-<script src="{{asset('back/assets/js/settings.js')}}"></script>
-<script src="{{asset('back/assets/js/todolist.js')}}"></script>
+{{-- <script src="{{asset('back/assets/js/settings.js')}}"></script> --}}
+{{-- <script src="{{asset('back/assets/js/todolist.js')}}"></script> --}}
 <script src="{{asset('back/assets/js/jquery.cookie.js')}}" type="text/javascript"></script>
 <script src="{{asset('back/assets/js/dashboard.js')}}"></script>
   <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
@@ -64,6 +83,7 @@
       
     "url": "{{ route('getproduct') }}",
     "dataSrc": "",
+
   },
   deferRender: true,
   processing: true,
@@ -86,6 +106,7 @@
     ]
     
   });
+
   </script>
 
 <script>
@@ -258,8 +279,7 @@ $(document).ready(function() {
 });
 </script>
 
-  <!-- <script src="../../assets/js/Chart.roundedBarCharts.js"></script> -->
-  <!-- End custom js for this page-->
+
 
    <script>
         var textarea1 = new Quill('#textarea1', {
