@@ -63,9 +63,11 @@
     "ajax": {
       
     "url": "{{ route('getproduct') }}",
-    "dataSrc": ""
+    "dataSrc": "",
   },
   deferRender: true,
+  processing: true,
+
     headers: {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     },

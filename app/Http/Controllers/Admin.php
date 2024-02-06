@@ -24,7 +24,7 @@ class Admin extends Controller
             $activity=Activity::all();
             return view("admin.index",['activity'=>$activity]);
         } else {
-            return redirect('/');
+            return redirect('admin/login');
         }
     }
     public function product()
@@ -184,7 +184,7 @@ public function blog(){
 
 //Tables API GET 
 public function getproduct(){
-    $products = Product::all();
+    $products = Product::orderBy('id')->get();
     return Response::json($products);
 }
 public function getcategory(){
