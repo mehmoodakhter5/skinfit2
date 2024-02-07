@@ -1,5 +1,4 @@
-<?php include 'inc/header.php';?>
-
+@include('front.inc.header')
 <section class="category-banner-wrapper">
     <div class="container">
         <div class="row">
@@ -7,17 +6,17 @@
                 <div class="category-banner-wrap-breacrums">
                     <ul>
                         <li>
-                            <a href="#!">Home</a>
+                            <a href="{{url('/')}}">Home</a>
                         </li>
                         <li>
-                            <a href="#!">Makeup</a>
+                            <a href="{{Request::url()}}">{{$singlebrand->brand_name}}</a>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                 <div class="category-banner-wrap-breacrums">
-                    <h6>Makeup</h6>
+                    <h6>{{$singlebrand->brand_name}}</h6>
                 </div>
             </div>
         </div>
@@ -1020,4 +1019,4 @@
     </div>
 </section>
 
-<?php include 'inc/footer.php';?>
+@include('front.inc.footer')

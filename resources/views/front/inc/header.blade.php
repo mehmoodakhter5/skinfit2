@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @if(isset($title))
+    <title>{{$title}} : TheSkinFit</title>
+    @else
     <title>TheSkinFit</title>
+
+    @endif
     <link rel="shortcut icon" type="image/x-icon" href="https://www.theskinfit.com/uploads/settings/TheSkinFit-Icon.png">
 
     <link rel="stylesheet" href="{{asset('front/assets/css/bootstrap.min.css')}}" />
@@ -349,9 +354,8 @@
                         <div class="our-brands-second-wrap2">
                             <ul>
                                 @foreach($brand as $brands)
-                                <li>{{$brands->brand_name}}</li>
+                                <li><a href="{{url('brand/'.$brands->brand_slug)}}">{{$brands->brand_name}}</a></li>
                                @endforeach
-                                
                             </ul>
                         </div>
                     </div>

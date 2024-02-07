@@ -8,11 +8,14 @@ class Main extends Controller
 {
     public function index(){
         $featured = DB::table('product')->where('product_status','true')->where('product_active','true')->where('product_featured',true)->limit(100)->orderBy('id','DESC')->get();
-        return view('front.index',['featured'=>$featured]);
+        $title=NULL;
+        return view('front.index',['featured'=>$featured,'title'=>$title]);
     }
     public function cart(){
         $cart=\Cart::getContent();
-        return view('front.checkout3',['cart'=>$cart]);
+        $title="Cart";
+
+        return view('front.checkout3',['cart'=>$cart,'title'=>$title]);
     }
     public function checkout(){
         $checkout=\Cart::getContent();

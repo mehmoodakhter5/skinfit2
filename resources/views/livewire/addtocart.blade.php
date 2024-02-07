@@ -1,7 +1,7 @@
 <div>
     <div class="product-detail-first-wrap-text7">
         
-        <form wire:submit="addToCart">
+        <form wire:submit.prevent="addToCart">
             @if(session()->has('success'))
             <div class="alert alert-success">
                 {{ session('success') }}

@@ -25,6 +25,8 @@ use Illuminate\Support\Facades\Auth;
 //FRONTEND VIEWS.
 Route::get('/', [Main::class,'index']);
 Route::get('/product/{slug}',[Catalog::class,'Productview']);
+Route::get('/brand/{slug}',[Catalog::class,'brandview']);
+
 Route::get('/signin', function () {
     return view('front.signin');
 });
@@ -69,7 +71,9 @@ Route::get('/auth/callback', function () {
  
     // return redirect('/');
 });
-
+Livewire::setUpdateRoute(function ($handle) {
+    return Route::post('/custom/livewire/update', $handle);
+});
 
 
 ///FRONTEND POST METHODS 
