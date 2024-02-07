@@ -145,6 +145,7 @@ Route::get('getbrand',[Admin::class,'getbrand'])->name('getbrand');
 Route::get('getcategory',[Admin::class,'getcategory'])->name('getcategory');
 Route::get('getsupplier',[Admin::class,'getsupplier'])->name('getsupplier');
 Route::get('getinventory',[Admin::class,'getinventory'])->name('getinventory');
+Route::get('getpo',[Admin::class,'getpo'])->name('getpo');
 Route::get('users',[Roles::class,'getuser'])->name('users');
 
 

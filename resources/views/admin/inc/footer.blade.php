@@ -30,13 +30,56 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">New Purchase</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
+        <form>
+          <div class="row">
+            <div class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+              <div class="form-group">
+                <label for="dateInput">Date:</label>
+                <input type="date" class="form-control" id="dateInput">
+              </div>
+            </div>
+            <div class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+              <div class="form-group">
+                <label for="textInput">Text:</label>
+                <input type="text" class="form-control" id="textInput">
+              </div>
+            </div>
+            <div class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+              <div class="form-group">
+                <label for="notesInput">Notes:</label>
+                <textarea class="form-control" id="notesInput" rows="3"></textarea>
+              </div>
+            </div>
+            <div class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+              <div class="form-group">
+                <label for="select1">Select Option 1:</label>
+                <select class="form-control" id="select1">
+                  <option value="Option 1">Option 1</option>
+                  <option value="Option 2">Option 2</option>
+                  <option value="Option 3">Option 3</option>
+                </select>
+                <p id="selectedOption1"></p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+              <div class="form-group">
+                <label for="select2">Select Option 2:</label>
+                <select class="form-control" id="select2">
+                  <option value="Option A">Option A</option>
+                  <option value="Option B">Option B</option>
+                  <option value="Option C">Option C</option>
+                </select>
+                <p id="selectedOption2"></p>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -62,7 +105,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.2.6/jquery.inputmask.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-
 
   <script>
     function checkFilled()  {
@@ -231,6 +273,27 @@
       {data:'email'},
       {data:'type'},
   
+    ]
+    
+  });
+</script>
+<script>
+  let table7 = new DataTable('#PoTable', {
+    "ajax": {
+      
+    "url": "{{ route('getpo') }}",
+    "dataSrc": ""
+  },
+  deferRender: true,
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+    responsive: true,
+    pagingType: 'full_numbers',
+    columns: [
+      { data: 'purchase_order_supplier_id'},
+      {data:'purchase_order_date'},
+      {data:'purchase_order_reference'},
     ]
     
   });

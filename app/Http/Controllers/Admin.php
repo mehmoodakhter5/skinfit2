@@ -11,6 +11,8 @@ use App\Models\Brand;
 use App\Models\Inventory;
 use App\Models\Sub_category_1;
 use App\Models\Supplier;
+use App\Models\Blog;
+use App\Models\PO;
 use Spatie\Activitylog\Models\Activity;
 use Response;
 
@@ -192,40 +194,67 @@ public function blog(){
 
 //Tables API GET 
 public function getproduct(){
+    $user = Auth::user();
+    if($user){
     $products = Product::orderBy('id')->get();
     return Response::json($products);
+    }else{
+        abort(403);
+    }
 }
 public function getcategory(){
+    $user = Auth::user();
+    if($user){
     $category = Category::all();
     return Response::json($category);
+}else{
+    abort(403);
+}
 }
 public function getbrand(){
+    $user = Auth::user();
+    if($user){ 
     $brand = Brand::all();
     return Response::json($brand);
+}else{
+    abort(403);
+}
 }
 public function getsupplier(){
+    $user = Auth::user();
+    if($user){ 
     $supplier = Supplier::all();
     return Response::json($supplier);
+}else{
+    abort(403);
+}
 }
 public function getinventory(){
+    $user = Auth::user();
+    if($user){ 
     $inventory = Inventory::all();
     return Response::json($inventory);
+}else{
+    abort(403);
+}
 }
 public function getblog(){
+    $user = Auth::user();
+    if($user){ 
     $blog = Blog::all();
     return Response::json($blog);
+}else{
+    abort(403);
 }
-
-
-
-
-
-
-
-
-
-
-
-
+}
+public function getpo(){
+    $user = Auth::user();
+    if($user){ 
+    $po = PO::all();
+    return Response::json($po);
+}else{
+    abort(403);
+}
+}
 
 }

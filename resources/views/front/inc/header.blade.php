@@ -19,6 +19,7 @@
 </head>
 <body>
 <div class="fade_wrap"></div>
+
     <header class="header-main-wrapper">
         <div class="header-main-wrap-top">
             <a href="#!"><img src="{{asset('front/assets/images/top-header-banner.jpg')}}" alt="" class="img-fluid"></a>
@@ -347,39 +348,10 @@
                     <div class="our-brands-second-wrap-flex">
                         <div class="our-brands-second-wrap2">
                             <ul>
-                                <li>B&amp;Soap</li>
-                                <li>Banila Co</li>
-                                <li>Bellflower</li>
-                                <li>Barulab</li>
-                                <li>Bourjois Paris</li> 
-                                <li>Bite Beauty</li>
-                            </ul>
-                        </div>
-                        <div class="our-brands-second-wrap3">
-                            <ul>
-                                <li>Batiste</li>
-                                <li>Bio Oil</li>
-                                <li>Blistex</li>
-                                <li>Beauty of Joseon</li>
-                                <li>Babor</li> 
-                                <li>Beauty Formulas</li>
-                            </ul>
-                        </div>
-                        <div class="our-brands-second-wrap4">
-                            <ul>
-                                <li>Biolage</li>
-                                <li>Boots</li>
-                                <li>Bebederm</li>
-                                <li>Briogeo</li>
-                                <li>Burberry</li>
-                                <li>Benefit Cosmetics</li>
-                            </ul>
-                        </div>
-                        <div class="our-brands-second-wrap4">
-                            <ul>
-                                <li>Bvlgari</li>
-                                <li>Benton</li>
-                                <li>Bath And Body Works</li>
+                                @foreach($brand as $brands)
+                                <li>{{$brands->brand_name}}</li>
+                               @endforeach
+                                
                             </ul>
                         </div>
                     </div>

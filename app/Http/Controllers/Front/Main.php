@@ -4,13 +4,11 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
-
 class Main extends Controller
 {
     public function index(){
-        $products = DB::table('product')->where('product_status','true')->where('product_active','true')->limit(100)->orderBy('id','DESC')->get();
         $featured = DB::table('product')->where('product_status','true')->where('product_active','true')->where('product_featured',true)->limit(100)->orderBy('id','DESC')->get();
-        return view('front.index',['products'=>$products,'featured'=>$featured]);
+        return view('front.index',['featured'=>$featured]);
     }
     public function cart(){
         $cart=\Cart::getContent();
@@ -21,5 +19,4 @@ class Main extends Controller
         return view('front.checkout',['checkout'=>$checkout]);
     }
    
-
 }
