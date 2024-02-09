@@ -143,6 +143,12 @@
         render: function (data, type, row) {
           return '<img src="' + '{{ Storage::url('product/') }}' + row.product_image + '" alt="Product Image" height="50" />';
         }
+      },
+      {
+        data: null,
+        render: function (data, type, row) {
+          return '<a href="">Edit</a>';
+        }
       }
 
     ]
