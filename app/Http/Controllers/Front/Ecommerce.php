@@ -57,12 +57,6 @@ class Ecommerce extends Controller
             $order_item->product_qty=$item->qty;
             $order_item->save();
            }
-           
-
-
-
-
-
         }else{
             return back()->with("error","Hmmm! Unable to proceed.");
         }
