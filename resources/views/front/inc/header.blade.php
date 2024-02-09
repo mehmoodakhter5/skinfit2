@@ -19,11 +19,9 @@
     <link rel="stylesheet" href="{{asset('front/assets/css/main.css')}}" />
     <link rel="stylesheet" href="{{asset('front/assets/css/responsive.css')}}" />
     @livewireStyles
-
 </head>
 <body>
 <div class="fade_wrap"></div>
-
     <header class="header-main-wrapper">
         <div class="header-main-wrap-top">
             <a href="#!"><img src="{{asset('front/assets/images/top-header-banner.jpg')}}" alt="" class="img-fluid"></a>
