@@ -36,50 +36,6 @@
         </button>
       </div>
       <div class="modal-body">
-        {{-- <form>
-          <div class="row">
-            <div class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-              <div class="form-group">
-                <label for="dateInput">Date:</label>
-                <input type="date" class="form-control" id="dateInput">
-              </div>
-            </div>
-            <div class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-              <div class="form-group">
-                <label for="textInput">Text:</label>
-                <input type="text" class="form-control" id="textInput">
-              </div>
-            </div>
-            <div class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-              <div class="form-group">
-                <label for="notesInput">Notes:</label>
-                <textarea class="form-control" id="notesInput" rows="3"></textarea>
-              </div>
-            </div>
-            <div class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-              <div class="form-group">
-                <label for="select1">Select Option 1:</label>
-                <select class="form-control" id="select1">
-                  <option value="Option 1">Option 1</option>
-                  <option value="Option 2">Option 2</option>
-                  <option value="Option 3">Option 3</option>
-                </select>
-                <p id="selectedOption1"></p>
-              </div>
-            </div>
-            <div class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-              <div class="form-group">
-                <label for="select2">Select Option 2:</label>
-                <select class="form-control" id="select2">
-                  <option value="Option A">Option A</option>
-                  <option value="Option B">Option B</option>
-                  <option value="Option C">Option C</option>
-                </select>
-                <p id="selectedOption2"></p>
-              </div>
-            </div>
-          </div>
-        </form> --}}
         <div id="purchaseOrderModal">
           <div class="modal-header">
             <select name="" id="" class="input-field">
@@ -102,13 +58,11 @@
                 <th>Sub Total</th>
                 <th>Action</th>
               </tr>
-              <!-- The rows will be added dynamically by JavaScript -->
             </table>
             <button id="addRowButton">Add Product</button>
           </div>
           
           <div class="summary-area">
-            <!-- Summary for Gross Amount, Discount, etc. -->
             <input type="text" class="input-field"  placeholder="Gross Amount">
             <input type="text" class="input-field"  placeholder="Tax">
             <input type="text" class="input-field"  placeholder="Net Amount">
@@ -172,7 +126,6 @@
 
         cell1.innerHTML = `<select class="input-field" name="brand">${selectOptions}</select>`;
 
-        // Now, let's fetch selected products based on the brand selection
         document.querySelector('select[name="brand"]').addEventListener('change', function() {
             var selectedBrandId = this.value;
 
@@ -184,7 +137,6 @@
                         productOptions += `<option value="${product.value}">${product.product_name}</option>`;
                     });
 
-                    // Replace the content of the second cell with the new select
                     cell2.innerHTML = `<select class="input-field" name="product[]">${productOptions}</select>`;
                 })
                 .catch(error => {
@@ -230,7 +182,6 @@
       document.getElementById('netAmount').value = (grossAmount + tax).toFixed(2);
     }
   
-    // Event listener for adding a row
     document.getElementById('addRowButton').addEventListener('click', function () {
       addRow();
     });
