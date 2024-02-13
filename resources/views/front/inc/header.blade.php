@@ -10,7 +10,7 @@
 
     @endif
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('front/assets/images/TheSkinFit-Icon.webp')}}">
-    <link rel="stylesheet" href="{{asset('front/assets/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('front/assets/css/bootstrap.min.css')}}" defer async />
     <link rel="stylesheet" href="{{asset('front/assets/css/owl.carousel.css')}}" />
     <link rel="stylesheet" href="{{asset('front/assets/css/owl.theme.default.css')}}" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
