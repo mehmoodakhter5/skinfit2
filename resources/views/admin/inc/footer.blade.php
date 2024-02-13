@@ -93,6 +93,7 @@
           <div class="purchase-lines">
             <table id="purchaseLinesTable">
               <tr>
+                <th>Brand</th>
                 <th>Name</th>
                 <th>SKU</th>
                 <th>Quantity</th>
@@ -160,23 +161,41 @@
   var cell6 = row.insertCell(5);
   var cell7 = row.insertCell(6);
 
-  fetch('{{ route('getproduct') }}')
+  fetch('{{ route('getbrand') }}')
     .then(response => response.json())
     .then(data => {
-      // Populate select options
-      var selectOptions = '';
-      data.forEach(option => {
-        selectOptions += `<option value="${option.value}">${option.product_name}</option>`;
-      });
+        // Populate select options
+        var selectOptions = '';
+        data.forEach(option => {
+            selectOptions += `<option value="${option.brand_id}">${option.brand_name}</option>`;
+        });
 
-      // Add HTML elements with select input and options
-      cell1.innerHTML = `<select class="input-field" name="product[]">${selectOptions}</select>`;
+        cell1.innerHTML = `<select class="input-field" name="brand">${selectOptions}</select>`;
+
+        // Now, let's fetch selected products based on the brand selection
+        document.querySelector('select[name="brand"]').addEventListener('change', function() {
+            var selectedBrandId = this.value;
+
+            fetch(`/getselectedproduct/${selectedBrandId}`)
+                .then(response => response.json())
+                .then(data => {
+                    var productOptions = '';
+                    data.forEach(product => {
+                        productOptions += `<option value="${product.value}">${product.product_name}</option>`;
+                    });
+
+                    // Replace the content of the second cell with the new select
+                    cell2.innerHTML = `<select class="input-field" name="product[]">${productOptions}</select>`;
+                })
+                .catch(error => {
+                    console.error('Error fetching selected products:', error);
+                });
+        });
     })
     .catch(error => {
-      console.error('Error fetching select data:', error);
+        console.error('Error fetching select data:', error);
     });
 
-  // Add other input fields
   cell2.innerHTML = '<input type="text" class="input-field" name="sku[]" />';
   cell3.innerHTML = '<input type="number" class="input-field" name="quantity[]" min="0" />';
   cell4.innerHTML = '<input type="number" class="input-field" name="price[]" min="0" step="0.01" />';
@@ -185,14 +204,12 @@
   cell7.innerHTML = '<button type="button" onclick="removeRow(this)">Remove</button>';
     }
   
-    // Function to remove a purchase line
     window.removeRow = function (button) {
       var row = button.parentNode.parentNode;
       row.parentNode.removeChild(row);
       calculateTotals();
     }
   
-    // Function to calculate totals
     function calculateTotals() {
       var table = document.getElementById('purchaseLinesTable');
       var grossAmount = 0;
@@ -231,7 +248,7 @@
         if (response.ok) {
           alert('Purchase order saved successfully!');
           // Reset form or redirect to another page
-          // this.reset();
+          this.reset();
         } else {
           throw new Error('Failed to save purchase order');
         }

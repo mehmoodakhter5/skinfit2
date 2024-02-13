@@ -144,6 +144,7 @@ Route::POST('post-user',[Roles::class,'store']);
 
 
 //API REQUEST FOR TABLES 
+Route::get('getselectedproduct/{id}',[Admin::class,'getselectedproduct'])->name('getselectedproduct');
 Route::get('getproduct',[Admin::class,'getproduct'])->name('getproduct');
 Route::get('getbrand',[Admin::class,'getbrand'])->name('getbrand');
 Route::get('getcategory',[Admin::class,'getcategory'])->name('getcategory');

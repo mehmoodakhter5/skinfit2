@@ -202,6 +202,15 @@ public function getproduct(){
         abort(403);
     }
 }
+public function getselectedproduct($id){
+    $user = Auth::user();
+    if($user){
+    $products = Product::orderBy('id')->where('product_brand_id',$id)->get();
+    return Response::json($products);
+    }else{
+        abort(403);
+    }
+}
 public function getcategory(){
     $user = Auth::user();
     if($user){
