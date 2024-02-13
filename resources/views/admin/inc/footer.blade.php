@@ -36,7 +36,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+        {{-- <form>
           <div class="row">
             <div class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
               <div class="form-group">
@@ -79,7 +79,49 @@
               </div>
             </div>
           </div>
-        </form>
+        </form> --}}
+        <div id="purchaseOrderModal">
+          <div class="modal-header">
+            <select name="" id="" class="input-field">
+              <option selected>Select Supplier</option>
+            </select>
+            <input type="text" class="input-field" placeholder="PO Reference No.">
+            <input type="date" class="input-field">
+ 
+          </div>
+          
+          <div class="purchase-lines">
+            <table id="purchaseLinesTable">
+              <tr>
+                <th>Name</th>
+                <th>SKU</th>
+                <th>Quantity</th>
+                <th>Purchasing Price</th>
+                <th>Tax</th>
+                <th>Sub Total</th>
+                <th>Action</th>
+              </tr>
+              <!-- The rows will be added dynamically by JavaScript -->
+            </table>
+            <button id="addRowButton">Add Product</button>
+          </div>
+          
+          <div class="summary-area">
+            <!-- Summary for Gross Amount, Discount, etc. -->
+            <input type="text" class="input-field"  placeholder="Gross Amount">
+            <input type="text" class="input-field"  placeholder="Tax">
+            <input type="text" class="input-field"  placeholder="Net Amount">
+            <input type="text" class="input-field"  placeholder="Paid Amount">
+          </div>
+          
+          <div class="supplier-notes">
+            <textarea rows="4" placeholder="Enter supplier notes"></textarea>
+          </div>
+          
+          <div class="attachments">
+            <input type="file" class="input-field">
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -91,21 +133,115 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="{{asset('back/assets/vendors/js/vendor.bundle.base.js')}}"></script>
 <script src="{{asset('back/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
-<script src="{{asset('back/assets/vendors/chart.js/Chart.min.js')}}"></script>
+<script src="{{asset('back/assets/vendors/chart.js/Chart.min.js')}}" ></script>
 {{-- <script src="{{asset('back/assets/vendors/progressbar.js/progressbar.min.js')}}"></script> --}}
 <script src="{{asset('back/assets/vendors/jquery-file-upload/jquery.uploadfile.min.js')}}"></script>
-<script src="{{asset('back/assets/vendors/dropzone/dropzone.js')}}"></script>
-<script src="{{asset('back/assets/js/off-canvas.js')}}"></script>
+{{-- <script src="{{asset('back/assets/vendors/dropzone/dropzone.js')}}"></script> --}}
+{{-- <script src="{{asset('back/assets/js/off-canvas.js')}}"></script> --}}
 <script src="{{asset('back/assets/js/hoverable-collapse.js')}}"></script>
 {{-- <script src="{{asset('back/assets/js/settings.js')}}"></script> --}}
 {{-- <script src="{{asset('back/assets/js/todolist.js')}}"></script> --}}
-<script src="{{asset('back/assets/js/jquery.cookie.js')}}" type="text/javascript"></script>
+{{-- <script src="{{asset('back/assets/js/jquery.cookie.js')}}" type="text/javascript"></script> --}}
 <script src="{{asset('back/assets/js/dashboard.js')}}"></script>
-  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.2.6/jquery.inputmask.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <script src="//cdn.quilljs.com/1.3.6/quill.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.2.6/jquery.inputmask.bundle.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script>
+    // Function to add a new purchase line
+    function addRow() {
+      var table = document.getElementById('purchaseLinesTable');
+  var row = table.insertRow(-1);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+  var cell4 = row.insertCell(3);
+  var cell5 = row.insertCell(4);
+  var cell6 = row.insertCell(5);
+  var cell7 = row.insertCell(6);
 
+  fetch('{{ route('getproduct') }}')
+    .then(response => response.json())
+    .then(data => {
+      // Populate select options
+      var selectOptions = '';
+      data.forEach(option => {
+        selectOptions += `<option value="${option.value}">${option.product_name}</option>`;
+      });
+
+      // Add HTML elements with select input and options
+      cell1.innerHTML = `<select class="input-field" name="product[]">${selectOptions}</select>`;
+    })
+    .catch(error => {
+      console.error('Error fetching select data:', error);
+    });
+
+  // Add other input fields
+  cell2.innerHTML = '<input type="text" class="input-field" name="sku[]" />';
+  cell3.innerHTML = '<input type="number" class="input-field" name="quantity[]" min="0" />';
+  cell4.innerHTML = '<input type="number" class="input-field" name="price[]" min="0" step="0.01" />';
+  cell5.innerHTML = '<input type="number" class="input-field" name="tax[]" min="0" step="0.01" />';
+  cell6.innerHTML = '<input type="number" class="input-field" name="subtotal[]" readonly />';
+  cell7.innerHTML = '<button type="button" onclick="removeRow(this)">Remove</button>';
+    }
+  
+    // Function to remove a purchase line
+    window.removeRow = function (button) {
+      var row = button.parentNode.parentNode;
+      row.parentNode.removeChild(row);
+      calculateTotals();
+    }
+  
+    // Function to calculate totals
+    function calculateTotals() {
+      var table = document.getElementById('purchaseLinesTable');
+      var grossAmount = 0;
+      var tax = 0;
+      for (var i = 1, row; row = table.rows[i]; i++) {
+        var quantity = parseFloat(row.cells[2].querySelector('input').value) || 0;
+        var price = parseFloat(row.cells[3].querySelector('input').value) || 0;
+        var taxRate = parseFloat(row.cells[4].querySelector('input').value) || 0;
+        var subtotal = quantity * price;
+        var taxAmount = (subtotal * taxRate) / 100;
+        row.cells[5].querySelector('input').value = taxAmount.toFixed(2);
+        row.cells[6].querySelector('input').value = (subtotal + taxAmount).toFixed(2);
+        grossAmount += subtotal;
+        tax += taxAmount;
+      }
+      document.getElementById('grossAmount').value = grossAmount.toFixed(2);
+      document.getElementById('tax').value = tax.toFixed(2);
+      document.getElementById('netAmount').value = (grossAmount + tax).toFixed(2);
+    }
+  
+    // Event listener for adding a row
+    document.getElementById('addRowButton').addEventListener('click', function () {
+      addRow();
+    });
+  
+    // Event listener for form submission
+    document.getElementById('purchaseOrderForm').addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent form submission
+      // Here you would collect all the data from the form and send it to the server
+      var formData = new FormData(this);
+      fetch('/save_purchase_order', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => {
+        if (response.ok) {
+          alert('Purchase order saved successfully!');
+          // Reset form or redirect to another page
+          // this.reset();
+        } else {
+          throw new Error('Failed to save purchase order');
+        }
+      })
+      .catch(error => {
+        console.error('Error saving purchase order:', error);
+        alert('Failed to save purchase order. Please try again later.');
+      });
+    });
+  </script>
   <script>
     function checkFilled()  {
         var interests = document.getElementsByClassName("inputsproduct");

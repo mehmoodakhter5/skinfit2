@@ -1,16 +1,36 @@
-/* Inputmask.extendAliases({
-    pesos: {
-              prefix: "₱ ",
-              groupSeparator: ".",
-              alias: "numeric",
-              placeholder: "0",
-              autoGroup: true,
-              digits: 2,
-              digitsOptional: false,
-              clearMaskOnLostFocus: false
-          }
-  }); */
 
   .text-left {
     text-align: right;
   }
+
+    #pomodal {
+      width: 100%;
+      margin: 20px auto;
+      --bs-modal-width:80% !important;
+    }
+    .modal-header, .purchase-lines, .summary-area, .supplier-notes, .attachments, #saveBillButton {
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .input-field, button, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+   
+  
