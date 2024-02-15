@@ -55,8 +55,8 @@
                 <th>Quantity</th>
                 <th>Purchasing Price</th>
                 <th>Tax</th>
-                <th>Sub Total</th>
                 <th>Action</th>
+              
               </tr>
             </table>
             <button id="addRowButton">Add Product</button>
@@ -80,29 +80,29 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" id='purchaseOrderForm' class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="{{asset('back/assets/vendors/js/vendor.bundle.base.js')}}"></script>
-<script src="{{asset('back/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
-<script src="{{asset('back/assets/vendors/chart.js/Chart.min.js')}}" ></script>
+<script  src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script defer src="{{asset('back/assets/vendors/js/vendor.bundle.base.js')}}"></script>
+<script defer src="{{asset('back/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
+<script defer src="{{asset('back/assets/vendors/chart.js/Chart.min.js')}}" ></script>
 {{-- <script src="{{asset('back/assets/vendors/progressbar.js/progressbar.min.js')}}"></script> --}}
-<script src="{{asset('back/assets/vendors/jquery-file-upload/jquery.uploadfile.min.js')}}"></script>
+<script defer src="{{asset('back/assets/vendors/jquery-file-upload/jquery.uploadfile.min.js')}}"></script>
 {{-- <script src="{{asset('back/assets/vendors/dropzone/dropzone.js')}}"></script> --}}
 {{-- <script src="{{asset('back/assets/js/off-canvas.js')}}"></script> --}}
-<script src="{{asset('back/assets/js/hoverable-collapse.js')}}"></script>
+<script defer src="{{asset('back/assets/js/hoverable-collapse.js')}}"></script>
 {{-- <script src="{{asset('back/assets/js/settings.js')}}"></script> --}}
 {{-- <script src="{{asset('back/assets/js/todolist.js')}}"></script> --}}
 {{-- <script src="{{asset('back/assets/js/jquery.cookie.js')}}" type="text/javascript"></script> --}}
-<script src="{{asset('back/assets/js/dashboard.js')}}"></script>
-  <script src="//cdn.quilljs.com/1.3.6/quill.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.2.6/jquery.inputmask.bundle.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-  <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-  <script>
+<script defer src="{{asset('back/assets/js/dashboard.js')}}"></script>
+  <script defer src="//cdn.quilljs.com/1.3.6/quill.js"></script>
+  <script  defersrc="//cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.2.6/jquery.inputmask.bundle.min.js"></script>
+  <script defer src="//cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <script  src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script defer>
     // Function to add a new purchase line
     function addRow() {
       var table = document.getElementById('purchaseLinesTable');
@@ -134,7 +134,7 @@
                 .then(data => {
                     var productOptions = '';
                     data.forEach(product => {
-                        productOptions += `<option value="${product.value}">${product.product_name}</option>`;
+                        productOptions += `<option value="${product.product_id}">${product.product_name}</option>`;
                     });
 
                     cell2.innerHTML = `<select class="input-field" name="product[]">${productOptions}</select>`;
@@ -210,7 +210,7 @@
       });
     });
   </script>
-  <script>
+  <script defer>
     function checkFilled()  {
         var interests = document.getElementsByClassName("inputsproduct");
         for (var i = 0; i<interests.length; i++)  {
@@ -223,7 +223,7 @@
     }
 </script>
 
-<script>
+<script async>
   let table = new DataTable('#ProductTable', {
     "ajax": {
       
