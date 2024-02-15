@@ -10,14 +10,14 @@
 
     @endif
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('front/assets/images/TheSkinFit-Icon.webp')}}">
-    <link rel="stylesheet" href="{{asset('front/assets/css/bootstrap.min.css')}}" defer async />
-    <link rel="stylesheet" href="{{asset('front/assets/css/owl.carousel.css')}}" />
-    <link rel="stylesheet" href="{{asset('front/assets/css/owl.theme.default.css')}}" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="{{asset('front/assets/css/all.css')}}" />
-    <link rel="stylesheet" href="{{asset('front/assets/css/aos.css')}}" />
-    <link rel="stylesheet" href="{{asset('front/assets/css/main.css')}}" />
-    <link rel="stylesheet" href="{{asset('front/assets/css/responsive.css')}}" />
+    <link rel="stylesheet" async href="{{asset('front/assets/css/bootstrap.min.css')}}"   />
+    <link rel="stylesheet" defer href="{{asset('front/assets/css/owl.carousel.css')}}" />
+    <link rel="stylesheet" defer href="{{asset('front/assets/css/owl.theme.default.css')}}"  />
+    <link rel="stylesheet" defer href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"  />
+    <link rel="stylesheet"  defer href="{{asset('front/assets/css/all.css')}}"  />
+    <link rel="stylesheet" defer href="{{asset('front/assets/css/aos.css')}}"  />
+    <link rel="stylesheet"  defer href="{{asset('front/assets/css/main.css')}}"  />
+    <link rel="stylesheet" defer href="{{asset('front/assets/css/responsive.css')}}" />
     @livewireStyles
 </head>
 <body>
@@ -59,10 +59,10 @@
                     <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxxl-4">
                         <div class="header-desktop-flex">
                             <div class="header-user-desktop">
-                                <a href="{{url('signin')}}"><img src="{{asset('front/assets/images/cart.png')}}" alt=""></a>
+                                <a href="{{url('signin')}}"><img src="{{asset('front/assets/images/cart.png')}}" loading="lazy" alt=""></a>
                             </div>
                             <div class="header-bag-desktop">
-                                <a href="{{url('my-cart')}}"><img src="{{asset('front/assets/images/bag.png')}}" alt="">    <livewire:counter lazy="on-load"  />                                 </a>
+                                <a href="{{url('my-cart')}}"><img src="{{asset('front/assets/images/bag.png')}}" alt="" loading="lazy">    <livewire:counter lazy="on-load"  />                                 </a>
                             </div>
                         </div>
                     </div>

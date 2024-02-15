@@ -369,14 +369,13 @@
     </footer>
     @livewireScripts
 
-    <script src="{{asset('front/assets/js/jquery-3.6.3.min.js')}}"></script>
-    <script src="{{asset('front/assets/js/popper.min.js')}}"></script>
-    <script src="{{asset('front/assets/js/bootstrap.min.js')}}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="{{asset('front/assets/js/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('front/assets/js/gsap.min.js')}}"></script>
-    <script src="{{asset('front/assets/js/aos.js')}}"></script>
-    <script src="{{asset('front/assets/js/custom.js')}}"></script>
+    <script async src="{{asset('front/assets/js/jquery-3.6.3.min.js')}}" ></script>
+    <script  defer src="{{asset('front/assets/js/popper.min.js')}}" ></script>
+    <script defer src="{{asset('front/assets/js/bootstrap.min.js')}}" ></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" ></script>
+    <script  defer src="{{asset('front/assets/js/owl.carousel.min.js')}}" ></script>
+    <script  defer src="{{asset('front/assets/js/aos.js')}}" ></script>
+    <script  defer src="{{asset('front/assets/js/custom.js')}}" ></script>
 
     <script>
         AOS.init();

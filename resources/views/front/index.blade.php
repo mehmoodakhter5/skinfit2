@@ -27,15 +27,15 @@
                     <div class="index-first-wrap-desktop-flex">
                         <div class="index-first-wrap-boxm1">
                             <div class="index-first-wrap-ctbox1">
-                                <a href="#!"><img src="{{asset('front/assets/images/cat-h1.jpg')}}" alt="" class="img-fluid"></a>
+                                <a href="#!"><img src="{{asset('front/assets/images/cat-h1.jpg')}}" loading="lazy" alt="" class="img-fluid"></a>
                             </div>
                         </div>
                         <div class="index-first-wrap-boxm1">
                             <div class="index-first-wrap-ctbox2">
-                                <a href="#!"><img src="{{asset('front/assets/images/cat-h2.jpg')}}" alt="" class="img-fluid"></a>
+                                <a href="#!"><img src="{{asset('front/assets/images/cat-h2.jpg')}}" loading="lazy" alt="" class="img-fluid"></a>
                             </div>
                             <div class="index-first-wrap-ctbox3">
-                                <a href="#!"><img src="{{asset('front/assets/images/cat-h3.jpg')}}" alt="" class="img-fluid"></a>
+                                <a href="#!"><img src="{{asset('front/assets/images/cat-h3.jpg')}}" loading="lazy" alt="" class="img-fluid"></a>
                             </div>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <div class="index-second-wrap-img">
-                        <a href="#!"><img src="{{asset('front/assets/images/h-b1.jpg')}}" alt="" class="img-fluid"></a>
+                        <a href="#!"><img src="{{asset('front/assets/images/h-b1.jpg')}}" loading="lazy" alt="" class="img-fluid"></a>
                     </div>
                 </div>
             </div>
@@ -82,13 +82,13 @@
                     <div class="index-fourth-wrap-flex">
                         <div class="index-fourth-wrap-img">
                             <div class="index-fourth-wrap-img1">
-                                <img src="{{asset('front/assets/images/fh1.jpg')}}" alt="">
+                                <img src="{{asset('front/assets/images/fh1.jpg')}}" loading="lazy" alt="">
                             </div>
                             <div class="index-fourth-wrap-img2">
-                                <img src="{{asset('front/assets/images/fh2.jpg')}}" alt="">
+                                <img src="{{asset('front/assets/images/fh2.jpg')}}" loading="lazy" alt="">
                             </div>
                             <div class="index-fourth-wrap-img3">
-                                <img src="{{asset('front/assets/images/fh3.jpg')}}" alt="">
+                                <img src="{{asset('front/assets/images/fh3.jpg')}}" loading="lazy" alt="">
                             </div>
                         </div>
                         <div class="index-fourth-wrap-bg">
@@ -104,16 +104,16 @@
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <div class="index-fourth-catflex">
                         <div class="index-fourth-catimg1">
-                            <a href="#!"><img src="{{asset('front/assets/images/cat-h4.jpg')}}" alt="" class="img-fluid"></a>
+                            <a href="#!"><img src="{{asset('front/assets/images/cat-h4.jpg')}}" loading="lazy" alt="" class="img-fluid"></a>
                         </div>
                         <div class="index-fourth-catimg2">
-                            <a href="#!"><img src="{{asset('front/assets/images/cat-h5.jpg')}}" alt="" class="img-fluid"></a>
+                            <a href="#!"><img src="{{asset('front/assets/images/cat-h5.jpg')}}"  loading="lazy" alt="" class="img-fluid"></a>
                         </div>
                         <div class="index-fourth-catimg3">
-                            <a href="#!"><img src="{{asset('front/assets/images/cat-h6.jpg')}}" alt="" class="img-fluid"></a>
+                            <a href="#!"><img src="{{asset('front/assets/images/cat-h6.jpg')}}" loading="lazy" alt="" class="img-fluid"></a>
                         </div>
                         <div class="index-fourth-catimg4">
-                            <a href="#!"><img src="{{asset('front/assets/images/cat-h7.jpg')}}" alt="" class="img-fluid"></a>
+                            <a href="#!"><img src="{{asset('front/assets/images/cat-h7.jpg')}}" loading="lazy" alt="" class="img-fluid"></a>
                         </div>
                     </div>
                 </div>
@@ -136,7 +136,7 @@
                             <div class="swiper-slide">
                                 <div class="index-fifth-wrap-box">
                                     <div class="index-fifth-wrap-box-img">
-                                        <img src="{{asset('front/assets/images/brush-icon.png')}}" alt="">
+                                        <img src="{{asset('front/assets/images/brush-icon.png')}}" loading="lazy" alt="">
                                     </div>
                                     <div class="index-fifth-wrap-box-text">
                                         <h6>Why SkinFit?</h6>
@@ -147,7 +147,7 @@
                             <div class="swiper-slide">
                                 <div class="index-fifth-wrap-box">
                                     <div class="index-fifth-wrap-box-img">
-                                        <img src="{{asset('front/assets/images/brush-icon.png')}}" alt="">
+                                        <img src="{{asset('front/assets/images/brush-icon.png')}}" loading="lazy" alt="">
                                     </div>
                                     <div class="index-fifth-wrap-box-text">
                                         <h6>Why SkinFit?</h6>
@@ -158,7 +158,7 @@
                             <div class="swiper-slide">
                                 <div class="index-fifth-wrap-box">
                                     <div class="index-fifth-wrap-box-img">
-                                        <img src="{{asset('front/assets/images/brush-icon.png')}}" alt="">
+                                        <img src="{{asset('front/assets/images/brush-icon.png')}}" loading="lazy" alt="">
                                     </div>
                                     <div class="index-fifth-wrap-box-text">
                                         <h6>Why SkinFit?</h6>
@@ -169,7 +169,7 @@
                             <div class="swiper-slide">
                                 <div class="index-fifth-wrap-box">
                                     <div class="index-fifth-wrap-box-img">
-                                        <img src="{{asset('front/assets/images/brush-icon.png')}}" alt="">
+                                        <img src="{{asset('front/assets/images/brush-icon.png')}}"  loading="lazy" alt="">
                                     </div>
                                     <div class="index-fifth-wrap-box-text">
                                         <h6>Why SkinFit?</h6>
@@ -266,16 +266,16 @@
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <div class="index-seventh-wrap-desktop-flex">
                         <div class="index-seventh-wrap-ct-img">
-                            <a href="#!"><img src="{{asset('front/assets/images/cat-h12.jpg')}}" alt="" class="img-fluid"></a>
+                            <a href="#!"><img src="{{asset('front/assets/images/cat-h12.jpg')}}" loading="lazy" alt="" class="img-fluid"></a>
                         </div>
                         <div class="index-seventh-wrap-ct-img">
-                            <a href="#!"><img src="{{asset('front/assets/images/cat-h13.jpg')}}" alt="" class="img-fluid"></a>
+                            <a href="#!"><img src="{{asset('front/assets/images/cat-h13.jpg')}}"  loading="lazy" alt="" class="img-fluid"></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <div class="index-seventh-wrap-ct-img1">
-                        <a href="#!"><img src="{{asset('front/assets/images/cat-h18.jpg')}}" alt="" class="img-fluid"></a>
+                        <a href="#!"><img src="{{asset('front/assets/images/cat-h18.jpg')}}" alt="" loading="lazy" class="img-fluid"></a>
                         <div class="index-seventh-wrap-ct-img-overlay">
                             <h6>Lorem Ipsum is <span>simply dummy text</span></h6>
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <span>Lorem Ipsum has been the</span> industry's standard dummy text.</p>

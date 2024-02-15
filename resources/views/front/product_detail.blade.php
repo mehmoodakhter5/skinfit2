@@ -6,32 +6,32 @@
                 <div thumbsSlider="" class="swiper thumb_product1">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <img src="https://imagedelivery.net/V8gK1_2VVoan1sk2mbDlgA/{{$product->product_image_cloud}}/public" class="img-fluid" />
+                            <img src="https://imagedelivery.net/V8gK1_2VVoan1sk2mbDlgA/{{$product->product_image_cloud}}/public" loading="lazy" class="img-fluid" />
                         </div>
                         <div class="swiper-slide">
-                            <img src="assets/front/images/product-detail1.png" class="img-fluid" />
+                            <img src="assets/front/images/product-detail1.png" loading="lazy" class="img-fluid" />
                         </div>
                         <div class="swiper-slide">
-                            <img src="assets/front/images/product-detail1.png" class="img-fluid" />
+                            <img src="assets/front/images/product-detail1.png" loading="lazy" class="img-fluid" />
                         </div>
                         <div class="swiper-slide">
-                            <img src="assets/front/images/product-detail1.png" class="img-fluid" />
+                            <img src="assets/front/images/product-detail1.png"  loading="lazy"class="img-fluid" />
                         </div>
                     </div>
                 </div>
                 <div class="swiper thumb_product">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <img src="assets/front/images/product-detail-tab1.png" class="img-fluid" />
+                            <img src="assets/front/images/product-detail-tab1.png" loading="lazy" class="img-fluid" />
                         </div>
                         <div class="swiper-slide">
-                            <img src="assets/front/images/product-detail-tab1.png" class="img-fluid"/>
+                            <img src="assets/front/images/product-detail-tab1.png" loading="lazy" class="img-fluid"/>
                         </div>
                         <div class="swiper-slide">
-                            <img src="assets/front/images/product-detail-tab1.png" class="img-fluid"/>
+                            <img src="assets/front/images/product-detail-tab1.png" loading="lazy" class="img-fluid"/>
                         </div>
                         <div class="swiper-slide">
-                            <img src="assets/front/images/product-detail-tab1.png" class="img-fluid"/>
+                            <img src="assets/front/images/product-detail-tab1.png"  loading="lazy"class="img-fluid"/>
                         </div>
                     </div>
                 </div>
@@ -113,7 +113,7 @@
                     </select>
                 </div> --}}
 
-<livewire:addtocart :id="$product->id" />
+        <livewire:addtocart :id="$product->id" lazy />
   
 
                 <div class="product-detail-first-wrap-text8">
