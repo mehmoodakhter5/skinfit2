@@ -72,7 +72,7 @@ Route::get('/auth/callback', function () {
     // return redirect('/');
 });
 Livewire::setUpdateRoute(function ($handle) {
-    return Route::post('/custom/livewire/update', $handle);
+    return Route::post('/livewire/update', $handle);
 });
 
 
