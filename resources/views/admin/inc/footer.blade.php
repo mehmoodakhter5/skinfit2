@@ -28,6 +28,7 @@
 
 <div class="modal fade" id="pomodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
+    <form action="" method="post">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">New Purchase</h5>
@@ -38,11 +39,11 @@
       <div class="modal-body">
         <div id="purchaseOrderModal">
           <div class="modal-header">
-            <select name="" id="" class="input-field">
+            <select name="purchase_order_supplier_id" id="selectsupplier" class="input-field">
               <option selected>Select Supplier</option>
             </select>
-            <input type="text" class="input-field" placeholder="PO Reference No.">
-            <input type="date" class="input-field">
+            <input type="text" class="input-field" name='purchase_order_reference' placeholder="PO Reference No.">
+            <input type="date" name='purchase_order_date' class="input-field">
  
           </div>
           
@@ -59,7 +60,7 @@
               
               </tr>
             </table>
-            <button id="addRowButton">Add Product</button>
+            <button type='button' id="addRowButton">Add Product</button>
           </div>
           
           <div class="summary-area">
@@ -70,7 +71,7 @@
           </div>
           
           <div class="supplier-notes">
-            <textarea rows="4" placeholder="Enter supplier notes"></textarea>
+            <textarea rows="4" name='purchase_order_notes' placeholder="Enter supplier notes"></textarea>
           </div>
           
           <div class="attachments">
@@ -79,10 +80,10 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" id='purchaseOrderForm' class="btn btn-primary">Save changes</button>
       </div>
     </div>
+  </form>
   </div>
 </div>
 <script  src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -103,7 +104,6 @@
   <script defer src="//cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script  src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
   <script defer>
-    // Function to add a new purchase line
     function addRow() {
       var table = document.getElementById('purchaseLinesTable');
   var row = table.insertRow(-1);
@@ -124,9 +124,9 @@
             selectOptions += `<option value="${option.brand_id}">${option.brand_name}</option>`;
         });
 
-        cell1.innerHTML = `<select class="input-field" name="brand">${selectOptions}</select>`;
+        cell1.innerHTML = `<select class="input-field" name="purchase_order_item_brand_id">${selectOptions}</select>`;
 
-        document.querySelector('select[name="brand"]').addEventListener('change', function() {
+        document.querySelector('select[name="purchase_order_item_brand_id"]').addEventListener('change', function() {
             var selectedBrandId = this.value;
 
             fetch(`/getselectedproduct/${selectedBrandId}`)
@@ -134,10 +134,10 @@
                 .then(data => {
                     var productOptions = '';
                     data.forEach(product => {
-                        productOptions += `<option value="${product.product_id}">${product.product_name}</option>`;
+                        productOptions += `<option value="${product.id}">${product.product_name}</option>`;
                     });
 
-                    cell2.innerHTML = `<select class="input-field" name="product[]">${productOptions}</select>`;
+                    cell2.innerHTML = `<select class="input-field" name="purchase_order_item_product_id[]">${productOptions}</select>`;
                 })
                 .catch(error => {
                     console.error('Error fetching selected products:', error);
@@ -148,10 +148,10 @@
         console.error('Error fetching select data:', error);
     });
 
-  cell2.innerHTML = '<input type="text" class="input-field" name="sku[]" />';
-  cell3.innerHTML = '<input type="number" class="input-field" name="quantity[]" min="0" />';
-  cell4.innerHTML = '<input type="number" class="input-field" name="price[]" min="0" step="0.01" />';
-  cell5.innerHTML = '<input type="number" class="input-field" name="tax[]" min="0" step="0.01" />';
+  cell2.innerHTML = '<input type="text" class="input-field" name="purchase_order_item_sku[]" />';
+  cell3.innerHTML = '<input type="number" name="" class="input-field" name="purchase_order_item_qty[]" min="0" />';
+  cell4.innerHTML = '<input type="number" class="input-field" name="purchase_order_item_purchase_price[]" min="0" step="0.01" />';
+  cell5.innerHTML = '<input type="number" class="input-field" name="purchase_order_item_tax[]" min="0" step="0.01" />';
   cell6.innerHTML = '<input type="number" class="input-field" name="subtotal[]" readonly />';
   cell7.innerHTML = '<button type="button" onclick="removeRow(this)">Remove</button>';
     }
@@ -184,30 +184,6 @@
   
     document.getElementById('addRowButton').addEventListener('click', function () {
       addRow();
-    });
-  
-    // Event listener for form submission
-    document.getElementById('purchaseOrderForm').addEventListener('submit', function (event) {
-      event.preventDefault(); // Prevent form submission
-      // Here you would collect all the data from the form and send it to the server
-      var formData = new FormData(this);
-      fetch('/save_purchase_order', {
-        method: 'POST',
-        body: formData
-      })
-      .then(response => {
-        if (response.ok) {
-          alert('Purchase order saved successfully!');
-          // Reset form or redirect to another page
-          this.reset();
-        } else {
-          throw new Error('Failed to save purchase order');
-        }
-      })
-      .catch(error => {
-        console.error('Error saving purchase order:', error);
-        alert('Failed to save purchase order. Please try again later.');
-      });
     });
   </script>
   <script defer>
@@ -388,6 +364,25 @@
   });
 </script>
 <script>
+  $( document ).ready(function() {
+    $.ajax({
+        method: "GET",
+        url: "{{ route('getsupplier')}}",
+        success: function(response) { 
+            if(response) {
+              console.log(response);
+            response.forEach(el => {
+                $("#selectsupplier").append(`<option value='${el.supplier_id}'> ${el.supplier_name}</option>`)
+                })
+            }             
+        },
+        error: function(error) {
+
+        }
+    })
+  });
+</script>
+<script defer>
   let table7 = new DataTable('#PoTable', {
     "ajax": {
       

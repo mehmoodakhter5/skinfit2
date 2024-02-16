@@ -7,6 +7,7 @@ use App\Models\Sub_category;
 use App\Models\Sub_category_1;
 use App\Models\Supplier;
 use App\Models\Inventory;
+use App\Models\PO;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
@@ -186,6 +187,9 @@ class Process extends Controller
         $inventory->save();
         return $inventory;
 
+    }
+    public function save_po(Request $request){
+        $PO= new PO();
     }
     
 }

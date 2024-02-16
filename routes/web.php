@@ -138,7 +138,7 @@ Route::POST('post-supplier',[Process::class,'post_supplier']);
 Route::POST('import-product',[Process::class,'product_import']);
 Route::POST('post-inventory',[Process::class,'post_inventory']);
 Route::POST('post-user',[Roles::class,'store']);
-
+Route::POST('save_purchase_order',[Process::class,'save_po']);
 
 
 
