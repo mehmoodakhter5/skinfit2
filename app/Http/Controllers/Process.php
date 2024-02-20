@@ -199,7 +199,6 @@ class Process extends Controller
         $po->purchase_order_created_by=$request->session()->get('id');
         $po->purchase_order_updated_by=$request->session()->get('id');
         $po->save();
-
         $brands=$request->purchase_order_item_brand_id;
         for($i=0; $i<count($brands); $i++){
             $item= new Po_item();
@@ -209,10 +208,11 @@ class Process extends Controller
             $item->purchase_order_item_qty=$request->purchase_order_item_qty[$i];
             $item->purchase_order_item_purchase_price=$request->purchase_order_item_purchase_price[$i];
             $item->purchase_order_item_tax=$request->purchase_order_item_tax[$i];
-            $item->purchase_order_item_po_id= $po->purchase_order_id;
+            $item->purchase_order_item_po_id=$po->id;
             $item->purchase_order_item_created_by=$request->session()->get('id');
             $item->purchase_order_item_updated_by=$request->session()->get('id');
             $item->save();
+            return redirect('admin/po');
         }
     }
 }

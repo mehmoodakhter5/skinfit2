@@ -156,27 +156,12 @@
       row.parentNode.removeChild(row);
       calculateTotals();
     }
-  
-    function calculateTotals() {
-      var table = document.getElementById('purchaseLinesTable');
-      var grossAmount = 0;
-      var tax = 0;
-      for (var i = 1, row; row = table.rows[i]; i++) {
-        var quantity = parseFloat(row.cells[2].querySelector('input').value) || 0;
-        var price = parseFloat(row.cells[3].querySelector('input').value) || 0;
-        var taxRate = parseFloat(row.cells[4].querySelector('input').value) || 0;
-        var subtotal = quantity * price;
-        var taxAmount = (subtotal * taxRate) / 100;
-        row.cells[5].querySelector('input').value = taxAmount.toFixed(2);
-        row.cells[6].querySelector('input').value = (subtotal + taxAmount).toFixed(2);
-        grossAmount += subtotal;
-        tax += taxAmount;
-      }
-      document.getElementById('grossAmount').value = grossAmount.toFixed(2);
-      document.getElementById('tax').value = tax.toFixed(2);
-      document.getElementById('netAmount').value = (grossAmount + tax).toFixed(2);
-    }
-  
+
+
+    //  document.addEventListener('input', function(event) {
+    //    var price=document.getElementsByName('purchase_order_item_purchase_price').value;
+    //   console.log(price);
+    //  })
     document.getElementById('addRowButton').addEventListener('click', function () {
       addRow();
     });
@@ -410,26 +395,7 @@
 
 
 
-<script>
-  Dropzone.options.ProductaddNew = {
 
-autoProcessQueue: true,
-uploadMultiple: true,
-parallelUploads: 25,
-maxFiles: 10,
-
-init: function() {
-    var myDropzone = this;
-
-
-    $("#submit-all").click(function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        myDropzone.processQueue();
-    }); 
-}
-}
-</script>
 
 <script>
 $(document).ready(function(){
