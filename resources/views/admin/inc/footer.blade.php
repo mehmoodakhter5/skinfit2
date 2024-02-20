@@ -28,7 +28,8 @@
 
 <div class="modal fade" id="pomodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <form action="" method="post">
+    <form action="{{url('save_purchase_order')}}" method="post">
+      @csrf
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">New Purchase</h5>
@@ -80,24 +81,18 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" id='purchaseOrderForm' class="btn btn-primary">Save changes</button>
+        <button type="submit" id='purchaseOrderForm' class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </form>
   </div>
 </div>
-<script  src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script  src="//code.jquery.com/jquery-3.7.1.min.js"></script>
 <script defer src="{{asset('back/assets/vendors/js/vendor.bundle.base.js')}}"></script>
 <script defer src="{{asset('back/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
 <script defer src="{{asset('back/assets/vendors/chart.js/Chart.min.js')}}" ></script>
-{{-- <script src="{{asset('back/assets/vendors/progressbar.js/progressbar.min.js')}}"></script> --}}
 <script defer src="{{asset('back/assets/vendors/jquery-file-upload/jquery.uploadfile.min.js')}}"></script>
-{{-- <script src="{{asset('back/assets/vendors/dropzone/dropzone.js')}}"></script> --}}
-{{-- <script src="{{asset('back/assets/js/off-canvas.js')}}"></script> --}}
 <script defer src="{{asset('back/assets/js/hoverable-collapse.js')}}"></script>
-{{-- <script src="{{asset('back/assets/js/settings.js')}}"></script> --}}
-{{-- <script src="{{asset('back/assets/js/todolist.js')}}"></script> --}}
-{{-- <script src="{{asset('back/assets/js/jquery.cookie.js')}}" type="text/javascript"></script> --}}
 <script defer src="{{asset('back/assets/js/dashboard.js')}}"></script>
   <script defer src="//cdn.quilljs.com/1.3.6/quill.js"></script>
   <script  defersrc="//cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.2.6/jquery.inputmask.bundle.min.js"></script>
@@ -118,41 +113,41 @@
   fetch('{{ route('getbrand') }}')
     .then(response => response.json())
     .then(data => {
-        // Populate select options
         var selectOptions = '';
         data.forEach(option => {
             selectOptions += `<option value="${option.brand_id}">${option.brand_name}</option>`;
         });
 
-        cell1.innerHTML = `<select class="input-field" name="purchase_order_item_brand_id">${selectOptions}</select>`;
+        cell1.innerHTML = `<select class="input-field brand-select" name="purchase_order_item_brand_id[]">${selectOptions}</select>`;
 
-        document.querySelector('select[name="purchase_order_item_brand_id"]').addEventListener('change', function() {
-            var selectedBrandId = this.value;
+        document.addEventListener('change', function(event) {
+            if (event.target.classList.contains('brand-select')) {
+                var selectedBrandId = event.target.value;
 
-            fetch(`/getselectedproduct/${selectedBrandId}`)
-                .then(response => response.json())
-                .then(data => {
-                    var productOptions = '';
-                    data.forEach(product => {
-                        productOptions += `<option value="${product.id}">${product.product_name}</option>`;
+                fetch(`/getselectedproduct/${selectedBrandId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        var productOptions = '';
+                        data.forEach(product => {
+                            productOptions += `<option value="${product.id}">${product.product_name}</option>`;
+                        });
+                        event.target.parentNode.nextElementSibling.innerHTML = `<select class="input-field product-select" name="purchase_order_item_product_id[]">${productOptions}</select>`;
+                    })
+                    .catch(error => {
+                        console.error('Error fetching selected products:', error);
                     });
-
-                    cell2.innerHTML = `<select class="input-field" name="purchase_order_item_product_id[]">${productOptions}</select>`;
-                })
-                .catch(error => {
-                    console.error('Error fetching selected products:', error);
-                });
+            }
         });
     })
     .catch(error => {
         console.error('Error fetching select data:', error);
     });
 
-  cell2.innerHTML = '<input type="text" class="input-field" name="purchase_order_item_sku[]" />';
-  cell3.innerHTML = '<input type="number" name="" class="input-field" name="purchase_order_item_qty[]" min="0" />';
-  cell4.innerHTML = '<input type="number" class="input-field" name="purchase_order_item_purchase_price[]" min="0" step="0.01" />';
-  cell5.innerHTML = '<input type="number" class="input-field" name="purchase_order_item_tax[]" min="0" step="0.01" />';
-  cell6.innerHTML = '<input type="number" class="input-field" name="subtotal[]" readonly />';
+
+  cell3.innerHTML = '<input type="text" class="input-field" name="purchase_order_item_sku[]" min="0" />';
+  cell4.innerHTML = '<input type="number" class="input-field" name="purchase_order_item_qty[]" min="0" step="0.01" />';
+  cell5.innerHTML = '<input type="number" class="input-field" name="purchase_order_item_purchase_price[]" min="0" step="0.01" />';
+  cell6.innerHTML = '<input type="number" class="input-field" name="purchase_order_item_tax[]"  />';
   cell7.innerHTML = '<button type="button" onclick="removeRow(this)">Remove</button>';
     }
   

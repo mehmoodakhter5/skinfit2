@@ -8,6 +8,7 @@ use App\Models\Sub_category_1;
 use App\Models\Supplier;
 use App\Models\Inventory;
 use App\Models\PO;
+use App\Models\Po_item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
@@ -189,7 +190,29 @@ class Process extends Controller
 
     }
     public function save_po(Request $request){
-        $PO= new PO();
+        $po= new PO();
+        $po->purchase_order_supplier_id=$request->purchase_order_supplier_id;
+        $po->purchase_order_reference=$request->purchase_order_reference;
+        $po->purchase_order_date=$request->purchase_order_date;
+        $po->purchase_order_notes=$request->purchase_order_notes;
+        $po->purchase_order_attachments='1';
+        $po->purchase_order_created_by=$request->session()->get('id');
+        $po->purchase_order_updated_by=$request->session()->get('id');
+        $po->save();
+
+        $brands=$request->purchase_order_item_brand_id;
+        for($i=0; $i<count($brands); $i++){
+            $item= new Po_item();
+            $item->purchase_order_item_brand_id=$request->purchase_order_item_brand_id[$i];
+            $item->purchase_order_item_product_id=$request->purchase_order_item_product_id[$i];
+            $item->purchase_order_item_sku=$request->purchase_order_item_sku[$i];
+            $item->purchase_order_item_qty=$request->purchase_order_item_qty[$i];
+            $item->purchase_order_item_purchase_price=$request->purchase_order_item_purchase_price[$i];
+            $item->purchase_order_item_tax=$request->purchase_order_item_tax[$i];
+            $item->purchase_order_item_po_id= $po->purchase_order_id;
+            $item->purchase_order_item_created_by=$request->session()->get('id');
+            $item->purchase_order_item_updated_by=$request->session()->get('id');
+            $item->save();
+        }
     }
-    
 }
