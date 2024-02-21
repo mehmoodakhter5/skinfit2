@@ -1,4 +1,3 @@
-@persist('head')
 
 <!DOCTYPE html>
 <html lang="en">
@@ -354,7 +353,7 @@
                         <div class="our-brands-second-wrap2">
                             <ul>
                                 @foreach($brand as $brands)
-                                <li><a href="{{url('brand/'.$brands->brand_slug)}}" wire:navigate.hover>{{$brands->brand_name}}</a></li>
+                                <li><a href="{{url('brand/'.$brands->brand_slug)}}" wire:navigate>{{$brands->brand_name}}</a></li>
                                @endforeach
                             </ul>
                         </div>
@@ -1191,4 +1190,3 @@
         </div> -->
          
     </header>
-    @endpersist

@@ -1022,4 +1022,6 @@
     </section>
     @include('front.inc.footer')
 
+
+
 </div>
