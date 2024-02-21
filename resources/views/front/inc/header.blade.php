@@ -1,3 +1,5 @@
+@persist('head')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,14 +12,14 @@
 
     @endif
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('front/assets/images/TheSkinFit-Icon.webp')}}">
-    <link rel="stylesheet" async href="{{asset('front/assets/css/bootstrap.min.css')}}"   />
-    <link rel="stylesheet" defer href="{{asset('front/assets/css/owl.carousel.css')}}" />
-    <link rel="stylesheet" defer href="{{asset('front/assets/css/owl.theme.default.css')}}"  />
-    <link rel="stylesheet" defer href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"  />
-    <link rel="stylesheet"  defer href="{{asset('front/assets/css/all.css')}}"  />
-    <link rel="stylesheet" defer href="{{asset('front/assets/css/aos.css')}}"  />
-    <link rel="stylesheet"  defer href="{{asset('front/assets/css/main.css')}}"  />
-    <link rel="stylesheet" defer href="{{asset('front/assets/css/responsive.css')}}" />
+    <link rel="stylesheet"  href="{{asset('front/assets/css/bootstrap.min.css')}}"   />
+    <link rel="stylesheet"  href="{{asset('front/assets/css/owl.carousel.css')}}" />
+    <link rel="stylesheet"  href="{{asset('front/assets/css/owl.theme.default.css')}}"  />
+    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"  />
+    <link rel="stylesheet"   href="{{asset('front/assets/css/all.css')}}"  />
+    <link rel="stylesheet"  href="{{asset('front/assets/css/aos.css')}}"  />
+    <link rel="stylesheet"   href="{{asset('front/assets/css/main.css')}}"  />
+    <link rel="stylesheet"  href="{{asset('front/assets/css/responsive.css')}}" />
     @livewireStyles
 </head>
 <body>
@@ -352,7 +354,7 @@
                         <div class="our-brands-second-wrap2">
                             <ul>
                                 @foreach($brand as $brands)
-                                <li><a href="{{url('brand/'.$brands->brand_slug)}}">{{$brands->brand_name}}</a></li>
+                                <li><a href="{{url('brand/'.$brands->brand_slug)}}" wire:navigate.hover>{{$brands->brand_name}}</a></li>
                                @endforeach
                             </ul>
                         </div>
@@ -1189,3 +1191,4 @@
         </div> -->
          
     </header>
+    @endpersist

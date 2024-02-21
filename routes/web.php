@@ -10,6 +10,7 @@ use App\Http\Controllers\Process;
 use App\Http\Controllers\Roles;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\Customer;
+use App\Http\Livewire\Brands;
 use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,7 @@ use Illuminate\Support\Facades\Auth;
 //FRONTEND VIEWS.
 Route::get('/', [Main::class,'index']);
 Route::get('/product/{slug}',[Catalog::class,'Productview']);
-Route::get('/brand/{slug}',[Catalog::class,'brandview']);
+Route::get('/brand/{slug}',[Brands::class,'render']);
 
 Route::get('/signin', function () {
     return view('front.signin');
@@ -45,6 +46,7 @@ Route::get('/contact-us',function(){
 Route::get('/tracking',function(){
     return view('front.track-your-order1');
 });
+Route::get('/category/{slug}',[Catalog::class,'category']);
 
 Route::get('/auth/facebook', function () {
     return Socialite::driver('facebook')->redirect();

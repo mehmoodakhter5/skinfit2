@@ -20,10 +20,10 @@ class Catalog extends Controller
     }
 }
 
-public function brandview($slug){
-    $singlebrand= DB::table('brand')->where('brand_slug',$slug)->first();
-    $title=$singlebrand->brand_name;
-     return view('front.category2',compact('singlebrand','title'));
+// public function brandview($slug){
+//     $singlebrand= DB::table('brand')->where('brand_slug',$slug)->first();
+//     $title=$singlebrand->brand_name;
+//      return view('front.category2',compact('singlebrand','title'));
  
-}
+// }
 }

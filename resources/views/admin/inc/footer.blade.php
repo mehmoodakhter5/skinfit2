@@ -158,10 +158,6 @@
     }
 
 
-    //  document.addEventListener('input', function(event) {
-    //    var price=document.getElementsByName('purchase_order_item_purchase_price').value;
-    //   console.log(price);
-    //  })
     document.getElementById('addRowButton').addEventListener('click', function () {
       addRow();
     });
