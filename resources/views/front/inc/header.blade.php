@@ -11,7 +11,8 @@
 
     @endif
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('front/assets/images/TheSkinFit-Icon.webp')}}">
-    <link rel="stylesheet"  href="{{asset('front/assets/css/bootstrap.min.css')}}"   />
+    <link rel="preload" href="{{asset('front/assets/css/bootstrap.min.css')}}"   as="style"  onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="{{asset('front/assets/css/bootstrap.min.css')}}"></noscript>
     <link rel="stylesheet"  href="{{asset('front/assets/css/owl.carousel.css')}}" />
     <link rel="stylesheet"  href="{{asset('front/assets/css/owl.theme.default.css')}}"  />
     <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"  />

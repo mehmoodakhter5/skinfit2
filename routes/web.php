@@ -8,6 +8,7 @@ use App\Http\Controllers\Front\Main;
 use App\Http\Controllers\Front\Catalog;
 use App\Http\Controllers\Process;
 use App\Http\Controllers\Roles;
+use App\Http\Controllers\Homepage;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\Customer;
 use App\Http\Livewire\Brands;
@@ -126,7 +127,7 @@ Route::get('admin/add-new-user', [Roles::class, 'view']);
 Route::get('admin/all-user', [Roles::class, 'index']);
 Route::get('admin/blog',[Admin::class,'blog']);
 Route::get('admin/po',[Admin::class,'po']);
-
+Route::get('admin/homepage',[Admin::class,'homepage']);
 
 
 //POST REQUESTS (POST SUBMISSION)
@@ -141,6 +142,7 @@ Route::POST('import-product',[Process::class,'product_import']);
 Route::POST('post-inventory',[Process::class,'post_inventory']);
 Route::POST('post-user',[Roles::class,'store']);
 Route::POST('save_purchase_order',[Process::class,'save_po']);
+Route::POST('update-homepage/{$id}',[Homepage::class,'store']);
 
 
 

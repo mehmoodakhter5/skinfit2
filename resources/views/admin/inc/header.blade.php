@@ -459,6 +459,13 @@
       <li class="nav-item"><a class="nav-link" href="{{url('admin/brands')}}">Brands</a></li>
     </ul>
   </div>
+  <li class="nav-item">
+    <a class="nav-link" href="{{url('admin/homepage')}}" aria-expanded="false">
+      <i class="menu-icon mdi mdi-home-outline"></i>
+      <span class="menu-title">Homepage</span>
+    </a>
+ 
+  </li>
 </li>
  @can('all')
     <li class="nav-item nav-category">pages</li>

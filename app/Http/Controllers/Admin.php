@@ -163,30 +163,36 @@ public function inventroy(){
         return view('admin.inventory');
     }
 }
-public function po(){
-    $user=Auth::user();
-    if($user){
-        return view('admin.po');
-    }else{
-        return redirect('admin');
+    public function po(){
+        $user=Auth::user();
+        if($user){
+            return view('admin.po');
+        }else{
+            return redirect('admin');
+        }
     }
-}
-public function add_inventroy(){
-    $user=Auth::user();
-    if($user){
-        $brand=Brand::all();
-        $supplier=Supplier::all();
-        return view('admin.add-inventory',['brand'=>$brand,'supplier'=>$supplier]);
+    public function add_inventroy(){
+        $user=Auth::user();
+        if($user){
+            $brand=Brand::all();
+            $supplier=Supplier::all();
+            return view('admin.add-inventory',['brand'=>$brand,'supplier'=>$supplier]);
+        }
     }
-}
 
-public function blog(){
-    $user = Auth::user();
+   public function blog(){
+        $user = Auth::user();
+        if($user){
+            return view('admin.blog');
+        }
+   }
+public function homepage(){
+    $user= Auth::user();
     if($user){
-        return view('admin.blog');
+        return view('admin.homnepage');
+
     }
 }
-
   
 
 
