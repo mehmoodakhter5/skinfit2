@@ -6,10 +6,10 @@
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <div class="index-banner-wrap-text">
                         <div class="index-banner-wrap-heading">
-                            <h1>Your all desires in one place Prettier Tone</h1>
+                            <h1>{{$home->homepage_section_one_heading_one}}</h1>
                         </div>
                         <div class="index-banner-wrap-paragraph">
-                            <p>You'll find a wide range of high-quality cosmetics, skincare, haircare, and perfume brands at <a href="#!">The SkinFit, the online cosmetic store.</a></p>
+                            <p>{{$home->homepage_section_one_text_one}}<a href="{{$home->homepage_section_one_text_one_link}}">{{$home->homepage_section_one_text_one_link_text}}</a></p>
                         </div>
                         <div class="index-banner-wrap-exbtn">
                             <a href="#!">Explore More</a>
@@ -50,7 +50,7 @@
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <div class="index-timer-wrap-desktop-flex">
                         <div class="index-timer-wrap-text">
-                            <p>Affordable shopping during the cool hours! <span>10 % extra discount</span></p>
+                            <p>{{$home->homepage_section_one_image_text}}<span>{{$home->homepage_section_one_image_text_span}}</span></p>
                         </div>
                         <div class="index-timer-wrap-timer">
 
@@ -126,8 +126,8 @@
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <div class="index-fifth-wrap-text">
-                        <h6>Why TheSkinFit?</h6>
-                        <p>We offer each customer a unique and exciting selection of products by combining the best in beauty with new ideas from around the world. </p>
+                        <h6>{{$home->homepage_section_four_heading}}</h6>
+                        <p>{{$home->homepage_section_four_text}}</p>
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
@@ -139,8 +139,8 @@
                                         <img src="{{asset('front/assets/images/brush-icon.png')}}" loading="lazy" alt="">
                                     </div>
                                     <div class="index-fifth-wrap-box-text">
-                                        <h6>Why SkinFit?</h6>
-                                        <p>Lorem Ipsum is a dummy text</p>
+                                        <h6>{{$home->homepage_section_four_box_one_heading}}</h6>
+                                        <p>{{$home->homepage_section_four_box_one_text}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -150,8 +150,8 @@
                                         <img src="{{asset('front/assets/images/brush-icon.png')}}" loading="lazy" alt="">
                                     </div>
                                     <div class="index-fifth-wrap-box-text">
-                                        <h6>Why SkinFit?</h6>
-                                        <p>Lorem Ipsum is a dummy text</p>
+                                        <h6>{{$home->homepage_section_four_box_two_heading}}</h6>
+                                        <p>{{$home->homepage_section_four_box_two_text}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -161,8 +161,8 @@
                                         <img src="{{asset('front/assets/images/brush-icon.png')}}" loading="lazy" alt="">
                                     </div>
                                     <div class="index-fifth-wrap-box-text">
-                                        <h6>Why SkinFit?</h6>
-                                        <p>Lorem Ipsum is a dummy text</p>
+                                        <h6>{{$home->homepage_section_four_box_three_heading}}</h6>
+                                        <p>{{$home->homepage_section_four_box_three_text}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -172,8 +172,8 @@
                                         <img src="{{asset('front/assets/images/brush-icon.png')}}"  loading="lazy" alt="">
                                     </div>
                                     <div class="index-fifth-wrap-box-text">
-                                        <h6>Why SkinFit?</h6>
-                                        <p>Lorem Ipsum is a dummy text</p>
+                                        <h6>{{$home->homepage_section_four_box_four_heading}}</h6>
+                                        <p>{{$home->homepage_section_four_box_four_text}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -277,8 +277,8 @@
                     <div class="index-seventh-wrap-ct-img1">
                         <a href="#!"><img src="{{asset('front/assets/images/cat-h18.jpg')}}" alt="" loading="lazy" class="img-fluid"></a>
                         <div class="index-seventh-wrap-ct-img-overlay">
-                            <h6>Lorem Ipsum is <span>simply dummy text</span></h6>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <span>Lorem Ipsum has been the</span> industry's standard dummy text.</p>
+                            <h6>{{$home->homepage_section_five_image_three_heading}}<span>{{$home->homepage_section_five_image_three_heading_span}}</span></h6>
+                            <p>{{$home->homepage_section_five_image_three_text}} <span>{{$home->homepage_section_five_image_three_span_text}}</span></p>
                         </div>
                     </div>
                 </div>
@@ -291,12 +291,12 @@
             <div class="row mb-5">
                 <div class="col-8 col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4">
                     <div class="index-eight-wrap-heading">
-                        <h6>Feature Products</h6>
+                        <h6> {{$home->homepage_section_six_heading}} </h6>
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 d-index-none">
                     <div class="index-eight-wrap-paragraph">
-                        <p>Our beauty experts selected an unbeatable collection for trend followers. TheSkinFit's wide skincare and cosmetics collection was created using high-performance products and rigorous trend research. </p>
+                        <p> {{$home->homepage_section_six_text}} </p>
                     </div>
                 </div>
                 <div class="col-4 col-sm-12 col-md-12 col-lg-2 col-xl-2 col-xxl-2">
@@ -386,7 +386,7 @@
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <div class="index-tenth-wrap-text">
-                        <h6>Best Selling Categories</h6>
+                        <h6> {{$home->homepage_section_eight_heading}} </h6>
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
@@ -443,7 +443,7 @@
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <div class="index-tenth-wrap-paragraph">
-                        <p>We've handpicked the finest cosmetics, kits, wellness products, perfumes, skincare products, and hair care products to offer online for you.</p>
+                        <p> {{$home->homepage_section_eight_text}} </p>
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
@@ -498,12 +498,12 @@
                     <div class="row">
                         <div class="col-8 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
                             <div class="index-twelft-wrap-heading">
-                                <h6>Restock Products</h6>
+                                <h6> {{$home->homepage_section_tenth_heading}}</h6>
                             </div>
                         </div>
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 d-index-none">
                             <div class="index-twelft-wrap-paragraph">
-                                <p>Take your hands on the things you love at a steep discount; we've just restocked. </p>
+                                <p> {{$home->homepage_section_tenth_text}} </p>
                             </div>
                         </div>
                         <div class="col-4 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
@@ -518,132 +518,6 @@
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <div class="swiper desktop-product-slider">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="index-product-desktop-main-wrap">
-                                    <div class="index-product-desktop-img">
-                                        <img src="{{asset('front/assets/images/hp-1.jpg')}}" alt="" class="img-fluid">
-                                    </div>
-                                    <div class="index-product-desktop-text">
-                                        <h6>Maybelline Super Stay Full Coverage Liquid...</h6>
-                                    </div>
-                                    <div class="index-product-desktop-rating">
-                                        <div class="product-rating-star">
-                                            <ul>
-                                                <li>
-                                                    <i class="fa-solid fa-star"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="fa-solid fa-star"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="fa-solid fa-star"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="fa-solid fa-star"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="fa-solid fa-star"></i>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="product-rating-number">
-                                            <h6>(4.5)</h6>
-                                        </div>
-                                    </div>
-                                    <div class="index-product-desktop-price">
-                                        <div class="product-cut-price">
-                                            <h6>Rs 50000</h6>
-                                        </div>
-                                        <div class="product-original-price">
-                                            <h6>Rs 35000</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="index-product-desktop-main-wrap">
-                                    <div class="index-product-desktop-img">
-                                        <img src="{{asset('front/assets/images/hp-1.jpg')}}" alt="" class="img-fluid">
-                                    </div>
-                                    <div class="index-product-desktop-text">
-                                        <h6>Maybelline Super Stay Full Coverage Liquid...</h6>
-                                    </div>
-                                    <div class="index-product-desktop-rating">
-                                        <div class="product-rating-star">
-                                            <ul>
-                                                <li>
-                                                    <i class="fa-solid fa-star"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="fa-solid fa-star"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="fa-solid fa-star"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="fa-solid fa-star"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="fa-solid fa-star"></i>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="product-rating-number">
-                                            <h6>(4.5)</h6>
-                                        </div>
-                                    </div>
-                                    <div class="index-product-desktop-price">
-                                        <div class="product-cut-price">
-                                            <h6>Rs 50000</h6>
-                                        </div>
-                                        <div class="product-original-price">
-                                            <h6>Rs 35000</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="index-product-desktop-main-wrap">
-                                    <div class="index-product-desktop-img">
-                                        <img src="{{asset('front/assets/images/hp-1.jpg')}}" alt="" class="img-fluid">
-                                    </div>
-                                    <div class="index-product-desktop-text">
-                                        <h6>Maybelline Super Stay Full Coverage Liquid...</h6>
-                                    </div>
-                                    <div class="index-product-desktop-rating">
-                                        <div class="product-rating-star">
-                                            <ul>
-                                                <li>
-                                                    <i class="fa-solid fa-star"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="fa-solid fa-star"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="fa-solid fa-star"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="fa-solid fa-star"></i>
-                                                </li>
-                                                <li>
-                                                    <i class="fa-solid fa-star"></i>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="product-rating-number">
-                                            <h6>(4.5)</h6>
-                                        </div>
-                                    </div>
-                                    <div class="index-product-desktop-price">
-                                        <div class="product-cut-price">
-                                            <h6>Rs 50000</h6>
-                                        </div>
-                                        <div class="product-original-price">
-                                            <h6>Rs 35000</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="swiper-slide">
                                 <div class="index-product-desktop-main-wrap">
                                     <div class="index-product-desktop-img">
@@ -933,7 +807,7 @@
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <div class="index-thirteen-wrap-btext">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <span>Lorem Ipsum has been the</span> industry's standard dummy text ever since the 1500s,</p>
+                        <p>{{$home->homepage_section_eleven_text}} <span>Static</span></p>
                     </div>
                 </div>
             </div>
@@ -993,12 +867,12 @@
                     <div class="row">
                         <div class="col-6 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
                             <div class="index-fifteen-wrap-heading">
-                                <h6>Latest News</h6>
+                                <h6>{{$home->homepage_section_thirteen_heading}}</h6>
                             </div>
                         </div>
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 d-index-none">
                             <div class="index-fifteen-wrap-paragraph">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                                <p> {{$home->homepage_section_thirteen_text}} </p>
                             </div>
                         </div>
                         <div class="col-6 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
