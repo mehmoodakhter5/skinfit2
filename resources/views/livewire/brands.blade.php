@@ -31,7 +31,7 @@
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <div class="category-second-wrap-main">
                         <div class="category-second-wrap-img">
-                            <img src="assets/front/images/categorybg1.png" alt="" class="img-fluid">
+                            <img src="{{asset('front/assets/images/categorybg1.png')}}" alt="" class="img-fluid">
                         </div>
                         <div class="category-second-wrap-text">
                             <h6>Lorem Ipsum simply dummy text</h6>
@@ -50,7 +50,7 @@
                     <div class="index-tenth-wrap-flex">
                         <div class="index-tenth-wrap-box">
                             <div class="index-tenth-wrap-box-img">
-                                <img src="assets/front/images/cat-h15.png" alt="" class="img-fluid">
+                                <img src="{{asset('front/assets/images/cat-h15.png')}}" alt="" class="img-fluid">
                             </div>
                             <div class="index-tenth-wrap-box-text">
                                 <h6>Makeup</h6>
@@ -58,7 +58,7 @@
                         </div>
                         <div class="index-tenth-wrap-box">
                             <div class="index-tenth-wrap-box-img">
-                                <img src="assets/front/images/cat-h15.png" alt="" class="img-fluid">
+                                <img src="{{asset('front/assets/images/cat-h15.png')}}" alt="" class="img-fluid">
                             </div>
                             <div class="index-tenth-wrap-box-text">
                                 <h6>Lip Care</h6>
@@ -66,7 +66,7 @@
                         </div>
                         <div class="index-tenth-wrap-box">
                             <div class="index-tenth-wrap-box-img">
-                                <img src="assets/front/images/cat-h15.png" alt="" class="img-fluid">
+                                <img src="{{asset('front/assets/images/cat-h15.png')}}" alt="" class="img-fluid">
                             </div>
                             <div class="index-tenth-wrap-box-text">
                                 <h6>Fragrance</h6>
@@ -74,7 +74,7 @@
                         </div>
                         <div class="index-tenth-wrap-box">
                             <div class="index-tenth-wrap-box-img">
-                                <img src="assets/front/images/cat-h15.png" alt="" class="img-fluid">
+                                <img src="{{asset('front/assets/images/cat-h15.png')}}" alt="" class="img-fluid">
                             </div>
                             <div class="index-tenth-wrap-box-text">
                                 <h6>Makeup</h6>
@@ -114,7 +114,7 @@
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <div class="category3-third-wrap-main">
                         <div class="category3-third-wrap-img">
-                            <img src="assets/front/images/category2bg1.png" alt="" class="img-fluid">
+                            <img src="{{asset('front/assets/images/category2bg1.png')}}" alt="" class="img-fluid">
                         </div>
                         <div class="category3-third-wrap-text">
                             <p>Lorem Ipsum is simply dummy text.</p>
@@ -155,7 +155,7 @@
                         <div class="item">
                             <div class="index-product-desktop-main-wrap">
                                 <div class="index-product-desktop-img">
-                                    <img src="assets/front/images/hp-1.jpg" alt="" class="img-fluid">
+                                    <img src="{{asset('front/assets/images/hp-1.jpg')}}" alt="" class="img-fluid">
                                 </div>
                                 <div class="index-product-desktop-text">
                                     <h6>Maybelline Super Stay Full Coverage Liquid...</h6>
@@ -281,7 +281,7 @@
                         <div class="item">
                             <div class="index-product-desktop-main-wrap">
                                 <div class="index-product-desktop-img">
-                                    <img src="assets/front/images/hp-1.jpg" alt="" class="img-fluid">
+                                    <img src="{{asset('front/assets/images/hp-1.jpg')}}" alt="" class="img-fluid">
                                 </div>
                                 <div class="index-product-desktop-text">
                                     <h6>Maybelline Super Stay Full Coverage Liquid...</h6>
@@ -323,7 +323,7 @@
                         <div class="item">
                             <div class="index-product-desktop-main-wrap">
                                 <div class="index-product-desktop-img">
-                                    <img src="assets/front/images/hp-1.jpg" alt="" class="img-fluid">
+                                    <img src="{{asset('front/assets/images/hp-1.jpg')}}" alt="" class="img-fluid">
                                 </div>
                                 <div class="index-product-desktop-text">
                                     <h6>Maybelline Super Stay Full Coverage Liquid...</h6>
@@ -374,7 +374,7 @@
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <div class="category-fourth-wrap-main">
                         <div class="category-fourth-wrap-img">
-                            <img src="assets/front/images/categorybg2.png" alt="" class="img-fluid">
+                            <img src="{{asset('front/assets/images/categorybg2.png')}}" alt="" class="img-fluid">
                         </div>
                         <div class="category-fourth-wrap-text">
                             <p>Lorem Ipsum is simply <a href="#!">dummy text.</a></p>
@@ -392,10 +392,10 @@
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <div class="index-seventh-wrap-desktop-flex">
                         <div class="index-seventh-wrap-ct-img">
-                            <a href="#!"><img src="assets/front/images/cat-h12.jpg" alt="" class="img-fluid"></a>
+                            <a href="#!"><img src="{{asset('front/assets/images/cat-h12.jpg')}}" alt="" class="img-fluid"></a>
                         </div>
                         <div class="index-seventh-wrap-ct-img">
-                            <a href="#!"><img src="assets/front/images/cat-h13.jpg" alt="" class="img-fluid"></a>
+                            <a href="#!"><img src="{{asset('front/assets/images/cat-h13.jpg')}}" alt="" class="img-fluid"></a>
                         </div>
                     </div>
                 </div>
@@ -409,7 +409,7 @@
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <div class="category2-third-main-wrap">
                         <div class="category2-third-main-wrap-img">
-                            <img src="assets/front/images/category2bg2.png" alt="" class="img-fluid">
+                            <img src={{asset('front/assets/images/category2bg2.png')}}" alt="" class="img-fluid">
                         </div>
                         <div class="category2-third-main-wrap-text">
                             <p>Lorem Ipsum is simply <span>dummy text.</span></p>
@@ -466,7 +466,7 @@
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="category2-fifth-wrap-main">
                         <div class="category2-fifth-wrap-main-img">
-                            <img src="assets/front/images/category2side1.png" alt="" class="img-fluid">
+                            <img src="{{asset('front/assets/images/category2side1.png')}}" alt="" class="img-fluid">
                         </div>
                         <div class="category2-fifth-wrap-main-text">
                             <h6>Lorem Ipsum text.</h6>

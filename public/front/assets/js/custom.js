@@ -183,29 +183,6 @@ function getVals(){
 
 
 
-$(document).ready(function () {
-  var div1 = $("#cat_panel_2");
-  var div2 = $("#cat_panel_1");
-  var navItem1 = $(".nav_item_1");
-  var navItem2List = $(".nav_item_2");
-
-  navItem1.mouseover(function () {
-      div1.addClass("show");
-      div2.removeClass("show");
-  });
-
-  navItem2List.mouseover(function () {
-      div1.removeClass("show");
-      div2.addClass("show");
-  });
-
-  $("body").mouseover(function (event) {
-      if (!$(event.target).closest(".menu-main-wrap").length) {
-          div1.removeClass("show");
-          div2.removeClass("show");
-      }
-  });
-});
 
 
 // MOBILE MENU TOGGLE START
