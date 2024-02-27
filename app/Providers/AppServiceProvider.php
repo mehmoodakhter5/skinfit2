@@ -27,7 +27,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $Brand=DB::table('brand')->where('brand_status','true')->limit(50)->orderBy('brand_id')->get();
-        View::share('brand', $Brand);
+        $brand=DB::table('brand')->where('brand_status','true')->limit(50)->orderBy('brand_id')->get();
+        $category= DB::table('category')->where('category_status','true')->limit(6)->orderBy('category_id')->get()->random(6);
+        View()->share(compact('brand','category'));
     }
 }

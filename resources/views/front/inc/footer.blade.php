@@ -377,7 +377,7 @@
     <script   src="{{asset('front/assets/js/aos.js')}}" ></script>
     <script   src="{{asset('front/assets/js/custom.js')}}" ></script>
 <script>
-    $(document).ready(function () {
+  $(document).ready(function () {
   var div1 = $("#cat_panel_2");
   var div2 = $("#cat_panel_1");
   var navItem1 = $(".nav_item_1");
@@ -389,8 +389,29 @@
   });
 
   navItem2List.mouseover(function () {
-      div1.removeClass("show");
-      div2.addClass("show");
+      var categoryId= this.id;
+     
+      $.ajax({
+        url: "{{url('api/sub-category')}}",
+        data: { id: categoryId },
+        success: function(response) {
+            data = response;
+            console.log(data.sub_category_id);
+                    var html = '';
+                    var i;
+                    for (i = 0; i < data; i++) {
+                       html+='<li>'+data[i].sub_category_name+'</li>';
+                    }
+                    $('.subcategordata').html(html);
+                     div1.removeClass("show");
+                     div2.addClass("show");
+           
+           
+        },
+        error: function(xhr, status, error) {
+            console.error(status, error);
+        }
+    });
   });
 
   $("body").mouseover(function (event) {

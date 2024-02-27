@@ -86,42 +86,15 @@
                                                 <i class="fa-solid fa-chevron-down"></i>
                                             </a>
                                         </li>
+                                        @foreach($category as $cat)
                                         <li>
-                                            <a href="#!" class="nav_item_2">
-                                                Makeup
+                                            <a href="#!" class="nav_item_2" id='{{$cat->category_id}}'>
+                                                {{$cat->category_name}}
                                                 <i class="fa-solid fa-chevron-down"></i>
                                             </a>
                                         </li>
-                                        <li>
-                                            <a href="#!" class="nav_item_2">
-                                                Skincare
-                                                <i class="fa-solid fa-chevron-down"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#!" class="nav_item_2">
-                                                Haircare
-                                                <i class="fa-solid fa-chevron-down"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#!" class="nav_item_2">
-                                                Fragrance
-                                                <i class="fa-solid fa-chevron-down"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#!" class="nav_item_2">
-                                                Electronics
-                                                <i class="fa-solid fa-chevron-down"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#!" class="nav_item_2">
-                                                Personal Care
-                                                <i class="fa-solid fa-chevron-down"></i>
-                                            </a>
-                                        </li>
+                                        @endforeach
+                            
                                         <li>
                                             <a href="#!" class="nav_item_2">
                                                 Discounts
@@ -141,19 +114,8 @@
             <div class="megamenu-dropdown-desktop" id="cat_panel_1">
                 <div class="megamenu-dropdown-desktop-main">
                     <div class="megamenu-dropdown-flex1">
-                        <ul>
-                            <li>
-                                Eyes
-                            </li>
-                            <li>
-                                Lips
-                            </li>
-                            <li>
-                                Face
-                            </li>
-                            <li>
-                                Nail
-                            </li>
+                        <ul class='subcategordata'>
+                            
                         </ul>
                     </div>
                     <div class="megamenu-dropdown-flex2">
@@ -180,6 +142,9 @@
                                 <li>
                                     <a href="#!">Eye Makeup Remover</a>
                                 </li>
+                                <li>
+                                    <a href="#!">Eye Palette</a>
+                                </li> 
                                 <li>
                                     <a href="#!">Eye Palette</a>
                                 </li> 

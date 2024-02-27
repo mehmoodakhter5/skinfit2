@@ -19,11 +19,11 @@ class Catalog extends Controller
         return redirect('/');
     }
 }
+    public function subcategory(){
+        $id= $_GET['id'];
+        $product=  DB::table('sub_category')->where('category_id',$id)->limit(6)->offset(0)->get();
+        return json_encode($product);
 
-// public function brandview($slug){
-//     $singlebrand= DB::table('brand')->where('brand_slug',$slug)->first();
-//     $title=$singlebrand->brand_name;
-//      return view('front.category2',compact('singlebrand','title'));
- 
-// }
+    }
+
 }
