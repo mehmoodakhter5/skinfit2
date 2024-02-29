@@ -12,6 +12,7 @@ use App\Http\Controllers\Homepage;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\Customer;
 use App\Http\Livewire\Brands;
+use App\Models\Category; 
 use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
@@ -47,7 +48,9 @@ Route::get('/contact-us',function(){
 Route::get('/tracking',function(){
     return view('front.track-your-order1');
 });
-Route::get('/category/{slug}',[Catalog::class,'category']);
+$categoryNames = Category::pluck('category_slug')->implode('|');
+
+Route::get('/{slug}',[Main::class,'category'])->where('category_slug',$categoryNames);
 
 Route::get('/auth/facebook', function () {
     return Socialite::driver('facebook')->redirect();

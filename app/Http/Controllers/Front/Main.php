@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+
+use App\Models\Category;
+
 class Main extends Controller
 {
     public function index(){
@@ -21,6 +24,13 @@ class Main extends Controller
     public function checkout(){
         $checkout=\Cart::getContent();
         return view('front.checkout',['checkout'=>$checkout]);
+    }
+
+
+    public function category($slug){
+        $category= db::table('category')->where('category_slug',$slug)->first();
+        $title=$category->category_name;
+        return view('front.product_listing',['maincategory'=>$category,'title'=>$title]);
     }
    
 }
