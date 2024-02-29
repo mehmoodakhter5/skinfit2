@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @if(isset($title))
-    <title>{{$title}} : TheSkinFit</title>
+    <title>{{$title}} - TheSkinFit</title>
     @else
     <title>TheSkinFit</title>
 
@@ -15,7 +15,7 @@
     <noscript><link rel="stylesheet" href="{{asset('front/assets/css/bootstrap.min.css')}}"></noscript>
     <link rel="stylesheet"  href="{{asset('front/assets/css/owl.carousel.css')}}" />
     <link rel="stylesheet"  href="{{asset('front/assets/css/owl.theme.default.css')}}"  />
-    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"  />
+    <link rel="stylesheet"  href="//cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"  />
     <link rel="stylesheet"   href="{{asset('front/assets/css/all.css')}}"  />
     <link rel="stylesheet"  href="{{asset('front/assets/css/aos.css')}}"  />
     <link rel="stylesheet"   href="{{asset('front/assets/css/main.css')}}"  />
