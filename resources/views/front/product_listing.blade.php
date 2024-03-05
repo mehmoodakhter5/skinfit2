@@ -31,108 +31,26 @@
                         <div id="newcollapseOne" class="accordion-collapse collapse show" aria-labelledby="newheadingOne" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <div class="accordion" id="accordionExample1">
+                                    @foreach($sub as $subcat)
                                     <div class="accordion-item">
                                         <h2 class="accordion-header">
                                         <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                             <div class="checkout-first-wrap-checkbox">
                                                 <div class="form-group">
-                                                    <input type="checkbox" id="html">
-                                                    <label for="html">Moisturizer</label>
+                                                    <input type="checkbox"  class="subcategorycheck cat-id" data-id='{{$subcat->sub_category_id}}' name='sub-category' id="{{$subcat->sub_category_name}}">
+                                                    <label for="{{$subcat->sub_category_name}}">{{$subcat->sub_category_name}}</label>
                                                 </div>
                                             </div>
                                         </button>
                                         </h2>
                                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample1">
                                             <div class="accordion-body">
-                                                <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                                {{$subcat->sub_category_text}}
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingTwo">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            <div class="checkout-first-wrap-checkbox">
-                                                <div class="form-group">
-                                                    <input type="checkbox" id="four">
-                                                    <label for="four">Cleansers</label>
-                                                </div>
-                                            </div>
-                                        </button>
-                                        </h2>
-                                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample1">
-                                        <div class="accordion-body">
-                                            <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                        </div>
-                                        </div>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingThree">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                            <div class="checkout-first-wrap-checkbox">
-                                                <div class="form-group">
-                                                    <input type="checkbox" id="five">
-                                                    <label for="five">Facial Treatments</label>
-                                                </div>
-                                            </div>
-                                        </button>
-                                        </h2>
-                                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample1">
-                                        <div class="accordion-body">
-                                            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                        </div>
-                                        </div>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingThree">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
-                                            <div class="checkout-first-wrap-checkbox">
-                                                <div class="form-group">
-                                                    <input type="checkbox" id="six">
-                                                    <label for="six">Sun Protection</label>
-                                                </div>
-                                            </div>
-                                        </button>
-                                        </h2>
-                                        <div id="collapsefour" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample1">
-                                        <div class="accordion-body">
-                                            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                        </div>
-                                        </div>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingThree">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefive" aria-expanded="false" aria-controls="collapsefive">
-                                            <div class="checkout-first-wrap-checkbox">
-                                                <div class="form-group">
-                                                    <input type="checkbox" id="seveen">
-                                                    <label for="seveen">Active Ingredients</label>
-                                                </div>
-                                            </div>
-                                        </button>
-                                        </h2>
-                                        <div id="collapsefive" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample1">
-                                        <div class="accordion-body">
-                                            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                        </div>
-                                        </div>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingThree">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsesix" aria-expanded="false" aria-controls="collapsesix">
-                                            <div class="checkout-first-wrap-checkbox">
-                                                <div class="form-group">
-                                                    <input type="checkbox" id="eight">
-                                                    <label for="eight">Hair Vitamins and Supplements</label>
-                                                </div>
-                                            </div>
-                                        </button>
-                                        </h2>
-                                        <div id="collapsesix" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample1">
-                                        <div class="accordion-body">
-                                            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                        </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
+                                  
                                 </div>
                             </div>
                         </div>
@@ -221,7 +139,113 @@
                         </div>
                     </div>
                 </div>
-         <livewire:main-product-listing :slug="$maincategory->category_id"/>
+        @if($feature)
+        <div class="swiper product_detail_slider">
+            <div class="swiper-wrapper">
+                @foreach($feature as $fea)
+                <div class="swiper-slide">
+                    <div class="index-product-desktop-main-wrap">
+                        <div class="index-product-desktop-img">
+                            <img src="https://imagedelivery.net/V8gK1_2VVoan1sk2mbDlgA/{{$fea->product_image_cloud}}/public" alt="" class="img-fluid">
+                        </div>
+                        <div class="index-product-desktop-text">
+                            <h6>{{$fea->product_name}}</h6>
+                        </div>
+                        <div class="index-product-desktop-rating">
+                            <div class="product-rating-star">
+                                <ul>
+                                    <li>
+                                        <i class="fa-solid fa-star"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-star"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-star"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-star"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-star"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="product-rating-number">
+                                <h6>(4.5)</h6>
+                            </div>
+                        </div>
+                        <div class="index-product-desktop-price">
+                            <div class="product-cut-price">
+                                <h6>Rs 50000</h6>
+                            </div>
+                            <div class="product-original-price">
+                                <h6>Rs 35000</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @foreach
+               
+            </div>
+        </div>
+@endif
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                <div class="product-listing-text1">
+                    <h6>All Products</h6>
+                </div>
+            </div>
+        </div>
+        <div class="swiper product_detail_slider">
+            <div class="swiper-wrapper">
+                @foreach($product as $products)
+                <div class="swiper-slide mainslide">
+                    <div class="index-product-desktop-main-wrap">
+                        <div class="index-product-desktop-img">
+                            <img src="https://imagedelivery.net/V8gK1_2VVoan1sk2mbDlgA/{{$products->product_image_cloud}}/public" alt="" class="img-fluid" loading='lazy'>
+                        </div>
+                        <div class="index-product-desktop-text">
+                            <h6>{{$products->product_name}}</h6>
+                        </div>
+                        <div class="index-product-desktop-rating">
+                            <div class="product-rating-star">
+                                <ul>
+                                    <li>
+                                        <i class="fa-solid fa-star"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-star"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-star"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-star"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-star"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="product-rating-number">
+                                <h6>(4.5)</h6>
+                            </div>
+                        </div>
+                        <div class="index-product-desktop-price">
+                            <div class="product-cut-price">
+                                <h6>Rs 50000</h6>
+                            </div>
+                            <div class="product-original-price">
+                                <h6>Rs 35000</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+              
+            </div>
+        </div>
         </div>
 
         </div>

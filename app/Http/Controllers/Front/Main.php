@@ -27,10 +27,6 @@ class Main extends Controller
     }
 
 
-    public function category($slug){
-        $category= db::table('category')->where('category_slug',$slug)->first();
-        $title=$category->category_name;
-        return view('front.product_listing',['maincategory'=>$category,'title'=>$title]);
-    }
+   
    
 }

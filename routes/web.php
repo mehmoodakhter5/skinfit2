@@ -50,7 +50,7 @@ Route::get('/tracking',function(){
 });
 $categoryNames = Category::pluck('category_slug')->implode('|');
 
-Route::get('/{slug}',[Main::class,'category'])->where('category_slug',$categoryNames);
+Route::get('/{slug}',[Catalog::class,'category'])->where('category_slug',$categoryNames);
 
 Route::get('/auth/facebook', function () {
     return Socialite::driver('facebook')->redirect();

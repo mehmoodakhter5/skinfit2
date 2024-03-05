@@ -20,3 +20,5 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('sub-category/', [Catalog::class,'subcategory']);
+Route::get('filterproduct/', [Catalog::class,'main_listing']);
+

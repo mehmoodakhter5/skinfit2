@@ -25,5 +25,21 @@ class Catalog extends Controller
         return json_encode($product);
 
     }
+    public function category($slug){
+        $category= db::table('category')->where('category_slug',$slug)->first();
+        $sub=db::table('sub_category')->where('category_id',$category->category_id)->get();
+        $product= db::table('product')->where('product_category_id','like',$category->category_id)->paginate(30);
+        $feature= db::table('product')->where('product_category_id','like',$category->category_id)->where('product_featured','true')->limit(9);
+        $title=$category->category_name;
+        return view('front.product_listing',['feature'=>$feature,'maincategory'=>$category,'title'=>$title,'sub'=>$sub,'product'=>$product]);
+    }
+    public function main_listing(){
+        $product = array();
+
+        $id= $_GET['cat_id'];
+        $product=  DB::table('product')->where('product_sub_category_id',$id)->limit(10)->get();
+        return $product;
+
+    }
 
 }

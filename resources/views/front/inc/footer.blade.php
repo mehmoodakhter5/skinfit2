@@ -423,6 +423,74 @@
 });
 
 </script>
+<script>
+$(document).ready(function() {
+    var form = document.getElementById("category");
+    var subcategoryCheckboxes = document.getElementsByClassName("subcategorycheck");
+
+    for (var i = 0; i < subcategoryCheckboxes.length; i++) {
+        
+        subcategoryCheckboxes[i].addEventListener("click", function() {
+            if(this.checked){
+            var cat_id = $(this).attr('data-id');
+            var url = "{{url('api/filterproduct')}}"; 
+            var data = {cat_id: cat_id };
+            var productsHTML='';
+            $.ajax({
+                url: url,
+                method: 'GET',
+                data: data,
+                success: function(data) {
+                    console.log(data);
+                    data.forEach(function(product) {
+                var productHTML = `
+                <div class="swiper-slide mainslide">
+                    <div class="index-product-desktop-main-wrap">
+                        <div class="index-product-desktop-img">
+                            <img src="https://imagedelivery.net/V8gK1_2VVoan1sk2mbDlgA/${product.product_image_cloud}/public" alt="" class="img-fluid" loading='lazy'>
+                        </div>
+                        <div class="index-product-desktop-text">
+                            <h6>${product.product_name}</h6>
+                        </div>
+                        <div class="index-product-desktop-rating">
+                            <div class="product-rating-star">
+                                <ul>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                </ul>
+                            </div>
+                            <div class="product-rating-number">
+                                <h6>(4.5)</h6>
+                            </div>
+                        </div>
+                        <div class="index-product-desktop-price">
+                            <div class="product-cut-price">
+                                <h6>Rs 50000</h6>
+                            </div>
+                            <div class="product-original-price">
+                                <h6>Rs 35000</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+            productsHTML += productHTML;
+        });
+        $(".mainslide").html(productsHTML);
+    },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                }
+            });
+        }
+        });
+    }
+});
+
+</script>
     <script>
         AOS.init();
     </script>
