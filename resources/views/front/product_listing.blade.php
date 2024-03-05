@@ -139,7 +139,7 @@
                         </div>
                     </div>
                 </div>
-        @if($feature)
+        @if(isset($feature->product_name) && !empty($feature->product_name))
         <div class="swiper product_detail_slider">
             <div class="swiper-wrapper">
                 @foreach($feature as $fea)
@@ -185,11 +185,11 @@
                         </div>
                     </div>
                 </div>
-                @foreach
+                @endforeach
                
             </div>
         </div>
-@endif
+        @endif
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                 <div class="product-listing-text1">
