@@ -37,26 +37,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 col-xxxl-5">
-                        <div class="header-desktop-search-main">
-                            <div class="header-desktop-search-icon">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </div>
-                            <div class="header-desktop-search-icon-feild">
-                                <input type="text" placeholder="Search your Favorite Products">
-                            </div>
-                            <div class="header-desktop-search-icon-categroies">
-                                <select>
-                                    <option value="">All Categories</option>
-                                    <option value="">Makeup</option>
-                                    <option value="">Skincare</option>
-                                    <option value="">Haircare</option>
-                                    <option value="">Fragrance</option>
-                                    <option value="">Fashion</option>
-                                    <option value="">Mini</option>
-                                    <option value="">Discounts</option>
-                                </select>
-                            </div>
-                        </div>
+                      <livewire:search>
                     </div>
                     <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxxl-4">
                         <div class="header-desktop-flex">

@@ -196,6 +196,7 @@
                     <h6>All Products</h6>
                 </div>
             </div>
+            
         </div>
         <div class="swiper product_detail_slider">
             <div class="swiper-wrapper">
