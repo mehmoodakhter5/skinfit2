@@ -11,21 +11,29 @@
                         <h6>Create your TheSkinFit account</h6>
                     </div>
                 </div>
+                @if ($errors->has('auth'))
+                <div class="alert alert-danger" role="alert">
+                    {{ $errors->first('auth') }}
+                  </div>
+
+            @endif
+                <form action="{{url('login')}}" method="post">
+                    @csrf
                 <div class="signup-first-wrapmain-feild">
                     <div class="signup-first-wrapmain-feild1">
-                        <input type="text" placeholder="Email Address">
+                        <input type="text" name='email' placeholder="Email Address">
                     </div>
                     <div class="signup-first-wrapmain-feild1">
                         <div class="feild1-show">
                             <h6>Show</h6>
                         </div>
-                        <input type="text" placeholder="Password">
+                        <input type="text" name='password' placeholder="Password">
                     </div>
                     <div class="signup-first-wrapmain-checkbox">
                         <h6>By Creating Your Account, You Agree To Our Privacy Policy And Terms & Condition.</h6>
                     </div>
                     <div class="signup-first-wrapmain-btn">
-                        <a href="">Login Into Your Account</a>
+                        <input type='submit' value="Login Into Your Account">
                     </div>
                     <div class="signup-first-wrapmain-btn1">
                         <a href="#!">Forgot Password ?</a>
@@ -48,6 +56,7 @@
                         </a>
                     </div>
                 </div>
+            </form>
             </div>
         </div>
     </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Register;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\Front\Main;
 use App\Http\Controllers\Front\Catalog;
+use App\Http\Controllers\Front\Login;
 use App\Http\Controllers\Process;
 use App\Http\Controllers\Roles;
 use App\Http\Controllers\Homepage;
@@ -48,6 +49,7 @@ Route::get('/contact-us',function(){
 Route::get('/tracking',function(){
     return view('front.track-your-order1');
 });
+Route::get('/dashboard',[Main::class,'cart']);
 $categoryNames = Category::pluck('category_slug')->implode('|');
 
 Route::get('/{slug}',[Catalog::class,'category'])->where('category_slug',$categoryNames);
@@ -83,6 +85,7 @@ Livewire::setUpdateRoute(function ($handle) {
 
 
 ///FRONTEND POST METHODS 
+Route::post('login/',[Login::class,'customer_auth']);
 Route::post('addtocart/',[Addtocart::class,'addToCart']);
 Route::post('post-checkout',[Ecommerce::class,'checkout']);
 
