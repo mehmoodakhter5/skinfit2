@@ -6,6 +6,7 @@ use App\Http\Controllers\Register;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\Front\Main;
 use App\Http\Controllers\Front\Catalog;
+use App\Http\Controllers\Front\Dashboard;
 use App\Http\Controllers\Front\Login;
 use App\Http\Controllers\Process;
 use App\Http\Controllers\Roles;
@@ -32,7 +33,12 @@ Route::get('/product/{slug}',[Catalog::class,'Productview']);
 Route::get('/brand/{slug}',[Brands::class,'render']);
 
 Route::get('/signin', function () {
-    return view('front.signin');
+    if(Auth::id()){
+        return redirect('my-dashboard');
+    }else{
+        return view('front.signin');
+
+    }
 });
 Route::get('/signup', function () {
     return view('front.signup');
@@ -42,6 +48,8 @@ Route::get('/about-us',function(){
 });
 Route::get('/my-cart',[Main::class,'cart']);
 Route::get('/checkout',[Main::class,'checkout']);
+Route::get('/my-dashboard',[Dashboard::class,'index']);
+Route::get('/my-dashboard/orders',[Dashboard::class,'orders']);
 Route::get('/contact-us',function(){
     return view('front.contact');
 });
@@ -49,7 +57,6 @@ Route::get('/contact-us',function(){
 Route::get('/tracking',function(){
     return view('front.track-your-order1');
 });
-Route::get('/dashboard',[Main::class,'cart']);
 $categoryNames = Category::pluck('category_slug')->implode('|');
 
 Route::get('/{slug}',[Catalog::class,'category'])->where('category_slug',$categoryNames);
@@ -85,13 +92,35 @@ Livewire::setUpdateRoute(function ($handle) {
 
 
 ///FRONTEND POST METHODS 
-Route::post('login/',[Login::class,'customer_auth']);
+Route::post('/post-login',[Login::class,'customer_auth']);
 Route::post('addtocart/',[Addtocart::class,'addToCart']);
 Route::post('post-checkout',[Ecommerce::class,'checkout']);
 
 
+//Thank You Page 
+Route::get('/thankyou',function(){
+    return view('front.checkout2');
+});
+
+//Blog Listing Page
+Route::get('/blog',function(){
+    return view('front.checkout2');
+});
+
+//contact page
+Route::get('/contact',function(){
+    return view('front.contact');
+});
+Route::get('/our-brands',function(){
+    return view('front.our-brands');
+});
+Route::get('/about-us',function(){
+    return view('front.our-about');
+});
 
 
+
+//Same page for brand and all categories with banners acccording to their own cruds. 
 
 
 

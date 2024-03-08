@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Customer;
 
@@ -12,21 +13,24 @@ use App\Models\Customer;
 
 class Login extends Controller
 {
-    public function customer_auth(Request $request): RedirectResponse {
-        $request->validate([
-            'email' => 'required',
-            'password' => 'required',
-        ]);
-         $user= Customer::where('customer_email',$request->email)->first();
-         dd($user);       
-        $credentials = $request->only('email', 'password');
-        // if (Auth::attempt($credentials)) {
-        //     return redirect()->intended(url('dashboard'))
-        //                 ->withSuccess('You have Successfully loggedin');
-        // }
-  
-        return redirect("signin")->withSuccess('Oppes! You have entered invalid credentials');
-    
+    public function customer_auth(Request $request) {
+        $user= DB::table('customer')->where('customer_email',$request->email)->first();
+        if($user){
+           $password= Hash::check($request->password, $user->customer_password);
+           if($password){
+            $userObject = Customer::find($user->customer_id);
+
+            Auth::login($userObject,true);
+            if(Auth::check()){
+              return  redirect (url('my-dashboard'));
+            };
+        }else{
+            return redirect()->back()->with('error','Incorrect Password');
+        };
+        }else{
+            return redirect()->back()->with('error','Incorrect Email or Password');
+        }
+ 
     }
     
 

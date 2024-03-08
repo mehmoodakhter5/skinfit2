@@ -10,12 +10,15 @@ class Customer extends Authenticatable
 {
     use HasFactory;
     protected $table='customer';
+    protected $primaryKey='customer_id';
+
     protected $fillable = [
         'customer_first_name',
         'customer_last_name',
         'customer_phone_number',
         'customer_email',
         'customer_password',
+        'remember_token',
         'customer_address',
 
 

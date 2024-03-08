@@ -17,7 +17,7 @@
                   </div>
 
             @endif
-                <form action="{{url('login')}}" method="post">
+                <form action="{{url('post-login')}}" method="post">
                     @csrf
                 <div class="signup-first-wrapmain-feild">
                     <div class="signup-first-wrapmain-feild1">

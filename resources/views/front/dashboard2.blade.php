@@ -1,5 +1,4 @@
-<?php include 'inc/header.php';?>
-
+@include('front.inc.header')
 <section class="dashboard-banner-wrapper dashboard-banner-wrapper1">
     <div class="container">
         <div class="row">
@@ -16,7 +15,7 @@
                                         <h6>Purchase History</h6>
                                     </div>
                                     <div class="dashboard401-main-btn">
-                                        <a href="#!">Go Back</a>
+                                        <a href="{{url('my-dashboard')}}">Go Back</a>
                                     </div>
                                 </div>
                                 <div class="dashboard401-table">
@@ -273,4 +272,4 @@
     </div>
 </section>
 
-<?php include 'inc/footer.php';?>
+@include('front.inc.footer')
