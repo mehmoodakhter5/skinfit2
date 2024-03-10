@@ -51,6 +51,14 @@ class Catalog extends Controller
         return view('front.sub_category_listing',['feature'=>$feature,'maincategory'=>$aothercategory,'title'=>$title,'product'=>$product]);
 
     }
+    public function brand($slug){
+        $singlebrand= DB::table('brand')->where('brand_slug',$slug)->first();
+        $product= DB::table('product')->where('product_brand_id',$singlebrand->brand_id)->get();
+        $title=$singlebrand->brand_name;
+        $feature= db::table('product')->where('product_brand_id',$singlebrand->brand_id)->where('product_featured','true')->limit(9);
+
+        return view('front.brand',compact('singlebrand','title','feature','product'));
+    }
     public function main_listing(){
         $product = array();
 

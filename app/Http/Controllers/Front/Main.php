@@ -25,6 +25,17 @@ class Main extends Controller
         $checkout=\Cart::getContent();
         return view('front.checkout',['checkout'=>$checkout]);
     }
+    public function blogs(){
+        $blog=DB::table('blogs')->where('blog_status','true')->paginate(8);
+        return view('front.blog',compact('blog'));
+    }
+    public function brands(){
+        $brands=DB::table('brand')->orderBy('brand_name','asc')->get();
+        $groupedBrands = $brands->groupBy(function ($item, $key) {
+            return strtoupper(substr($item->brand_name, 0, 1));
+        });
+    
+        return view('front.our-brands', compact('groupedBrands'));    }
 
 
    

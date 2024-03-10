@@ -57,14 +57,17 @@
                                         </div>
                                         <div class="dashboard401-2thtable">
                                             <div class="date-time">
-                                                14/4/23  6:16 PM
+                                                {{ \Carbon\Carbon::parse($whish->created_at)->format('D-m-Y') }}
                                             </div>
                                         </div>
+                                        <form action="{{url('post-cart')}}" method="post">
+                                            @csrf
                                         <div class="dashboard401-2thtable">
                                             <div class="date-time">
                                                 <div id="field1">
                                                     <button type="button" id="sub" class="minus">-</button>
-                                                    <input type="number" id="1" value="1" min="1" class='quantity' max="10" />
+                                                    <input type="number" name='qty' id="1" value="1" min="1" class='quantity' max="10" />
+                                                    <input type="hidden" name='product_id' value="{{$whish->id}}"/>
                                                     <button type="button" id="add" class="plus">+</button>
                                                 </div>
                                             </div>
@@ -76,9 +79,10 @@
                                         </div>
                                         <div class="dashboard401-2thtable">
                                             <div class="cart-btn">
-                                                <a href="#!">Add to Cart</a>
+                                                <button type="submit">Add to Cart</button>
                                             </div>
                                         </div>
+                                    </form>
                                     </div>
                            @endforeach
                                 </div>

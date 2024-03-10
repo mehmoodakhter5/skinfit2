@@ -31,7 +31,7 @@ use Illuminate\Support\Facades\Auth;
 //FRONTEND VIEWS.
 Route::get('/', [Main::class,'index']);
 Route::get('/product/{slug}',[Catalog::class,'Productview']);
-Route::get('/brand/{slug}',[Brands::class,'render']);
+Route::get('/brand/{slug}',[Catalog::class,'brand']);
 
 Route::get('/signin', function () {
     if(Auth::id()){
@@ -59,7 +59,7 @@ Route::get('/contact-us',function(){
 });
 
 Route::get('/tracking',function(){
-    return view('front.track-your-order1');
+    return view('front.track-your-order');
 });
 
 
@@ -97,6 +97,7 @@ Livewire::setUpdateRoute(function ($handle) {
 Route::post('/post-login',[Login::class,'customer_auth']);
 Route::post('addtocart/',[Addtocart::class,'addToCart']);
 Route::post('post-checkout',[Ecommerce::class,'checkout']);
+Route::post('post-cart',[Ecommerce::class,'store_cart']);
 
 
 //Thank You Page 
@@ -105,17 +106,12 @@ Route::get('/thankyou',function(){
 });
 
 //Blog Listing Page
-Route::get('/blog',function(){
-    return view('front.checkout2');
-});
-
+Route::get('/blog',[Main::class,'blogs']);
 //contact page
 Route::get('/contact',function(){
     return view('front.contact');
 });
-Route::get('/our-brands',function(){
-    return view('front.our-brands');
-});
+Route::get('/our-brands',[Main::class,'brands']);
 Route::get('/about-us',function(){
     return view('front.our-about');
 });

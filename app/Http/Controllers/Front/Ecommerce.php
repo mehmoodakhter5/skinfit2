@@ -10,6 +10,8 @@ use App\Models\Product;
 use App\Models\Whishlist;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
+
 
 class Ecommerce extends Controller
 {
@@ -62,6 +64,20 @@ class Ecommerce extends Controller
             return back()->with("error","Hmmm! Unable to proceed.");
         }
      }
+     public function store_cart(Request $request){
+        $product=DB::table('product')->where('id',$request->product_id)->first();
+        $added = \Cart::add([
+            'id' => $product->id,
+            'name' => $product->product_name,
+            'price' => $product->product_regular_price,
+            'quantity' => $request->qty,
+            'attributes' => [
+                'image' => $product->product_image_cloud,
+            ],
+        ]);
+        $clear=DB::table('whishlist')->where('whishlist_product_id',$request->product_id)->delete();
+        return back()->with("success","Added To Cart.");
+    }
     public function add_whislist($id){
 
         $whishlist= new Whishlist();

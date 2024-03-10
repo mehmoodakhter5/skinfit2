@@ -1,5 +1,4 @@
-<?php include 'inc/header.php';?>
-
+@include('front.inc.header')
 <section class="checkout-banner-wrapper">
     <div class="container">
         <div class="row">
@@ -134,35 +133,37 @@
             </div>
             <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 col-xxl-8 order-0 order-xxl-1">
                 <div class="row">
+                    @if(count($blog)!=0)
+                    @foreach($blog as $blogs)
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mb-3">
                         <a href="#!">
                             <div class="index-fifteen-blog"><a href="#!">
                                 <div class="index-fifteen-blog-img">
-                                    <img src="assets/front/images/blog04.png" alt="" class="img-fluid">
+                                    <img src="{{asset('storage/blogs/'.$blogs->blog_thumb)}}" alt="" class="img-fluid">
                                 </div>
                                 </a><div class="index-fifteen-blog-text"><a href="#!">
                                     <h6>Dummy Text</h6>
-                                    <h5>Lorem Ipsum is simply dummy text of the printing...</h5>
-                                    <p>Lorem ipsum dolor sit amet, consec tetur adipiscing.</p>
+                                    <h5>{{$blogs->blog_title}}</h5>
+                                    <p>{!! \Illuminate\Support\Str::words($blogs->blog_content, 10,'....')  !!}                                    </p>
                                     </a><div class="index-fifteen-blog-flex"><a href="#!">
                                         <div class="index-fifteen-blog-span">
-                                            <span>2, Sept 2020</span>
+                                            <span>{{ \Carbon\Carbon::parse($blogs->created_at)->format('D-m-Y') }}</span>
                                         </div>
                                         </a><div class="index-fifteen-blogcta-flex"><a href="#!">
                                             </a><ul><a href="#!">
                                                 </a><li><a href="#!">
                                                     </a><a href="#!">
-                                                        <img src="assets/front/images/thumb_up_alt.png" alt="">
+                                                        <img src="{{asset('front/assets/images/thumb_up_alt.png')}}" alt="">
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="#!">
-                                                        <img src="assets/front/images/mode_comment.png" alt="">
+                                                        <img src="{{asset('front/assets/images/mode_comment.png')}}" alt="">
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="#!">
-                                                        <img src="assets/front/images/share.png" alt="">
+                                                        <img src="{{asset('front/assets/images/share.png')}}" alt="">
                                                     </a>
                                                 </li>
                                             </ul>
@@ -172,291 +173,29 @@
                             </div>
                         </a>    
                     </div>
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mb-3">
-                        <a href="#!">
-                            <div class="index-fifteen-blog"><a href="#!">
-                                <div class="index-fifteen-blog-img">
-                                    <img src="assets/front/images/blog05.png" alt="" class="img-fluid">
-                                </div>
-                                </a><div class="index-fifteen-blog-text"><a href="#!">
-                                    <h6>Dummy Text</h6>
-                                    <h5>Lorem Ipsum is simply dummy text of the printing...</h5>
-                                    <p>Lorem ipsum dolor sit amet, consec tetur adipiscing.</p>
-                                    </a><div class="index-fifteen-blog-flex"><a href="#!">
-                                        <div class="index-fifteen-blog-span">
-                                            <span>2, Sept 2020</span>
-                                        </div>
-                                        </a><div class="index-fifteen-blogcta-flex"><a href="#!">
-                                            </a><ul><a href="#!">
-                                                </a><li><a href="#!">
-                                                    </a><a href="#!">
-                                                        <img src="assets/front/images/thumb_up_alt.png" alt="">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#!">
-                                                        <img src="assets/front/images/mode_comment.png" alt="">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#!">
-                                                        <img src="assets/front/images/share.png" alt="">
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>    
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mb-3">
-                        <a href="#!">
-                            <div class="index-fifteen-blog"><a href="#!">
-                                <div class="index-fifteen-blog-img">
-                                    <img src="assets/front/images/blog04.png" alt="" class="img-fluid">
-                                </div>
-                                </a><div class="index-fifteen-blog-text"><a href="#!">
-                                    <h6>Dummy Text</h6>
-                                    <h5>Lorem Ipsum is simply dummy text of the printing...</h5>
-                                    <p>Lorem ipsum dolor sit amet, consec tetur adipiscing.</p>
-                                    </a><div class="index-fifteen-blog-flex"><a href="#!">
-                                        <div class="index-fifteen-blog-span">
-                                            <span>2, Sept 2020</span>
-                                        </div>
-                                        </a><div class="index-fifteen-blogcta-flex"><a href="#!">
-                                            </a><ul><a href="#!">
-                                                </a><li><a href="#!">
-                                                    </a><a href="#!">
-                                                        <img src="assets/front/images/thumb_up_alt.png" alt="">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#!">
-                                                        <img src="assets/front/images/mode_comment.png" alt="">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#!">
-                                                        <img src="assets/front/images/share.png" alt="">
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>    
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mb-3">
-                        <a href="#!">
-                            <div class="index-fifteen-blog"><a href="#!">
-                                <div class="index-fifteen-blog-img">
-                                    <img src="assets/front/images/blog05.png" alt="" class="img-fluid">
-                                </div>
-                                </a><div class="index-fifteen-blog-text"><a href="#!">
-                                    <h6>Dummy Text</h6>
-                                    <h5>Lorem Ipsum is simply dummy text of the printing...</h5>
-                                    <p>Lorem ipsum dolor sit amet, consec tetur adipiscing.</p>
-                                    </a><div class="index-fifteen-blog-flex"><a href="#!">
-                                        <div class="index-fifteen-blog-span">
-                                            <span>2, Sept 2020</span>
-                                        </div>
-                                        </a><div class="index-fifteen-blogcta-flex"><a href="#!">
-                                            </a><ul><a href="#!">
-                                                </a><li><a href="#!">
-                                                    </a><a href="#!">
-                                                        <img src="assets/front/images/thumb_up_alt.png" alt="">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#!">
-                                                        <img src="assets/front/images/mode_comment.png" alt="">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#!">
-                                                        <img src="assets/front/images/share.png" alt="">
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>    
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mb-3">
-                        <a href="#!">
-                            <div class="index-fifteen-blog"><a href="#!">
-                                <div class="index-fifteen-blog-img">
-                                    <img src="assets/front/images/blog04.png" alt="" class="img-fluid">
-                                </div>
-                                </a><div class="index-fifteen-blog-text"><a href="#!">
-                                    <h6>Dummy Text</h6>
-                                    <h5>Lorem Ipsum is simply dummy text of the printing...</h5>
-                                    <p>Lorem ipsum dolor sit amet, consec tetur adipiscing.</p>
-                                    </a><div class="index-fifteen-blog-flex"><a href="#!">
-                                        <div class="index-fifteen-blog-span">
-                                            <span>2, Sept 2020</span>
-                                        </div>
-                                        </a><div class="index-fifteen-blogcta-flex"><a href="#!">
-                                            </a><ul><a href="#!">
-                                                </a><li><a href="#!">
-                                                    </a><a href="#!">
-                                                        <img src="assets/front/images/thumb_up_alt.png" alt="">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#!">
-                                                        <img src="assets/front/images/mode_comment.png" alt="">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#!">
-                                                        <img src="assets/front/images/share.png" alt="">
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>    
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mb-3">
-                        <a href="#!">
-                            <div class="index-fifteen-blog"><a href="#!">
-                                <div class="index-fifteen-blog-img">
-                                    <img src="assets/front/images/blog05.png" alt="" class="img-fluid">
-                                </div>
-                                </a><div class="index-fifteen-blog-text"><a href="#!">
-                                    <h6>Dummy Text</h6>
-                                    <h5>Lorem Ipsum is simply dummy text of the printing...</h5>
-                                    <p>Lorem ipsum dolor sit amet, consec tetur adipiscing.</p>
-                                    </a><div class="index-fifteen-blog-flex"><a href="#!">
-                                        <div class="index-fifteen-blog-span">
-                                            <span>2, Sept 2020</span>
-                                        </div>
-                                        </a><div class="index-fifteen-blogcta-flex"><a href="#!">
-                                            </a><ul><a href="#!">
-                                                </a><li><a href="#!">
-                                                    </a><a href="#!">
-                                                        <img src="assets/front/images/thumb_up_alt.png" alt="">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#!">
-                                                        <img src="assets/front/images/mode_comment.png" alt="">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#!">
-                                                        <img src="assets/front/images/share.png" alt="">
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>    
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mb-3">
-                        <a href="#!">
-                            <div class="index-fifteen-blog"><a href="#!">
-                                <div class="index-fifteen-blog-img">
-                                    <img src="assets/front/images/blog04.png" alt="" class="img-fluid">
-                                </div>
-                                </a><div class="index-fifteen-blog-text"><a href="#!">
-                                    <h6>Dummy Text</h6>
-                                    <h5>Lorem Ipsum is simply dummy text of the printing...</h5>
-                                    <p>Lorem ipsum dolor sit amet, consec tetur adipiscing.</p>
-                                    </a><div class="index-fifteen-blog-flex"><a href="#!">
-                                        <div class="index-fifteen-blog-span">
-                                            <span>2, Sept 2020</span>
-                                        </div>
-                                        </a><div class="index-fifteen-blogcta-flex"><a href="#!">
-                                            </a><ul><a href="#!">
-                                                </a><li><a href="#!">
-                                                    </a><a href="#!">
-                                                        <img src="assets/front/images/thumb_up_alt.png" alt="">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#!">
-                                                        <img src="assets/front/images/mode_comment.png" alt="">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#!">
-                                                        <img src="assets/front/images/share.png" alt="">
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>    
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mb-3">
-                        <a href="#!">
-                            <div class="index-fifteen-blog"><a href="#!">
-                                <div class="index-fifteen-blog-img">
-                                    <img src="assets/front/images/blog05.png" alt="" class="img-fluid">
-                                </div>
-                                </a><div class="index-fifteen-blog-text"><a href="#!">
-                                    <h6>Dummy Text</h6>
-                                    <h5>Lorem Ipsum is simply dummy text of the printing...</h5>
-                                    <p>Lorem ipsum dolor sit amet, consec tetur adipiscing.</p>
-                                    </a><div class="index-fifteen-blog-flex"><a href="#!">
-                                        <div class="index-fifteen-blog-span">
-                                            <span>2, Sept 2020</span>
-                                        </div>
-                                        </a><div class="index-fifteen-blogcta-flex"><a href="#!">
-                                            </a><ul><a href="#!">
-                                                </a><li><a href="#!">
-                                                    </a><a href="#!">
-                                                        <img src="assets/front/images/thumb_up_alt.png" alt="">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#!">
-                                                        <img src="assets/front/images/mode_comment.png" alt="">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#!">
-                                                        <img src="assets/front/images/share.png" alt="">
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>    
-                    </div>
+                    @endforeach
+                    @else
+                    <p>NO Blog</p>
+                    @endif
+                    @if(count($blog)>=8)
+
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                         <div class="pagination-blog">
                             <ul>
                                 <li>
-                                    1
+                                   {{$blog->links()}}
                                 </li>
-                                <li>
-                                    2
-                                </li>
-                                <li>
-                                    3
-                                </li>
+
+                              
                             </ul>
                         </div>
                     </div>  
+                    @endif
+
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<?php include 'inc/footer.php';?>
+@include('front.inc.footer')

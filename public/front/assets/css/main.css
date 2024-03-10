@@ -2486,7 +2486,7 @@ div#field1 input {
 	font-family: var(--visbycf-medium);
     border-radius: 5px;
 }
-.cart-btn a {
+.cart-btn button {
 	width: 102px;
 	height: 45px;
 	background-color: var(--pink);

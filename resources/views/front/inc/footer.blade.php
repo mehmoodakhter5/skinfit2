@@ -40,7 +40,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#!">
+                                <a href="{{url('blog')}}">
                                     Blogs 
                                 </a>
                             </li>
