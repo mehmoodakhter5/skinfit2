@@ -1,12 +1,12 @@
 <div>
-    
         <div class="product-detail-second-wrap-review">
             <div class="detail-second-wrap-review-text">
-                <h6>2 reviews for Ogx Shampoo Strength</h6>
+                <h6>{{count($total)}} reviews for {{$product_name}}</h6>
             </div>
+            @foreach($total as $totals)
             <div class="detail-second-wrap-review-flex">
                 <div class="detail-second-wrap-review-img">
-                    <img src="assets/front/images/user.png" alt="">
+                    <img src="{{asset('front/asset/images/user.png')}}" alt="">
                 </div>
                 <div class="detail-second-wrap-review-feature">
                     <ul>
@@ -26,11 +26,11 @@
                             <i class="fa-solid fa-star"></i>
                         </li>
                     </ul>
-                    <h6>admin - <span>February 15,2021</span></h6>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard type.</p>
+                    <h6>{{$totals->review_name}} - <span>{{ \Carbon\Carbon::parse($totals->created_at)->format('D-m-Y') }}</span>                    </h6>
+                    <p>{{$totals->review_message}}</p>
                 </div>
             </div>
-
+            @endforeach
         </div> 
         <div class="product-detail-second-wrap-review1">
             <div class="detail-second-wrap-review-text1">
@@ -64,7 +64,7 @@
                 </ul>
             </div>
         </div>
-        <div wire:loading>
+        <div wire:loading wire:target="submit">
             Submiting Review
         </div>
         <div class="product-detail-second-wrap-review2">
@@ -89,7 +89,7 @@
                 </div>
             </div>
             <div class="second-wrap-review2-feild-btn">
-                <button type="submit">Submit</button>
+                <button wire:click="submit" type="submit">Submit</button>
             </div>
         </form>
         </div>
