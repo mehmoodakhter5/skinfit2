@@ -17,7 +17,7 @@ class Ecommerce extends Controller
      {
         $user=Auth::user();
         if($user){
-            $customer=$request->session()->get("user_id");
+            $customer=Auth::id();
         }else{
             $customer=0;
         };

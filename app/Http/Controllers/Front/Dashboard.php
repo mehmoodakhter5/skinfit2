@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Customer;
+use Illuminate\Support\Facades\DB;
 
 class Dashboard extends Controller
 {
@@ -21,7 +22,14 @@ class Dashboard extends Controller
     }
     public function orders(){
         if(Auth::id()){
-            return view('front.dashboard2');
+            $orders = DB::table('order')
+            ->where('order_customer_id', Auth::id())
+            ->join('order_item', 'order.order_no', '=', 'order_item.order_no')
+            ->join('product', 'order_item.product_id', '=', 'product.id')
+            ->get();           
+            $customer= Customer::find(Auth::id());
+
+            return view('front.dashboard2',compact('customer','orders'));
         }else{
             abort(403);
         }
