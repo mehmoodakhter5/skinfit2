@@ -113,7 +113,7 @@
                     </select>
                 </div> --}}
 
-        <livewire:addtocart :id="$product->id" lazy />
+        <livewire:addtocart :id="$product->id" />
   
 
                 <div class="product-detail-first-wrap-text8">
@@ -169,120 +169,7 @@
                            {!! $product->product_long_description !!}
                         </div>    
                     </div>
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                        <div class="product-detail-second-wrap-review">
-                            <div class="detail-second-wrap-review-text">
-                                <h6>2 reviews for Ogx Shampoo Strength</h6>
-                            </div>
-                            <div class="detail-second-wrap-review-flex">
-                                <div class="detail-second-wrap-review-img">
-                                    <img src="assets/front/images/user.png" alt="">
-                                </div>
-                                <div class="detail-second-wrap-review-feature">
-                                    <ul>
-                                        <li>
-                                            <i class="fa-solid fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fa-solid fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fa-solid fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fa-solid fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fa-solid fa-star"></i>
-                                        </li>
-                                    </ul>
-                                    <h6>admin - <span>February 15,2021</span></h6>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard type.</p>
-                                </div>
-                            </div>
-                            <div class="detail-second-wrap-review-flex">
-                                <div class="detail-second-wrap-review-img">
-                                    <img src="assets/front/images/user.png" alt="">
-                                </div>
-                                <div class="detail-second-wrap-review-feature">
-                                    <ul>
-                                        <li>
-                                            <i class="fa-solid fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fa-solid fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fa-solid fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fa-solid fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fa-solid fa-star"></i>
-                                        </li>
-                                    </ul>
-                                    <h6>admin - <span>February 15,2021</span></h6>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard type.</p>
-                                </div>
-                            </div>
-                        </div> 
-                        <div class="product-detail-second-wrap-review1">
-                            <div class="detail-second-wrap-review-text1">
-                                <h6>Your rating *</h6>
-                            </div>
-                            <div class="detail-second-wrap-review-text1">
-                                <ul>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                </ul>
-                                <ul>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                </ul>
-                                <ul>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                </ul>
-                                <ul>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                </ul>
-                                <ul>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="product-detail-second-wrap-review2">
-                            <div class="second-wrap-review2-feild">
-                                <h6>Your review *</h6>
-                                <textarea></textarea>
-                            </div>
-                            <div class="second-wrap-review2-feild">
-                                <h6>Your Name *</h6>
-                                <input type="text" placeholder="">
-                            </div>
-                            <div class="second-wrap-review2-feild">
-                                <h6>Your Email *</h6>
-                                <input type="text" placeholder="">
-                            </div>
-                            <div class="checkout-first-wrap-checkbox">
-                                <div class="form-group">
-                                    <input type="checkbox" id="two">
-                                    <label for="two">Save my name, email, and website in this browser for the next time I comment.</label>
-                                </div>
-                            </div>
-                            <div class="second-wrap-review2-feild-btn">
-                                <a href="#!">Submit</a>
-                            </div>
-                        </div>
-                    </div>
+                 <livewire:rating:id="{{$product->id}}"/>
                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
                         <div class="product-detail-second-wrap-paragraph">
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
@@ -381,13 +268,14 @@
             </div>
         </div>
         <div class="row">
+        @foreach($allproduct as $products)
             <div class="col-6 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3 mb-5">
                 <div class="index-product-desktop-main-wrap">
                     <div class="index-product-desktop-img">
-                        <img src="assets/front/images/hp-1.jpg" alt="" class="img-fluid">
+                        <img src="https://imagedelivery.net/V8gK1_2VVoan1sk2mbDlgA/{{$products->product_image_cloud}}/public" alt="" class="img-fluid">
                     </div>
                     <div class="index-product-desktop-text">
-                        <h6>Maybelline Super Stay Full Coverage Liquid...</h6>
+                        <h6>{{$products->product_name}}</h6>
                     </div>
                     <div class="index-product-desktop-rating">
                         <div class="product-rating-star">
@@ -423,6 +311,10 @@
                     </div>
                 </div>
             </div>
+            @endforeach
+            {{ $allproduct->links() }}
+
+
         </div>
     </div>
 </section>

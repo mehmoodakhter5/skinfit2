@@ -12,12 +12,10 @@ class Catalog extends Controller
     
        $product=  DB::table('product')->where('product_slug',$slug)->join('brand','product_brand_id','brand_id')->first();
        $cate=DB::table('category')->where('category_id',$product->product_category_id)->get()->toArray();
-       $product=  DB::table('product')->where('product_slug',$slug)->join('brand','product_brand_id','brand_id')->first();
-
-       dd($cate);
+       $allproduct=  DB::table('product')->where('product_brand_id',$product->product_brand_id)->where('product_active','true')->paginate(12);
        $title=$product->product_name;
        if($product->product_active=='true'){
-        return view('front.product_detail',compact('product','cate','title'));
+        return view('front.product_detail',compact('product','cate','title','allproduct'));
     }else{
         return redirect('/');
     }
