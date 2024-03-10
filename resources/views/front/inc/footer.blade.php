@@ -50,7 +50,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#!">
+                                <a href="{{url('contact')}}">
                                     Contact Us         
                                 </a>
                             </li>
