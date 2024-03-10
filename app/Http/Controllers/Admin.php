@@ -13,6 +13,7 @@ use App\Models\Sub_category_1;
 use App\Models\Supplier;
 use App\Models\Blog;
 use App\Models\PO;
+use Illuminate\Support\Facades\DB;
 use Spatie\Activitylog\Models\Activity;
 use Response;
 
@@ -189,7 +190,8 @@ public function inventroy(){
 public function homepage(){
     $user= Auth::user();
     if($user){
-        return view('admin.homepage');
+        $home=DB::table('homepage')->where('homepage_id',1)->first();
+        return view('admin.homepage',compact('home'));
 
     }
 }
