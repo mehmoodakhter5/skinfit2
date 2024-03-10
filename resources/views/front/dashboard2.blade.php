@@ -40,7 +40,7 @@
                                     @foreach($orders as $order)
                                     <div class="dashboard401-headtable-flex2">
                                         <div class="dashboard401-2thtable">
-                                            <img src="assets/front/images/product-cart.jpg" alt="">
+                                            <img src="https://imagedelivery.net/V8gK1_2VVoan1sk2mbDlgA/{{$order->product_image_cloud}}/public" alt="">
                                         </div> 
                                         <div class="dashboard401-2thtable">
                                             <div class="prodetails">
@@ -54,7 +54,7 @@
                                         </div>
                                         <div class="dashboard401-2thtable">
                                             <div class="date-time">
-                                                14/4/23  6:16 PM
+                                                <span>{{ \Carbon\Carbon::parse($order->created_at)->format('D-m-Y') }}</span>
                                             </div>
                                         </div>
                                         <div class="dashboard401-2thtable">
