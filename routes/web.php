@@ -47,6 +47,8 @@ Route::get('/signup', function () {
 Route::get('/about-us',function(){
     return view('front.about');
 });
+Route::get('/whishlist/{id}',[Ecommerce::class,'add_whislist']);
+
 Route::get('/my-cart',[Main::class,'cart']);
 Route::get('/checkout',[Main::class,'checkout']);
 Route::get('/my-dashboard',[Dashboard::class,'index']);

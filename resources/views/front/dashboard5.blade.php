@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                 <div class="dashboard-banner-wrap-main">
-                    <h6>Welcome, Shariq</h6>
+                    <h6>Welcome, {{$customer->customer_first_name}} {{$customer->customer_last_name}}</h6>
                 </div>
                 <div class="dashboard-banner-wrap-bg">
                     <div class="row">
@@ -36,22 +36,23 @@
                                             <h6>Stock Status</h6>
                                         </div>
                                     </div>
+                                    @foreach($whishlist as $whish)
                                     <div class="dashboard401-headtable-flex2">
                                         <div class="dashboard401-2thtable">
-                                            <img src="assets/front/images/cross.png" alt="">
+                                            <img src="{{asset('front/assets/images/cross.png')}}" alt="">
                                         </div> 
                                         <div class="dashboard401-2thtable">
-                                            <img src="assets/front/images/product-cart.jpg" alt="">
+                                            <img src="https://imagedelivery.net/V8gK1_2VVoan1sk2mbDlgA/{{$whish->product_image_cloud}}/public" alt="">
                                         </div> 
                                         <div class="dashboard401-2thtable">
                                             <div class="prodetails">
-                                                <span>Ogx Shampoo Strength & Length+ Keratin Oil 13oz</span>
+                                                <span>{{$whish->product_name}}</span>
                                             </div>
                                         </div>
                                         <div class="dashboard401-2thtable">
                                             <div class="prodetails-cutprice">
-                                                <h6>Rs. 3000</h6>
-                                                <h5>Rs. 1500</h5>
+                                                <h6>Rs. {{$whish->product_discounted_price}}</h6>
+                                                <h5>Rs. {{$whish->product_regular_price}}</h5>
                                             </div>
                                         </div>
                                         <div class="dashboard401-2thtable">
@@ -79,92 +80,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="dashboard401-headtable-flex2">
-                                        <div class="dashboard401-2thtable">
-                                            <img src="assets/front/images/cross.png" alt="">
-                                        </div> 
-                                        <div class="dashboard401-2thtable">
-                                            <img src="assets/front/images/product-cart.jpg" alt="">
-                                        </div> 
-                                        <div class="dashboard401-2thtable">
-                                            <div class="prodetails">
-                                                <span>Ogx Shampoo Strength & Length+ Keratin Oil 13oz</span>
-                                            </div>
-                                        </div>
-                                        <div class="dashboard401-2thtable">
-                                            <div class="prodetails-cutprice">
-                                                <h6>Rs. 3000</h6>
-                                                <h5>Rs. 1500</h5>
-                                            </div>
-                                        </div>
-                                        <div class="dashboard401-2thtable">
-                                            <div class="date-time">
-                                                14/4/23  6:16 PM
-                                            </div>
-                                        </div>
-                                        <div class="dashboard401-2thtable">
-                                            <div class="date-time">
-                                                <div id="field1">
-                                                    <button type="button" id="sub" class="minus">-</button>
-                                                    <input type="number" id="1" value="1" min="1" class='quantity' max="10" />
-                                                    <button type="button" id="add" class="plus">+</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="dashboard401-2thtable">
-                                            <div class="instock-details">
-                                                In Stock
-                                            </div>
-                                        </div>
-                                        <div class="dashboard401-2thtable">
-                                            <div class="cart-btn">
-                                                <a href="#!">Add to Cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="dashboard401-headtable-flex2">
-                                        <div class="dashboard401-2thtable">
-                                            <img src="assets/front/images/cross.png" alt="">
-                                        </div> 
-                                        <div class="dashboard401-2thtable">
-                                            <img src="assets/front/images/product-cart.jpg" alt="">
-                                        </div> 
-                                        <div class="dashboard401-2thtable">
-                                            <div class="prodetails">
-                                                <span>Ogx Shampoo Strength & Length+ Keratin Oil 13oz</span>
-                                            </div>
-                                        </div>
-                                        <div class="dashboard401-2thtable">
-                                            <div class="prodetails-cutprice">
-                                                <h6>Rs. 3000</h6>
-                                                <h5>Rs. 1500</h5>
-                                            </div>
-                                        </div>
-                                        <div class="dashboard401-2thtable">
-                                            <div class="date-time">
-                                                14/4/23  6:16 PM
-                                            </div>
-                                        </div>
-                                        <div class="dashboard401-2thtable">
-                                            <div class="date-time">
-                                                <div id="field1">
-                                                    <button type="button" id="sub" class="minus">-</button>
-                                                    <input type="number" id="1" value="1" min="1" class='quantity' max="10" />
-                                                    <button type="button" id="add" class="plus">+</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="dashboard401-2thtable">
-                                            <div class="stock-details">
-                                                Out of Stock
-                                            </div>
-                                        </div>
-                                        <div class="dashboard401-2thtable">
-                                            <div class="cart-btn">
-                                                <a href="#!">Add to Cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                           @endforeach
                                 </div>
                             </div>
                         </div>
@@ -175,4 +91,4 @@
     </div>
 </section>
 
-@include('front.inc.header')
+@include('front.inc.footer')

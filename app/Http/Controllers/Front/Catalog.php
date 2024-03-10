@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class Catalog extends Controller
 {
@@ -13,9 +14,16 @@ class Catalog extends Controller
        $product=  DB::table('product')->where('product_slug',$slug)->join('brand','product_brand_id','brand_id')->first();
        $cate=DB::table('category')->where('category_id',$product->product_category_id)->get()->toArray();
        $allproduct=  DB::table('product')->where('product_brand_id',$product->product_brand_id)->where('product_active','true')->paginate(12);
+       if(Auth::guard('customer')->check()){
+        $whish=  DB::table('whishlist')->where('whishlist_product_id',$product->id)->where('whishlist_customer_id',Auth::guard('customer')->id())->first();
+
+       }else{
+        $whish=0;
+       }
+
        $title=$product->product_name;
        if($product->product_active=='true'){
-        return view('front.product_detail',compact('product','cate','title','allproduct'));
+        return view('front.product_detail',compact('product','cate','title','allproduct','whish'));
     }else{
         return redirect('/');
     }

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Order_item;
 use App\Models\Product;
+use App\Models\Whishlist;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 
@@ -15,9 +16,9 @@ class Ecommerce extends Controller
      public function checkout(Request $request)
 
      {
-        $user=Auth::user();
+        $user=Auth::guard('customer')->check();
         if($user){
-            $customer=Auth::id();
+            $customer=Auth::guard('customer')->id();
         }else{
             $customer=0;
         };
@@ -61,5 +62,13 @@ class Ecommerce extends Controller
             return back()->with("error","Hmmm! Unable to proceed.");
         }
      }
+    public function add_whislist($id){
 
+        $whishlist= new Whishlist();
+        $whishlist->whishlist_product_id=$id;
+        $whishlist->whishlist_customer_id=Auth::guard('customer')->id();
+        $whishlist->save();
+        return redirect()->back();
+
+    }
 }

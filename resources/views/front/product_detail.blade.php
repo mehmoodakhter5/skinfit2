@@ -118,11 +118,19 @@
 
                 <div class="product-detail-first-wrap-text8">
                     <div class="product-detail-wishlist-btn">   
-                        <a href="#!">
+                        @if(empty($whish))
+                        <a href="{{url('whishlist/'.$product->id)}}">
                             <img src="{{asset('front/assets/images/wishlist-heart.png')}}" alt="">
                             Add to wishlist
                         </a>
+                        @else
+                        <a>
+                            <img src="{{asset('front/assets/images/wishlist-heart.png')}}" alt="">
+                            Already Whishlist
+                        </a>
+                        @endif
                     </div>
+
                     <div class="product-detail-product-btn">
                         <a href="#!">Share this Product:</a>
                     </div>
