@@ -337,7 +337,70 @@
                     <div class="col-sm-9">
                         <input type="text" class="form-control inputsproduct" name="homepage_section_five_image_three_text"  onkeypress="checkFilled()" id="exampleInputEmail2" placeholder="Homepage Section One Text" />
                     </div>
-                </div>                       
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">homepage_section_five_image_three_span_text</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control inputsproduct" name="homepage_section_five_image_three_span_text"  onkeypress="checkFilled()" id="exampleInputEmail2" placeholder="Homepage Section One Text" />
+                    </div>
+                </div>            
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">homepage_section_six_heading</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control inputsproduct" name="homepage_section_six_heading"  onkeypress="checkFilled()" id="exampleInputEmail2" placeholder="Homepage Section One Text" />
+                    </div>
+                </div>      
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">homepage_section_six_text</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control inputsproduct" name="homepage_section_six_text"  onkeypress="checkFilled()" id="exampleInputEmail2" placeholder="Homepage Section One Text" />
+                    </div>
+                </div>           
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">homepage_section_seven_image_one</label>
+                    <div class="col-sm-9">
+                        <div class="fileupload" id="drag-and-drop">
+                            <p>Drag and drop a file here or click to select</p>
+                            <input type="file" name="homepage_section_seven_image_one" id="fileInput" required/>
+                        </div> 
+                    </div>
+                </div>       
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">homepage_section_seven_image_one_link</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control inputsproduct" name="homepage_section_seven_image_one_link"  onkeypress="checkFilled()" id="exampleInputEmail2" placeholder="Homepage Section One Text" />
+                    </div>
+                </div>   
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">homepage_section_seven_image_two</label>
+                    <div class="col-sm-9">
+                        <div class="fileupload" id="drag-and-drop">
+                            <p>Drag and drop a file here or click to select</p>
+                            <input type="file" name="homepage_section_seven_image_two" id="fileInput" required/>
+                        </div> 
+                    </div>
+                </div>  
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">homepage_section_seven_image_two_link</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control inputsproduct" name="homepage_section_seven_image_two_link"  onkeypress="checkFilled()" id="exampleInputEmail2" placeholder="Homepage Section One Text" />
+                    </div>
+                </div>   
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">homepage_section_eight_heading</label>
+                    <div class="col-sm-9">
+                        <div class="fileupload" id="drag-and-drop">
+                            <p>Drag and drop a file here or click to select</p>
+                            <input type="file" name="homepage_section_eight_heading" id="fileInput" required/>
+                        </div> 
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">homepage_section_eight_heading</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control inputsproduct" name="homepage_section_eight_heading"  onkeypress="checkFilled()" id="exampleInputEmail2" placeholder="Homepage Section One Text" />
+                    </div>
+                </div> 
                 <div class="form-group row">
                      <button type="submit" id="submit-all" class="btn btn-primary me-2">Submit</button>
                     <button class="btn btn-light" type="submit">Cancel</button>
