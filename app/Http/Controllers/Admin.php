@@ -189,7 +189,7 @@ public function inventroy(){
 public function homepage(){
     $user= Auth::user();
     if($user){
-        return view('admin.homnepage');
+        return view('admin.homepage');
 
     }
 }

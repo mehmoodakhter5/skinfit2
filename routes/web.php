@@ -57,9 +57,7 @@ Route::get('/contact-us',function(){
 Route::get('/tracking',function(){
     return view('front.track-your-order1');
 });
-$categoryNames = Category::pluck('category_slug')->implode('|');
 
-Route::get('/{slug}',[Catalog::class,'category'])->where('category_slug',$categoryNames);
 
 Route::get('/auth/facebook', function () {
     return Socialite::driver('facebook')->redirect();
@@ -188,7 +186,7 @@ Route::get('getproduct',[Admin::class,'getproduct'])->name('getproduct');
 Route::get('getbrand',[Admin::class,'getbrand'])->name('getbrand');
 Route::get('getcategory',[Admin::class,'getcategory'])->name('getcategory');
 Route::get('getsupplier',[Admin::class,'getsupplier'])->name('getsupplier');
-Route::get('getinventory',[Admin::class,'getinventory'])->name('getinventory');
+Route::get('/getinventory',[Admin::class,'getinventory'])->name('getinventory');
 Route::get('getpo',[Admin::class,'getpo'])->name('getpo');
 Route::get('users',[Roles::class,'getuser'])->name('users');
 
@@ -207,5 +205,7 @@ Route::get('/logout', function(){
 
 
 
+$categoryNames = Category::pluck('category_slug')->implode('|');
 
+Route::get('/{slug}',[Catalog::class,'category'])->where('category_slug',$categoryNames);
 require __DIR__.'/auth.php';
