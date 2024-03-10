@@ -1,5 +1,5 @@
 <div>
-    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+    
         <div class="product-detail-second-wrap-review">
             <div class="detail-second-wrap-review-text">
                 <h6>2 reviews for Ogx Shampoo Strength</h6>
@@ -64,18 +64,23 @@
                 </ul>
             </div>
         </div>
+        <div wire:loading>
+            Submiting Review
+        </div>
         <div class="product-detail-second-wrap-review2">
+            <form wire:submit.prevent="add_rating" method="POST">
+                @csrf
             <div class="second-wrap-review2-feild">
                 <h6>Your review *</h6>
-                <textarea></textarea>
+                <textarea wire:model.live="rating_message"></textarea>
             </div>
             <div class="second-wrap-review2-feild">
                 <h6>Your Name *</h6>
-                <input type="text" placeholder="">
+                <input type="text" wire:model.live="rating_name" placeholder="">
             </div>
             <div class="second-wrap-review2-feild">
                 <h6>Your Email *</h6>
-                <input type="text" placeholder="">
+                <input type="email" wire:model.live="rating_email" placeholder="">
             </div>
             <div class="checkout-first-wrap-checkbox">
                 <div class="form-group">
@@ -84,8 +89,9 @@
                 </div>
             </div>
             <div class="second-wrap-review2-feild-btn">
-                <a href="#!">Submit</a>
+                <button type="submit">Submit</button>
             </div>
+        </form>
         </div>
-    </div>
+    
 </div>

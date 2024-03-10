@@ -3741,7 +3741,7 @@ section.range-slider input[type=range]::-moz-focus-outer {
 	font-size: 15px;
 	font-family: var(--visbycf-regular);
 }
-.second-wrap-review2-feild-btn a {
+.second-wrap-review2-feild-btn button {
 	width: 149px;
     height: 45px;
     background-color: var(--pink);
