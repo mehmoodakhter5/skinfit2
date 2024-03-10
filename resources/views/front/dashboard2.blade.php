@@ -40,7 +40,7 @@
                                     @foreach($orders as $order)
                                     <div class="dashboard401-headtable-flex2">
                                         <div class="dashboard401-2thtable">
-                                            <img src="https://imagedelivery.net/V8gK1_2VVoan1sk2mbDlgA/{{$order->product_image_cloud}}/public" alt="">
+                                            <img src="https://imagedelivery.net/V8gK1_2VVoan1sk2mbDlgA/{{$order->product_image_cloud}}/public" class="img-fluid" alt="">
                                         </div> 
                                         <div class="dashboard401-2thtable">
                                             <div class="prodetails">

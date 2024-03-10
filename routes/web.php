@@ -51,6 +51,7 @@ Route::get('/my-cart',[Main::class,'cart']);
 Route::get('/checkout',[Main::class,'checkout']);
 Route::get('/my-dashboard',[Dashboard::class,'index']);
 Route::get('/my-dashboard/orders',[Dashboard::class,'orders']);
+Route::get('/my-dashboard/wish-list',[Dashboard::class,'wishlist']);
 Route::get('/contact-us',function(){
     return view('front.contact');
 });

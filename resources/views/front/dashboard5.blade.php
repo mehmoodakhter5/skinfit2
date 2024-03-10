@@ -1,5 +1,4 @@
-<?php include 'inc/header.php';?>
-
+@include('front.inc.header')
 <section class="dashboard-banner-wrapper">
     <div class="container">
         <div class="row">
@@ -176,4 +175,4 @@
     </div>
 </section>
 
-<?php include 'inc/footer.php';?>
+@include('front.inc.header')

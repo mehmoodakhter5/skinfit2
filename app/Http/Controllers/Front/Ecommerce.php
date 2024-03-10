@@ -61,4 +61,5 @@ class Ecommerce extends Controller
             return back()->with("error","Hmmm! Unable to proceed.");
         }
      }
+
 }

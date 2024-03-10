@@ -12,8 +12,8 @@ class Dashboard extends Controller
 {
 
     public function index(){
-        if(Auth::id()){
-            $customer= Customer::find(Auth::id());
+        if(Auth::guard('customer')->check()){
+            $customer= Customer::find(Auth::guard('customer')->id());
             return view('front.dashboard1',compact('customer'));
         }else{
             abort(403);
@@ -30,6 +30,22 @@ class Dashboard extends Controller
             $customer= Customer::find(Auth::id());
 
             return view('front.dashboard2',compact('customer','orders'));
+        }else{
+            abort(403);
+        }
+      
+    }
+    public function wishlist(){
+        if(Auth::id()){
+            dd(Auth::user());
+            $user = Auth::id();
+            $product=DB::table('product')->where('id',23)->first();
+            $user->wish($product); // adds the product to the wishlist
+
+            dd($user->wishlists()->get());
+             $customer= Customer::find(Auth::id());
+
+            return view('front.dashboard5',compact('customer'));
         }else{
             abort(403);
         }
