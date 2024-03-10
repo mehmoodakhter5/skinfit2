@@ -32,7 +32,16 @@ class Catalog extends Controller
         $product= db::table('product')->where('product_category_id','like',$category->category_id)->paginate(30);
         $feature= db::table('product')->where('product_category_id','like',$category->category_id)->where('product_featured','true')->limit(9);
         $title=$category->category_name;
-        return view('front.product_listing',['feature'=>$feature,'maincategory'=>$category,'title'=>$title,'sub'=>$sub,'product'=>$product]);
+            return view('front.product_listing',['feature'=>$feature,'maincategory'=>$category,'title'=>$title,'sub'=>$sub,'product'=>$product]);
+    }
+    public function sub_category($slug,$aother){
+        $category= db::table('category')->where('category_slug',$slug)->first();
+        $aothercategory= db::table('sub_category')->where('sub_category_slug',$aother)->first();
+        $product= db::table('product')->where('product_sub_category_id','like',$aothercategory->sub_category_id)->paginate(30);
+        $feature= db::table('product')->where('product_category_id','like',$aothercategory->sub_category_id)->where('product_featured','true')->limit(9);
+        $title=$aothercategory->sub_category_name;
+        return view('front.sub_category_listing',['feature'=>$feature,'maincategory'=>$aothercategory,'title'=>$title,'product'=>$product]);
+
     }
     public function main_listing(){
         $product = array();

@@ -15,6 +15,7 @@ use Laravel\Socialite\Facades\Socialite;
 use App\Models\Customer;
 use App\Http\Livewire\Brands;
 use App\Models\Category; 
+use App\Models\Sub_category; 
 use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
@@ -206,6 +207,12 @@ Route::get('/logout', function(){
 
 
 $categoryNames = Category::pluck('category_slug')->implode('|');
+$subcategoryNames = Sub_category::pluck('sub_category_slug')->implode('|');
 
 Route::get('/{slug}',[Catalog::class,'category'])->where('category_slug',$categoryNames);
+Route::get('/{slug}/{anotherslug}', [Catalog::class, 'sub_category'])
+    ->where([
+        'category_slug' => $categoryNames,
+        'sub_category_slug' => $subcategoryNames
+    ]);
 require __DIR__.'/auth.php';
