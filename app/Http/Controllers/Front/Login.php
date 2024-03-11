@@ -28,7 +28,7 @@ class Login extends Controller
                     return redirect()->intended('my-dashboard');
                 }
             } else {
-                return redirect()->back()->with('error', 'Incorrect Password');
+                return redirect()->back()->withInput()->with('error', 'Incorrect Password');
             }
         } else {
             return redirect()->back()->with('error', 'Incorrect Email or Password');

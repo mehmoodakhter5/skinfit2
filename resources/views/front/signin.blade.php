@@ -22,7 +22,7 @@
     
                 @endif
                     <div class="signup-first-wrapmain-feild1">
-                        <input type="text" name='email' placeholder="Email Address">
+                        <input type="text" name='email' placeholder="Email Address" value="{{old('email')}}">
                     </div>
                     <div class="signup-first-wrapmain-feild1">
                         <div class="feild1-show">
