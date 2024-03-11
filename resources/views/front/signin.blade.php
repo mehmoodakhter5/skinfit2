@@ -13,8 +13,9 @@
                 </div>
                 @if (Session::has('error'))
                 <div class="alert alert-danger" role="alert">
-                    {{ Session::has('error') }}
-                  </div>
+                    {{ session('error') }}
+                
+                </div>
 
             @endif
                 <form action="{{url('post-login')}}" method="post">
