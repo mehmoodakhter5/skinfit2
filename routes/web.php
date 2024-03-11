@@ -2,21 +2,28 @@
 use App\Http\Livewire\Addtocart;
 use App\Http\Controllers\Front\Ecommerce;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Register;
-use App\Http\Controllers\Admin;
+use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Facades\Auth;
+//FRONT CONTROLLERS
 use App\Http\Controllers\Front\Main;
 use App\Http\Controllers\Front\Catalog;
 use App\Http\Controllers\Front\Dashboard;
 use App\Http\Controllers\Front\Login;
-use App\Http\Controllers\Process;
-use App\Http\Controllers\Roles;
-use App\Http\Controllers\Homepage;
-use Laravel\Socialite\Facades\Socialite;
+//END FRONT
+//MODELS 
 use App\Models\Customer;
 use App\Http\Livewire\Brands;
 use App\Models\Category; 
 use App\Models\Sub_category; 
-use Illuminate\Support\Facades\Auth;
+//END MODELS
+//ADMIN CONTROLLERS
+use App\Http\Controllers\Register;
+use App\Http\Controllers\Admin;
+use App\Http\Controllers\Process;
+use App\Http\Controllers\Roles;
+use App\Http\Controllers\Homepage;
+//END ADmin
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -58,9 +65,10 @@ Route::get('/contact-us',function(){
     return view('front.contact');
 });
 
-Route::get('/tracking',function(){
+Route::get('/track-your-order',function(){
     return view('front.track-your-order');
 });
+Route::get('/tracking',[Ecommerce::class,'track']);
 
 
 Route::get('/auth/facebook', function () {

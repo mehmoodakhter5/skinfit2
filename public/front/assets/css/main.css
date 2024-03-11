@@ -1705,7 +1705,7 @@ body::-webkit-scrollbar-thumb:hover {
     font-size: 15px;
     color: #929292;
 }
-.track-order-first-wrap-details a {
+.track-order-first-wrap-details button {
 	width: 136px;
 	height: 45px;
 	background-color: var(--pink);
@@ -2167,7 +2167,7 @@ body::-webkit-scrollbar-thumb:hover {
 .signup-first-wrapmain-btn {
 	margin: 0px 0px 20px 0px;
 }
-.signup-first-wrapmain-btn button {
+.signup-first-wrapmain-btn input {
 	width: 100%;
 	height: 45px;
 	display: inline-flex;

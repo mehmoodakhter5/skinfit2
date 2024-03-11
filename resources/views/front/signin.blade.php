@@ -11,9 +11,9 @@
                         <h6>Create your TheSkinFit account</h6>
                     </div>
                 </div>
-                @if ($errors->has('auth'))
+                @if (Session::has('error'))
                 <div class="alert alert-danger" role="alert">
-                    {{ $errors->first('auth') }}
+                    {{ Session::has('error') }}
                   </div>
 
             @endif

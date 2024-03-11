@@ -28,8 +28,8 @@ class Registeruser extends Component
         $validated['customer_password'] = bcrypt($validated['customer_password']);
 
         $user=Customer::create($validated);
-        Auth::login($user);
-        if(Auth::check()){
+        Auth::guard('customer')->login($user);
+        if(Auth::guard('customer')->check()){
             redirect ('dashboard');
         };
 

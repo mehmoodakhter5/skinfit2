@@ -8,19 +8,19 @@
                     <div class="checkout-banner-wrap-breadcrums">
                         <ul>
                             <li>
-                                <a href="#!">
+                                <a href="{{url('/')}}">
                                     Home
                                 </a>
                             </li>
                             <li>
                                 <a href="#!">
-                                    <span>Contact Us</span>
+                                    <span>Track Your Order</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <div class="checkout-banner-wrap-heading">
-                        <h6>Contact Us</h6>
+                        <h6>Track Your Order</h6>
                     </div>
                 </div>
             </div>
@@ -32,17 +32,20 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8">
+                <form action="{{url('tracking')}}" method="get">
+
                 <div class="track-order-first-wrap-details">
-                    <h6>First Name..*</h6>
-                    <input type="text">
+                    <h6>Order Email..*</h6>
+                    <input type="email" name='order_email' required>
                 </div>
                 <div class="track-order-first-wrap-details">
-                    <h6>Last Name..*</h6>
-                    <input type="text">
+                    <h6>Order No..*</h6>
+                    <input type="text" name='order_no' required>
                 </div>
                 <div class="track-order-first-wrap-details">
-                    <a href="#!">Track Now</a>
+                    <button type='submit'>Track Now</button>
                 </div>
+            </form>
             </div>
             <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4">
                 <div class="track-order-side-details">

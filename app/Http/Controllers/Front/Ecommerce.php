@@ -87,4 +87,15 @@ class Ecommerce extends Controller
         return redirect()->back();
 
     }
+    public function track(){
+        if(isset($_GET['order_email']) && isset($_GET['order_no'])){
+            $orderemail=$_GET['order_email'];
+            $orderno=$_GET['order_no'];
+            $result=DB::table('order')->where('order_no',$orderno)->where('order_customer_email',$orderemail)->first();
+            return view('front.tracking',compact('result'));
+        }else{
+            return redirect('track-your-order');
+        }
+       
+    }
 }

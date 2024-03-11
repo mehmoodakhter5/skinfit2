@@ -14,6 +14,7 @@ use App\Models\Customer;
 class Login extends Controller
 {
     public function customer_auth(Request $request) {
+        if(!empty($request->email)){
         $user = DB::table('customer')->where('customer_email', $request->email)->first();
         
         if ($user) {
@@ -32,5 +33,9 @@ class Login extends Controller
         } else {
             return redirect()->back()->with('error', 'Incorrect Email or Password');
         }
+    }else{
+        return redirect()->back()->with('error', 'Oops Empty Feilds.');
+
+    }
     }
 }

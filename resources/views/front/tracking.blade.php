@@ -20,7 +20,7 @@
                         </ul>
                     </div>
                     <div class="checkout-banner-wrap-heading">
-                        <h6>Track Your Order</h6>
+                        <h6>Your Order #{{$result->order_no}}</h6>
                     </div>
                 </div>
             </div>
@@ -33,11 +33,11 @@
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                 <div class="dashboard301-main-text">
-                    <h6>Order ID: 33354667454</h6>
+                    <h6>Order ID: {{$result->order_no}}</h6>
                 </div>
                 <div class="dashboard301-main-flex1">
                     <div class="dashboard301-main-text1">
-                        <h6>Order Date: Feb 18 2023</h6>
+                        <h6>Order Date:  {{ \Carbon\Carbon::parse($result->created_at)->format('D-m-Y') }}</h6>
                     </div>
                     <div class="dashboard301-main-text2">
                         <h6>
