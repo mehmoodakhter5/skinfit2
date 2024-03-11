@@ -15,13 +15,15 @@ use Illuminate\Support\Facades\Auth;
 use DeDmytro\CloudflareImages\Facades\CloudflareApi;
 use App\Imports\ImageImport;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Storage;
+
 class Process extends Controller
 {
     public function insert_product(Request $request){
         $user = Auth::user();
         if($user){
         $singleimage = time() . '.' . $request->product_image->extension();
-        $request->product_image->storeAs('public/product/', $singleimage);
+        $request->product_image->storeAs('public/storage/product/', $singleimage);
         
         $response = CloudflareApi::images()->upload($request->product_image);
         $image = $response->result;
@@ -31,7 +33,7 @@ class Process extends Controller
         if ($request->hasfile('product_multiple_images')) {
             foreach ($request->product_multiple_images as $image) {
                 $multipleImage = time() . '_' . $image->getClientOriginalName();
-                $image->storeAs('public/product/', $multipleImage);
+                $image->storeAs('public/storage/product/', $multipleImage);
                 $multipleImages[] = $multipleImage;
             }
         }
@@ -85,14 +87,14 @@ class Process extends Controller
     public function add_brand(Request $request){
         if($request->hasFile('brand_image')){
             $image = sha1(time()). '.' . $request->brand_image->extension();
-        $request->brand_image->storeAs('public/brand/', $image);
+        $request->brand_image->storeAs('public/storage/brand/', $image);
         }else{
             $image=1;
         }
 
         if($request->hasFile('brand_banner')){
         $banner = Str::random(5). '.' . $request->brand_banner->extension();
-        $request->brand_banner->storeAs('public/brand/', $banner);
+        $request->brand_banner->storeAs('public/storage/brand/', $banner);
         }else{
             $banner=1;
         };

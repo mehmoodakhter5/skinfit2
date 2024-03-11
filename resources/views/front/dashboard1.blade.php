@@ -54,6 +54,8 @@
                             </div>
                         </div>
                         <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                            <a href="{{url('my-dashboard/wish-list')}}">
+
                             <div class="dashboard02-main">
                                 <div class="dashboard02-main-flex">
                                     <div class="dashboard02-main-icon">
@@ -65,6 +67,8 @@
                                     </div>
                                 </div>
                             </div>
+                        </a>
+
                         </div>
                         <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="dashboard02-main">
@@ -81,7 +85,7 @@
                         </div>
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                             <div class="dashboard01-btn-bt">
-                                <a href="#!">Logout</a>
+                                <a href="{{url('logout')}}">Logout</a>
                             </div>
                         </div>
                     </div>
