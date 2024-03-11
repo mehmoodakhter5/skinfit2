@@ -11,16 +11,16 @@
                         <h6>Create your TheSkinFit account</h6>
                     </div>
                 </div>
-                @if (Session::has('error'))
-                <div class="alert alert-danger" role="alert">
-                    {{ session('error') }}
-                
-                </div>
-
-            @endif
                 <form action="{{url('post-login')}}" method="post">
                     @csrf
                 <div class="signup-first-wrapmain-feild">
+                    @if (Session::has('error'))
+                    <div class="alert alert-danger" role="alert">
+                        {{ session('error') }}
+                    
+                    </div>
+    
+                @endif
                     <div class="signup-first-wrapmain-feild1">
                         <input type="text" name='email' placeholder="Email Address">
                     </div>
