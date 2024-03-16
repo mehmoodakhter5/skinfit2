@@ -80,7 +80,7 @@
                                     <span>Rs {{$carts->price}}</span>
                                 </div>
                                 <div class="checkout3-thh5">
-                                    <img src="{{asset('front/assets/images/cross.png')}}" alt="Remove">
+                                    <a href="{{url('clear/'.$carts->id)}}"><img src="{{asset('front/assets/images/cross.png')}}" alt="Remove"></a>
                                 </div>
                             </div>
                             @endforeach

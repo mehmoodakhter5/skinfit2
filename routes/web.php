@@ -215,7 +215,13 @@ Route::get('/logout', function(){
     return Redirect::to('/');
 
 });
+Route::get('/clear/{id}', function(){
+    \Cart::remove(request('id'));
 
+
+    return Redirect()->back();
+
+});
 
 
 $categoryNames = Category::pluck('category_slug')->implode('|');
