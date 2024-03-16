@@ -187,7 +187,7 @@ Route::POST('import-product',[Process::class,'product_import']);
 Route::POST('post-inventory',[Process::class,'post_inventory']);
 Route::POST('post-user',[Roles::class,'store']);
 Route::POST('save_purchase_order',[Process::class,'save_po']);
-Route::POST('update-homepage/{$id}',[Homepage::class,'store']);
+Route::put('update-homepage/{id}',[Homepage::class,'store'])->name('homepage-update');
 Route::put('/update-header/{id}',[Header::class,'store_header'])->name('header-update');
 
 

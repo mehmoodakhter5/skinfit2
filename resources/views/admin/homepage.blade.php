@@ -2,9 +2,10 @@
 <div class="col-md-8 grid-margin stretch-card">
     <div class="card">
        
-        <form action="{{url('update-homepage/1')}}" method="post"  enctype="multipart/form-data"  class="dropzone" id="ProductaddNew" >
+        <form action="{{route('homepage-update',['id'=>1])}}" method="post"  enctype="multipart/form-data"  class="dropzone" id="ProductaddNew" >
             
             @csrf
+            @method('PUT')
             <div class="card-body">
                 <h4 class="card-title">Update Homepage</h4>
                 <div class="form-group row">
