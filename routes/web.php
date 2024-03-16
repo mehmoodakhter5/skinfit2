@@ -22,6 +22,8 @@ use App\Http\Controllers\Admin;
 use App\Http\Controllers\Process;
 use App\Http\Controllers\Roles;
 use App\Http\Controllers\Homepage;
+use App\Http\Controllers\Header;
+
 //END ADmin
 
 /*
@@ -169,6 +171,8 @@ Route::get('admin/all-user', [Roles::class, 'index']);
 Route::get('admin/blog',[Admin::class,'blog']);
 Route::get('admin/po',[Admin::class,'po']);
 Route::get('admin/homepage',[Admin::class,'homepage']);
+Route::get('admin/header-setting',[Admin::class,'header_setting']);
+
 
 
 //POST REQUESTS (POST SUBMISSION)
@@ -184,6 +188,7 @@ Route::POST('post-inventory',[Process::class,'post_inventory']);
 Route::POST('post-user',[Roles::class,'store']);
 Route::POST('save_purchase_order',[Process::class,'save_po']);
 Route::POST('update-homepage/{$id}',[Homepage::class,'store']);
+Route::put('/update-header/{id}',[Header::class,'store_header'])->name('header-update');
 
 
 

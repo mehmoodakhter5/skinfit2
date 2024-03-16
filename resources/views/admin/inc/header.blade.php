@@ -468,7 +468,7 @@
   </li>
 </li>
  @can('all')
-    <li class="nav-item nav-category">pages</li>
+    <li class="nav-item nav-category">General Setting</li>
     <li class="nav-item">
       <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
         <i class="menu-icon mdi mdi-account-circle-outline"></i>
@@ -485,6 +485,13 @@
           <li class="nav-item"> <a class="nav-link" href="{{url('admin/add-new-user')}}">Add New User</a></li>
         </ul>
       </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin/header-setting')}}" aria-expanded="false">
+        <i class="menu-icon mdi mdi-home-outline"></i>
+        <span class="menu-title">Header Setting</span>
+      </a>
+   
     </li>
 @endcan
   </ul>

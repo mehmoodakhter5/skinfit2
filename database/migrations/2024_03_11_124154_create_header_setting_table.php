@@ -12,7 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('header_setting', function (Blueprint $table) {
-            $table->id();
+            $table->id('header_setting_id');
+            $table->string('header_setting_image');
+            $table->string('header_setting_link');
             $table->timestamps();
         });
     }

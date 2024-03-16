@@ -187,15 +187,22 @@ public function inventroy(){
             return view('admin.blog');
         }
    }
-public function homepage(){
-    $user= Auth::user();
-    if($user){
-        $home=DB::table('homepage')->where('homepage_id',1)->first();
-        return view('admin.homepage',compact('home'));
+    public function homepage(){
+        $user= Auth::user();
+        if($user){
+            $home=DB::table('homepage')->where('homepage_id',1)->first();
+            return view('admin.homepage',compact('home'));
 
+        }
     }
-}
-  
+    public function header_setting(){
+        $user= Auth::user();
+        if($user){
+            $homepage_setting=DB::table('header_setting')->where('header_setting_id',1)->first();
+            return view('admin.header_setting',compact('homepage_setting'));
+
+        }
+    }
 
 
 
@@ -273,5 +280,6 @@ public function getpo(){
     abort(403);
 }
 }
+
 
 }
