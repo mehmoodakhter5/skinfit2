@@ -67,16 +67,21 @@
                                 <div class="checkout3-thh2">
                                     <span>Rs {{$carts->price}}</span>
                                 </div>
+                                <form action="{{url('update-cart')}}" method="post">
+                                    @csrf
                                 <div class="checkout3-thh3">
                                     <div class="date-time">
                                         <div id="field1">
                                             <button type="button" id="sub" class="minus">-</button>
-                                            <input type="number" id="1" value="{{$carts->quantity}}" min="1" class="quantity">
+                                            <input type="number" name='qty[]' id="1" value="{{$carts->quantity}}" min="1" id='cartupdate' class="quantity">
+                                            <input type="hidden" name='cart_id[]' value="{{$carts->id}}" class="quantity">
+
                                             <button type="button" id="add" class="plus">+</button>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="checkout3-thh4">
+
                                     <span>Rs {{$carts->price}}</span>
                                 </div>
                                 <div class="checkout3-thh5">
@@ -96,6 +101,10 @@
                                 <div class="checkout3-th2-remove">
                                     <a href="{{url('clear')}}">Remove All</a>   
                                 </div>
+                                <div class="checkout3-th2-submit">
+                                    <button type='submit'>Update Cart</button>   
+                                </div>
+                            </form>
                             </div>
                         </div>
                         <!-- CHECKOUT3-FIRST-WRAP-TABLE-DESKTOP -->
@@ -139,7 +148,7 @@
                                     </div>
                                 </div>
                                 <div class="checkout3-th2-remove">
-                                    <a href="#!">Remove All</a>   
+                                    <a href="{{url('clearall')}}">Remove All</a>   
                                 </div>
                             </div>
                         </div>
@@ -170,7 +179,7 @@
                                 <a href="{{url('checkout')}}">Proceed to Checkout</a>
                             </div>
                             <div class="checkout-first-wrap-bankdetail-btn checkout3-first-wrap-bankdetail-btn1">
-                                <a href="#!">Continue Shopping</a>
+                                <a href="{{url('/')}}">Continue Shopping</a>
                             </div>
                         </div>
                     </div>

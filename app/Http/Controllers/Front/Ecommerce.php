@@ -78,6 +78,21 @@ class Ecommerce extends Controller
         $clear=DB::table('whishlist')->where('whishlist_product_id',$request->product_id)->delete();
         return back()->with("success","Added To Cart.");
     }
+    public function update_cart(Request $request){
+        $ids = $request->cart_id;
+        $quantities = $request->qty;
+        
+        foreach($ids as $index => $id){
+            $quantity = $quantities[$index];
+            \Cart::update($id, array(
+                'quantity' => array(
+                    'relative' => false,
+                    'value' => $quantity
+                ),
+            ));
+        }
+       return redirect()->back();
+    }
     public function add_whislist($id){
 
         $whishlist= new Whishlist();

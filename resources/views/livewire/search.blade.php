@@ -10,7 +10,7 @@
     <ul>
         @if(count($product) > 0)
         @foreach ($product as $products)
-            <li wire:key="{{ $products->id }}">{{$products->product_name}}</li>
+            <li wire:key="{{ $products->id }}"><a href="{{url('product/'.$products->product_slug)}}">{{$products->product_name}}</a></li>
         @endforeach
         @endif
     </ul>

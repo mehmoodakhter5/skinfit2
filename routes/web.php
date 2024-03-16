@@ -108,6 +108,10 @@ Route::post('/post-login',[Login::class,'customer_auth']);
 Route::post('addtocart/',[Addtocart::class,'addToCart']);
 Route::post('post-checkout',[Ecommerce::class,'checkout']);
 Route::post('post-cart',[Ecommerce::class,'store_cart']);
+Route::post('update-cart',[Ecommerce::class,'update_cart']);
+
+
+
 
 
 //Thank You Page 
@@ -218,6 +222,13 @@ Route::get('/logout', function(){
 Route::get('/clear/{id}', function(){
     \Cart::remove(request('id'));
 
+
+    return Redirect()->back();
+
+});
+
+Route::get('/clearall', function(){
+    \Cart::clear();
 
     return Redirect()->back();
 

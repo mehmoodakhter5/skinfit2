@@ -19,7 +19,7 @@ class Catalog extends Controller
        $thirdproduct=  DB::table('product')->where('product_category_id',$firstCategory->category_id)->inRandomOrder()->first();
        $fourthproduct=  DB::table('product')->where('product_category_id',$firstCategory->category_id)->inRandomOrder()->first();
 
-       $allproduct=  DB::table('product')->where('product_brand_id',$product->product_brand_id)->where('product_active','true')->paginate(12);
+       $allproduct=  DB::table('product')->where('product_brand_id',$product->product_brand_id)->where('product_active','true')->limit(8)->get();
        if(Auth::guard('customer')->check()){
         $whish=  DB::table('whishlist')->where('whishlist_product_id',$product->id)->where('whishlist_customer_id',Auth::guard('customer')->id())->first();
 

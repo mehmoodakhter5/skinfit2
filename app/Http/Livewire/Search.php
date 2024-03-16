@@ -15,7 +15,7 @@ class Search extends Component
         $products = [];
 
         if (!empty($this->searchtext)) {
-            $products = Product::where('product_name', 'like', '%' . $this->searchtext . '%')->get();
+            $products = Product::where('product_name', 'like', '%' . $this->searchtext . '%')->limit(10)->get();
         }
         return view('livewire.search', ['product' => $products]);
 

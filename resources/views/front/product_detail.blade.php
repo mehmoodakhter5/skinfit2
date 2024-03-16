@@ -232,7 +232,7 @@
                     </div>
                     <div class="product-detail-third-total-price">
                         <h6>Total Price : Rs {{$secondproduct->product_regular_price + $firstproduct->product_regular_price}}</h6>
-                        <a href="#!">Add to Cart</a>
+                        <a href="{{url('combo-add/'.$firstproduct->id.'/'.$secondproduct->id)}}">Add to Cart</a>
                     </div>
                 </div>
             </div>
@@ -241,30 +241,30 @@
                     <div class="product-detail-third-main-flex">
                         <div class="product-detail-third-main1">
                             <div class="product-detail-third-main1-img">
-                                <img src="assets/front/images/pro-detail1.png" alt="">
+                                <img src="https://imagedelivery.net/V8gK1_2VVoan1sk2mbDlgA/{{$thirdproduct->product_image_cloud}}/public" alt="">
                             </div>
                             <div class="product-detail-third-main1-text">
                                 <h6>This Item</h6>
-                                <h5>Maybelline Super Stay Full Coverage Liquid...</h5>
-                                <span>Rs 50000</span>
+                                <h5>{{$thirdproduct->product_name}}</h5>
+                                <span>Rs {{$thirdproduct->product_regular_price}}</span>
                             </div>
                         </div>
                         <div class="product-detail-third-plus">
-                            <img src="assets/front/images/plus.png" alt="">
+                            <img src="{{asset('front/asset/images/plus.png')}}" alt="">
                         </div>
                         <div class="product-detail-third-main1">
                             <div class="product-detail-third-main1-img">
-                                <img src="assets/front/images/pro-detail2.png" alt="">
+                                <img src="https://imagedelivery.net/V8gK1_2VVoan1sk2mbDlgA/{{$fourthproduct->product_image_cloud}}/public" alt="">
                             </div>
                             <div class="product-detail-third-main1-text">
                                 <h6>This Item</h6>
-                                <h5>Maybelline Super Stay Full Coverage Liquid...</h5>
-                                <span>Rs 50000</span>
+                                <h5>{{$fourthproduct->product_name}}</h5>
+                                <span>Rs {{$fourthproduct->product_regular_price}}</span>
                             </div>
                         </div>
                     </div>
                     <div class="product-detail-third-total-price">
-                        <h6>Total Price : Rs 59,000</h6>
+                        <h6>Total Price : Rs {{$thirdproduct->product_regular_price + $fourthproduct->product_regular_price}}</h6>
                         <a href="#!">Add to Cart</a>
                     </div>
                 </div>
@@ -313,16 +313,15 @@
                     </div>
                     <div class="index-product-desktop-price">
                         <div class="product-cut-price">
-                            <h6>Rs 50000</h6>
+                            <h6>Rs {{$products->product_discounted_price}}</h6>
                         </div>
                         <div class="product-original-price">
-                            <h6>Rs 35000</h6>
+                            <h6>Rs {{$products->product_regular_price}}</h6>
                         </div>
                     </div>
                 </div>
             </div>
             @endforeach
-            {{ $allproduct->links() }}
 
 
         </div>

@@ -3918,6 +3918,22 @@ section.range-slider input[type=range]::-moz-focus-outer {
 	background-color: var(--pink);
 	color: var(--white);
 }
+.checkout3-th2-submit button {
+	width: 116px;
+	height: 45px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid var(--pink);
+	color: var(--pink);
+	font-size: 14px;
+	font-family: var(--visbycf-bold);
+	transition: 0.5s;
+}
+.checkout3-th2-submit button:hover {
+	background-color: var(--pink);
+	color: var(--white);
+}
 .checkout3-th2-flex {
 	display: flex;
 	justify-content: space-between;
