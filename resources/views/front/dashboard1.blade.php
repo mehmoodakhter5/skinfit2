@@ -72,19 +72,7 @@
                         </a>
 
                         </div>
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
-                            <div class="dashboard02-main">
-                                <div class="dashboard02-main-flex">
-                                    <div class="dashboard02-main-icon">
-                                        <img src="{{asset('front/assets/images/credit-card 1.png')}}" alt="">
-                                    </div>
-                                    <div class="dashboard02-main-text">
-                                        <h6>Payments</h6>
-                                        <p>Lorem Ipsum is simply dummy text of the printing industry</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                             <div class="dashboard01-btn-bt">
                                 <a href="{{url('logout')}}">Logout</a>
