@@ -9,6 +9,8 @@ use App\Http\Controllers\Front\Main;
 use App\Http\Controllers\Front\Catalog;
 use App\Http\Controllers\Front\Dashboard;
 use App\Http\Controllers\Front\Login;
+use App\Http\Controllers\Front\General;
+
 //END FRONT
 //MODELS 
 use App\Models\Customer;
@@ -113,7 +115,7 @@ Route::post('addtocart/',[Addtocart::class,'addToCart']);
 Route::post('post-checkout',[Ecommerce::class,'checkout']);
 Route::post('post-cart',[Ecommerce::class,'store_cart']);
 Route::post('update-cart',[Ecommerce::class,'update_cart']);
-Route::put('account',[Ecommerce::class,'update_cart'])->name('update-account');
+Route::put('account',[General::class,'update_account'])->name('update-account');
 
 
 

@@ -404,6 +404,7 @@
                        html+='<li>'+data[i].sub_category_name+'</li>';
                     }
                     $('.subcategordata').html(html);
+                    console.log(html);
                      div1.removeClass("show");
                      div2.addClass("show");
            

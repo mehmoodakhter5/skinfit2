@@ -11,6 +11,17 @@
                         @csrf
                         @method('PUT')
                     <div class="row">
+                        @if(Session::has('success'))
+                        <div class="alert alert-success" role="alert">
+                            {{session('success')}}
+                          </div>
+                          @endif
+                          @if(Session::has('error'))
+                          <div class="alert alert-danger" role="alert">
+                            {{session('error')}}
+                          </div>
+                          @endif
+
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                             <div class="dashboard401-main">
                                 <div class="dashboard401-main-flex">
@@ -18,13 +29,13 @@
                                         <h6>Account Details</h6>
                                     </div>
                                     <div class="dashboard401-main-btn">
-                                        <a href="#!">Go Back</a>
+                                        <a href="{{url('my-dashboard')}}">Go Back</a>
                                     </div>
                                 </div>
                                 <div class="dashboard401-main-bg">
                                     <div class="checkout-first-wrap-emailfeild">
                                         <h6>Email..*</h6>
-                                            <input type="text" value="{{$customer->customer_email}}" placeholder="">
+                                            <input type="text" name='customer_email' value="{{$customer->customer_email}}" placeholder="">
                                     </div>
                                 <div class="checkout-first-wrap-checkbox">
                                     <div class="form-group">
@@ -34,11 +45,11 @@
                                 </div>
                             <div class="checkout-first-wrap-feildmain">
                                 <h6>First Name..*</h6>
-                                <input type="text"  value="{{$customer->customer_first_name}}" placeholder="">
+                                <input type="text" name='customer_first_name'  value="{{$customer->customer_first_name}}" placeholder="">
                             </div>
                             <div class="checkout-first-wrap-feildmain">
                                 <h6>Last Name..*</h6>
-                                <input type="text" value="{{$customer->customer_last_name}}" placeholder="">
+                                <input type="text" name='customer_last_name' value="{{$customer->customer_last_name}}" placeholder="">
                             </div>
                             <div class="checkout-first-wrap-feildmain">
                                 <div class="dashborad6-passchanges">
@@ -47,18 +58,18 @@
                             </div>
                             <div class="checkout-first-wrap-feildmain">
                                 <h6>Current password (leave blank to leave unchanged)</h6>
-                                <input type="text" placeholder="">
+                                <input type="password" name='current_password' placeholder="">
                             </div>
                             <div class="checkout-first-wrap-feildmain">
                                 <h6>New password (leave blank to leave unchanged)</h6>
-                                <input type="text" placeholder="">
+                                <input type="password" name='new_password' placeholder="">
                             </div>
                             <div class="checkout-first-wrap-feildmain">
                                 <h6>Confirm new password</h6>
-                                <input type="text" placeholder="">
+                                <input type="password" name='confirm_password' placeholder="">
                             </div>
                             <div class="checkout-first-wrap-feildmain-btn">
-                                <a href="#!">Save Changes</a>
+                                <button type="submit">Save Changes</button>
                             </div>
                         </div>
                     </div>
