@@ -63,6 +63,8 @@ Route::get('/checkout',[Main::class,'checkout']);
 Route::get('/my-dashboard',[Dashboard::class,'index']);
 Route::get('/my-dashboard/orders',[Dashboard::class,'orders']);
 Route::get('/my-dashboard/wish-list',[Dashboard::class,'wishlist']);
+Route::get('/my-dashboard/account-details',[Dashboard::class,'detail']);
+
 Route::get('/contact-us',function(){
     return view('front.contact');
 });
@@ -111,6 +113,7 @@ Route::post('addtocart/',[Addtocart::class,'addToCart']);
 Route::post('post-checkout',[Ecommerce::class,'checkout']);
 Route::post('post-cart',[Ecommerce::class,'store_cart']);
 Route::post('update-cart',[Ecommerce::class,'update_cart']);
+Route::put('account',[Ecommerce::class,'update_cart'])->name('update-account');
 
 
 

@@ -33,10 +33,12 @@
                                     <div class="dashboard02-main-icon">
                                         <img src="{{asset('front/assets/images/setting.png')}}" alt="">
                                     </div>
+                                    <a href="{{url('/my-dashboard/account-details')}}">
                                     <div class="dashboard02-main-text">
                                         <h6>Account Details</h6>
                                         <p>Lorem Ipsum is simply dummy text of the printing industry</p>
                                     </div>
+                                </a>
                                 </div>
                             </div>
                         </div>

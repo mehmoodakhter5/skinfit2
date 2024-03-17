@@ -47,4 +47,14 @@ class Dashboard extends Controller
         }
       
     }
+    public function detail(){
+        if(Auth::guard('customer')->check()){
+             $customer= Customer::find(Auth::guard('customer')->id());
+            $whishlist=DB::table('whishlist')->where('whishlist_customer_id',Auth::guard('customer')->id())->join('product','whishlist_product_id','id')->get();
+            return view('front.dashboard6',compact('customer','whishlist'));
+        }else{
+            abort(403);
+        }
+      
+    }
 }
