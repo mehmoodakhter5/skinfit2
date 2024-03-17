@@ -113,4 +113,32 @@ class Ecommerce extends Controller
         }
        
     }
+    public function combo($id,$secondid){
+        $product = Product::find($id);
+        $secondproduct = Product::find($secondid);
+
+
+        $added = \Cart::add([
+            'id' => $product->id,
+            'name' => $product->product_name,
+            'price' => $product->product_regular_price,
+            'quantity' => 1,
+            'attributes' => [
+                'image' => $product->product_image_cloud,
+            ],
+        ]);
+
+        $secondadded = \Cart::add([
+            'id' => $secondproduct->id,
+            'name' => $secondproduct->product_name,
+            'price' => $secondproduct->product_regular_price,
+            'quantity' => 1,
+            'attributes' => [
+                'image' => $secondproduct->product_image_cloud,
+            ],
+        ]);
+        if($added && $secondadded){
+            return redirect()->back()->with('success','Successfully Added');
+        }
+    }  
 }

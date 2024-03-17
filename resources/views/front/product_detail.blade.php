@@ -265,7 +265,7 @@
                     </div>
                     <div class="product-detail-third-total-price">
                         <h6>Total Price : Rs {{$thirdproduct->product_regular_price + $fourthproduct->product_regular_price}}</h6>
-                        <a href="#!">Add to Cart</a>
+                        <a href="{{url('combo-add/'.$thirdproduct->id.'/'.$fourthproduct->id)}}">Add to Cart</a>
                     </div>
                 </div>
             </div>

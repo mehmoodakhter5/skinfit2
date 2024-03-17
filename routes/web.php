@@ -82,6 +82,8 @@ Route::get('/clear',function(){
     return redirect('/');
    }
 });
+Route::get('/combo-add/{id}/{secondid}',[Ecommerce::class,'combo']);
+
 Route::get('/auth/callback', function () {
     $FbUser = Socialite::driver('facebook')->user();
     
@@ -151,7 +153,7 @@ Route::get('/about-us',function(){
 
 
 
-//Get Request FOR WEBSTIE (ADMIN PAGE VIEWS)
+//Get Request FOR ADMIN
 Route::get('/admin/login', function () {
     return view('admin.login');
 });
