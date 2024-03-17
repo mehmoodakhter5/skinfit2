@@ -135,19 +135,21 @@
                         <a href="#!">Share this Product:</a>
                     </div>
                     <div class="product-detail-social-icon">
+                      
                         <ul>
-                            <li class="facebook-icon">
-                                <img src="{{asset('front/assets/images/pro-facebook.png')}}" alt="">
-                            </li>
-                            <li class="twitter-icon">
-                                <img src="{{asset('front/assets/images/pro-twitter.png')}}" alt="">
-                            </li>
-                            <li class="instagram-icon">
-                                <img src="{{asset('front/assets/images/pro-instagram.png')}}" alt="">
-                            </li>
-                            <li class="pinterest-icon">
-                                <img src="{{asset('front/assets/images/pro-pinterest.png')}}" alt="">
-                            </li>
+                            <li>
+                                {!! ShareButtons::page(url()->current(), $product->product_name, [
+                                    'title' => "$product->product_name",
+                                    'rel' => 'nofollow noopener noreferrer',
+                                ])->facebook()
+                                  ->whatsapp()
+                                  ->twitter()
+                                  ->pinterest()
+                                  ->linkedin(['rel' => 'follow'])
+                                  ->copylink()
+                                  ->render(); !!}
+                                
+                                </li>
                         </ul>
                     </div>
                 </div>
@@ -250,7 +252,7 @@
                             </div>
                         </div>
                         <div class="product-detail-third-plus">
-                            <img src="{{asset('front/asset/images/plus.png')}}" alt="">
+                            <img src="{{asset('front/assets/images/plus.png')}}" alt="">
                         </div>
                         <div class="product-detail-third-main1">
                             <div class="product-detail-third-main1-img">

@@ -10,7 +10,7 @@
         "dedmytro/laravel-cloudflare-images": "^0.1.10",
         "doctrine/dbal": "^3.7",
         "guzzlehttp/guzzle": "^7.2",
-        "kudashevs/laravel-share-buttons": "*",
+        "kudashevs/laravel-share-buttons": "^5.0",
         "laravel/framework": "^10.0",
         "laravel/sanctum": "^3.2",
         "laravel/socialite": "^5.11",

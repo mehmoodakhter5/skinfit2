@@ -20,6 +20,8 @@
     <link rel="stylesheet"  href="{{asset('front/assets/css/aos.css')}}"  />
     <link rel="stylesheet"   href="{{asset('front/assets/css/main.css')}}"  />
     <link rel="stylesheet"  href="{{asset('front/assets/css/responsive.css')}}" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('front/assets/css/share-buttons.css') }}">
     @livewireStyles
 </head>
 <body>

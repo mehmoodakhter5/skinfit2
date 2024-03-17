@@ -376,6 +376,7 @@
     <script   src="{{asset('front/assets/js/owl.carousel.min.js')}}" ></script>
     <script   src="{{asset('front/assets/js/aos.js')}}" ></script>
     <script   src="{{asset('front/assets/js/custom.js')}}" ></script>
+    <script src="{{ asset('front/assets/js/share-buttons.js') }}"></script>
 <script>
   $(document).ready(function () {
   var div1 = $("#cat_panel_2");
