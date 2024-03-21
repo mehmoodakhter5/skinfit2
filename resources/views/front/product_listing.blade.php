@@ -121,7 +121,7 @@
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                         <div class="product-listing-firstpro-flex">
                             <div class="product-listing-firstpro-text">
-                                <h6> {{$maincategory->category_name}} <span>Liner</span></h6>
+                                <h6> {{$maincategory->category_name}} <span></span></h6>
                             </div>
                             <div class="product-listing-firstpro-mobile-menu-btn">
                                 <button id="productListMobile">Filter Products</button>
@@ -235,10 +235,10 @@
                         </div>
                         <div class="index-product-desktop-price">
                             <div class="product-cut-price">
-                                <h6>Rs 50000</h6>
+                                <h6>Rs {{$products->product_regular_price}}</h6>
                             </div>
                             <div class="product-original-price">
-                                <h6>Rs 35000</h6>
+                                <h6>Rs {{$products->product_discounted_price}}</h6>
                             </div>
                         </div>
                     </div>
@@ -246,6 +246,7 @@
                 @endforeach
               
             </div>
+            {{$product->links()}}
         </div>
         </div>
 

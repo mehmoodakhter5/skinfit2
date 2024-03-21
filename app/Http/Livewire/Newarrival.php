@@ -8,7 +8,7 @@ class Newarrival extends Component
 {
     public function render()
     {
-        $products = DB::table('product')->where('product_status','true')->where('product_active','true')->limit(30)->orderBy('id','DESC')->get();
+        $products = DB::table('product')->where('product_status','true')->where('product_active','true')->limit(15)->orderBy('id','DESC')->get();
         return view('livewire.newarrival',['products'=>$products]);
     }
 }

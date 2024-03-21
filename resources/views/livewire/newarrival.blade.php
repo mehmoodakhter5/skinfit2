@@ -28,6 +28,7 @@
                         <div class="swiper-wrapper">
 
                             @foreach($products as $product)
+                            @if($product->product_category_id !== null)
                             <div class="swiper-slide">
                                 <a href="{{url('product/'.$product->product_slug)}}">
 
@@ -73,7 +74,7 @@
                                 </div>
                             </a>
                             </div>
-                     
+                              @endif
                             @endforeach
                         </div>
                     </div>

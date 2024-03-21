@@ -34,7 +34,7 @@
                         <h6>By Creating Your Account, You Agree To Our Privacy Policy And Terms & Condition.</h6>
                     </div>
                     <div class="signup-first-wrapmain-btn">
-                        <input type='submit' value="Login Into Your Account">
+                        <button type="Submit">Login Into Your Account</button>
                     </div>
                     <div class="signup-first-wrapmain-btn1">
                         <a href="#!">Forgot Password ?</a>

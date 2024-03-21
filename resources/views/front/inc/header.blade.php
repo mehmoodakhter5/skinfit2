@@ -22,9 +22,12 @@
     <link rel="stylesheet"  href="{{asset('front/assets/css/responsive.css')}}" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('front/assets/css/share-buttons.css') }}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.bootstrap5.css">
     @livewireStyles
 </head>
 <body>
+            @if($agent->isDesktop())
+
 <div class="fade_wrap"></div>
     <header class="header-main-wrapper">
         <div class="header-main-wrap-top">
@@ -54,7 +57,6 @@
                 </div>
             </div>
         </div>
- 
         <div class="menu-main-wrap">
             <div class="header-main-wrap-end">
                 <div class="container">
@@ -68,13 +70,50 @@
                                                 Brands
                                                 <i class="fa-solid fa-chevron-down"></i>
                                             </a>
+                                           
                                         </li>
                                         @foreach($category as $cat)
                                         <li>
-                                            <a href="#!" class="nav_item_2" id='{{$cat->category_id}}'>
+                                            <a href="{{url($cat->category_slug)}}" class="nav_item_2 {{$cat->category_id}}" id='{{$cat->category_id}}'>
                                                 {{$cat->category_name}}
                                                 <i class="fa-solid fa-chevron-down"></i>
                                             </a>
+                                             <div class="megamenu-dropdown-desktop {{$cat->category_id}}" id="cat_panel_1">
+                                                <div class="megamenu-dropdown-desktop-main">
+                                                    <div class="megamenu-dropdown-flex1">
+                                                        <ul class='subcategordata'>
+                                                        @foreach($sub_category as $subcategory)
+                                                        @if($subcategory->category_id==$cat->category_id)
+                                                            <li>
+                                                                <a href="{{url($cat->category_slug.'/'.$subcategory->sub_category_slug)}}">{{$subcategory->sub_category_name}}</a>
+                                                                <ul class="subcategordata1">
+
+
+                                                                    <li>
+                                                                  @foreach($sub_category_lvl_2 as $lvl2)
+                                                                    @if($subcategory->sub_category_id==$lvl2->sub_category_id)
+                                                                        <a href="#!">
+                                                                            {{$lvl2->sub_category_level_2_name}}
+                                                                        </a>
+                                                                          @endif
+                                                                @endforeach
+                                                                    </li>
+                                                               
+                                                                </ul>   
+                                                            </li>
+                                                        @endif
+                                                        @endforeach
+                                                        </ul>
+                                                    </div>
+                                                    
+                                                    <div class="megamenu-dropdown-flex2">
+                                                        
+                                                        <div class="megamenu-dropdown-2">
+                                                            <img src="{{asset('front/assets/images/dropdown1.png')}}" alt="dropdown">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </li>
                                         @endforeach
                             
@@ -90,119 +129,6 @@
                                     <a href="{{url('track-your-order')}}">Track Your Order</a>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="megamenu-dropdown-desktop" id="cat_panel_1">
-                <div class="megamenu-dropdown-desktop-main">
-                    <div class="megamenu-dropdown-flex1">
-                        <ul class='subcategordata'>
-                            
-                        </ul>
-                    </div>
-                    <div class="megamenu-dropdown-flex2">
-                        <div class="megamenu-dropdown-1">
-                            <ul>
-                                <li>
-                                    <a href="#!">Eyeliner</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Mascara</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Concealer</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Eye Pencil</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Eye Primer</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Eyeshadow</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Eye Makeup Remover</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Eye Palette</a>
-                                </li> 
-                                <li>
-                                    <a href="#!">Eye Palette</a>
-                                </li> 
-                            </ul>
-                        </div>
-                        <div class="megamenu-dropdown-1">
-                            <ul>
-                                <li>
-                                    <a href="#!">Lip Gloss</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Lipsticks</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Lip Balm</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Lip Plumper</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Lip Pencils</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Lip Cream</a>
-                                </li>
-                            </ul>
-                        </div>    
-                        <div class="megamenu-dropdown-1">
-                            <ul>
-                                <li>
-                                    <a href="#!">Primer</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Blushes & Bronzers</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Foundations</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Setting Spray</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Powder</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Concealers</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Face Palette</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Cheek</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Tint</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="megamenu-dropdown-1">
-                            <ul>
-                                <li>
-                                    <a href="#!">Nail Polish</a>
-                                </li>
-                            </ul>
-                            <div class="megamenu-dropdown2">
-                                <h6>Brushes and Accessories</h6>
-                                <ul>
-                                    <li>
-                                        <a href="#!">Sponge</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="megamenu-dropdown-2">
-                            <img src="{{asset('front/assets/images/dropdown1.png')}}" alt="dropdown">
                         </div>
                     </div>
                 </div>
@@ -310,12 +236,13 @@
                 </div>
             </div>
         </div>
-
-        <!-- <div class="header-main-wrap-addcart">
+        @endif
+        @if($agent->isPhone())
+         <div class="header-main-wrap-addcart">
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <div class="header-main-wrap-addcart-logo">
-                        <img src="assets/front/images/logo.png" alt="" class="img-fluid">
+                        <img src="{{asset('front/assets/images/logo.png')}}" alt="" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
@@ -395,26 +322,34 @@
                                     <span>QUANTITY</span>
                                 </div>
                             </div>
+                            @foreach(\Cart::getContent() as $cart)
                             <div class="checkout3-thh1">
                                 <div class="checkout3-thh1-img-main">
                                     <div class="checkout3-thh1-img">
-                                        <img src="assets/front/images/product-cart.jpg" alt="">
+                                        <img src="https://imagedelivery.net/V8gK1_2VVoan1sk2mbDlgA/{{$cart['attributes']['image']}}/public" alt="">
                                     </div>
+                                    <a href="{{url('clear/'.$cart->id)}}">
                                     <div class="checkout3-thh1-cross">
-                                        <img src="assets/front/images/cross.png" alt="">
+                                        <img src="{{asset('front/assets/images/cross.png')}}" alt="">
                                     </div>
+                                    </a>
                                 </div>
-                                <span>Ogx Shampoo Strength & Length+ Keratin Oil 13oz</span>
+                                <span>{{$cart->name}}</span>
+                                <form action="{{url('update-cart')}}" method="post">
+                                    @csrf
                                 <div class="checkout3-thh3">
                                     <div class="date-time">
                                         <div id="field1">
                                             <button type="button" id="sub" class="minus">-</button>
-                                            <input type="number" id="1" value="1" min="1" class="quantity" max="10">
+                                            <input type="number" name='qty[]' id="1" value="{{$cart->quantity}}" min="1" id='cartupdate' class="quantity">
+                                            <input type="hidden" name='cart_id[]' value="{{$cart->id}}" class="quantity">
+
                                             <button type="button" id="add" class="plus">+</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
                             <div class="checkout3-th2-flex">
                                 <div class="checkout3-th2-main">
                                     <div class="checkout3-th2-input">
@@ -425,8 +360,12 @@
                                     </div>
                                 </div>
                                 <div class="checkout3-th2-remove">
-                                    <a href="#!">Remove All</a>   
+                                    <a href="{{url('clear')}}">Remove All</a>   
                                 </div>
+                                <div class="checkout3-th2-submit">
+                                    <button type='submit'>Update Cart</button>   
+                                </div>
+                            </form>
                             </div>
                         </div>
                     </div>
@@ -440,7 +379,7 @@
                             <ul>    
                                 <li>
                                     Subtotal
-                                    <h5>Rs.3,590</h5>
+                                    <h5>Rs.{{\Cart::getSubTotal()}}</h5>
                                 </li>
                                 <li>
                                     Shipping Charges
@@ -448,7 +387,7 @@
                                 </li>
                                 <li>
                                     Total
-                                    <span>Rs.3,740</span>
+                                    <span>Rs.{{\Cart::getTotal()}}</span>
                                 </li>
                             </ul>
                         </div>
@@ -456,16 +395,14 @@
                             <div class="checkout-first-wrap-bankdetail-btn checkout3-first-wrap-bankdetail-btn">
                                 <a href="#!">Proceed to Checkout</a>
                             </div>
-                            <div class="checkout-first-wrap-bankdetail-btn checkout3-first-wrap-bankdetail-btn1">
-                                <a href="#!">Continue Shopping</a>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="header-main-wrap-mobile-top">
-            <img src="assets/front/images/top-bar-mobile 1.png" alt="" class="img-fluid">
+            <img src="{{asset('front/assets/images/top-bar-mobile 1.png')}}" alt="" class="img-fluid">
         </div>
         <div class="header-main-wrap-mobile-top1">
             <h6>Free delivery on order Rs.6000</h6>
@@ -476,20 +413,22 @@
                     <i class="fa-solid fa-bars"></i>
                 </div>
                 <div class="header-wrap-mobile-logo">
-                    <a href="#!"><img src="assets/front/images/mobile-logo1.png" alt=""></a>
+                    <a href="#!"><img src="{{asset('front/assets/images/mobile-logo1.png')}}" alt=""></a>
                 </div>
             </div>
             <div class="header-wrap-mobile-top2-flex1">
+                <a href="{{url('signin')}}">
                 <div class="header-wrap-user">
-                    <img src="assets/front/images/profile.png" alt="">
+                    <img src="{{asset('front/assets/images/profile.png')}}" alt="">
                 </div>
+                </a>
                 <div class="header-wrap-search">
-                    <img src="assets/front/images/search1.png" alt="">
+                    <img src="{{asset('front/assets/images/search1.png')}}" alt="">
                 </div>
                 <div class="header-wrap-bag">
-                    <img src="assets/front/images/bag.png" alt="">
+                    <img src="{{asset('front/assets/images/bag.png')}}" alt="">
                     <div class="header-wrap-bag-01">
-                        <span>01</span>
+                        <span><livewire:counter lazy="on-load"></span>
                     </div>
                 </div>
             </div>
@@ -497,7 +436,7 @@
         <div class="header-main-mobile">
             <div class="header-main-mobile-screen-1 mobile-sub-menu">
                 <div class="close_btn">
-                    <img src="assets/front/images/menu_cross.png" alt="img">
+                    <img src="{{asset('front/assets/images/menu_cross.png')}}" alt="img">
                 </div>
                 <div class="header-mt-btn">
                     <div class="header-mt-btn1">
@@ -508,12 +447,12 @@
                     </div>
                 </div>
                 <div class="header-mt-logo">
-                    <img src="assets/front/images/logo.png" alt="">
+                    <img src="{{asset('front/assets/images/logo.png')}}" alt="">
                 </div>
                 <div class="header-mt-1">
                     <ul>
                         <li>
-                            <a href="#!" class="main_cat_item">
+                            <a href="#!"  class="main_cat_item_2">
                                 Brands
                                 <i class="fa-solid fa-chevron-right"></i>
                             </a>
@@ -526,48 +465,22 @@
                         </li>
                     </ul>
                 </div>
+
                 <div class="header-mt-2">
                     <div class="header-mt-2-text">
                         <h6>Popular Categories</h6>
                     </div>
                     <div class="header-mt-pro-flex">
                         <ul>
+                            @for ($i = 0; $i < min(6, count($category)); $i++)
                             <li>
-                                <a href="#!">
+                                <a href="{{url($category[$i]->category_slug)}}">
                                     <img src="assets/front/images/pro-mo1.png" alt="">
-                                    <h6>Makeup</h6>
+                                    <h6>{{$category[$i]->category_name}}</h6>
                                 </a>
                             </li>
-                            <li>
-                                <a href="#!">
-                                    <img src="assets/front/images/pro-mo1.png" alt="">
-                                    <h6>Lip Care</h6>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#!">
-                                    <img src="assets/front/images/pro-mo1.png" alt="">
-                                    <h6>Fragrance</h6>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#!">
-                                    <img src="assets/front/images/pro-mo1.png" alt="">
-                                    <h6>Makeup</h6>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#!">
-                                    <img src="assets/front/images/pro-mo1.png" alt="">
-                                    <h6>Lip Care</h6>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#!">
-                                    <img src="assets/front/images/pro-mo1.png" alt="">
-                                    <h6>Fragrance</h6>
-                                </a>
-                            </li>
+                            
+                            @endfor
                         </ul>
                     </div>
                     <div class="header-mt-2-paragraph">
@@ -599,7 +512,7 @@
                         </div>
                         <div class="header1-mm-main">
                             <div class="header1-mm-2">
-                                <img src="assets/front/images/discount-code.png" alt="">
+                                <img src="{{asset('front/assets/images/discount-code.png')}}" alt="">
                             </div>
                             <div class="header1-mmb">
                                 <h6>Discounts</h6>
@@ -612,12 +525,12 @@
                         <h6>Have you seen our top selling K-Beauty Products ?</h6>
                     </div>
                     <div class="header-mm-3-img">
-                        <img src="assets/front/images/menu-img.png" alt="">
+                        <img src="{{asset('front/assets/images/menu-img.png')}}" alt="">
                     </div>
                 </div>
                 <div class="header-mm-4">
                     <h6>
-                        <img src="assets/front/images/Frame 142.png" alt="">
+                        <img src="{{asset('front/assets/images/Frame 142.png')}}" alt="">
                         Wishlist
                     </h6>
                 </div>
@@ -629,7 +542,7 @@
                         <ul>
                             <li>
                                 <a href="#!">
-                                    <img src="assets/front/images/tiktok-m.png" alt="">
+                                    <img src="{{asset('front/assets/images/tiktok-m.png')}}" alt="">
                                 </a>
                             </li>
                             <li>
@@ -663,14 +576,14 @@
             </div>
             <div class="header-main-mobile-screen-2 mobile-sub-menu">
                 <div class="close_btn">
-                    <img src="assets/front/images/menu_cross.png" alt="img">
+                    <img src="{{asset('front/assets/images/menu_cross.png')}}" alt="img">
                 </div>
                 <div class="header-mt-btn">
                     <div class="header-mt-btn1">
-                        <a href="#!">Track Order</a>
+                        <a href="{{url('track-your-order')}}">Track Order</a>
                     </div>
                     <div class="header-mt-btn2">
-                        <a href="#!">Track Order</a>
+                        <a href="{{url('track-your-order')}}">Track Order</a>
                     </div>
                 </div>
                 <div class="header-mt-logo">
@@ -679,81 +592,28 @@
                 <div class="header-backlink1">
                     <ul>
                         <li>
-                            <a href="#!" class="main_cat_item_2">
+                            <a href="#!" class="">
                                 <i class="fa-solid fa-chevron-left"></i>
-                                Categories
+                                Brands
                             </a>
                         </li>
                     </ul>
                 </div>
                 <div class="header-backlink2">
                     <ul>
+                        @foreach($brand as $brands)
                         <li>
-                            <a href="#!" class="main_cat_item_3">
+                            <a href="{{url('brand/'.$brands->brand_slug)}}" wire:navigate>
                                 <div class="header-backlink2-img">
                                     <img src="assets/front/images/makeup01.png" alt="">
-                                    <span>Makeup</span>
+                                    <span>{{$brands->brand_name}}</span>
                                 </div>
                                 <div class="header-backlink2-img-text">
                                     <i class="fa-solid fa-chevron-right"></i>
                                 </div>
                             </a>
                         </li>
-                        <li>
-                            <a href="#!" class="main_cat_item_3">
-                                <div class="header-backlink2-img">
-                                    <img src="assets/front/images/makeup02.png" alt="">
-                                    <span>Skincare</span>
-                                </div>
-                                <div class="header-backlink2-img-text">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#!" class="main_cat_item_3">
-                                <div class="header-backlink2-img">
-                                    <img src="assets/front/images/makeup03.png" alt="">
-                                    <span>Haircare</span>
-                                </div>
-                                <div class="header-backlink2-img-text">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#!" class="main_cat_item_3">
-                                <div class="header-backlink2-img">
-                                    <img src="assets/front/images/makeup04.png" alt="">
-                                    <span>Fragrance</span>
-                                </div>
-                                <div class="header-backlink2-img-text">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#!" class="main_cat_item_3">
-                                <div class="header-backlink2-img">
-                                    <img src="assets/front/images/makeup05.png" alt="">
-                                    <span>Fashion</span>
-                                </div>
-                                <div class="header-backlink2-img-text">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#!" class="main_cat_item_3">
-                                <div class="header-backlink2-img">
-                                    <img src="assets/front/images/makeup06.png" alt="">
-                                    <span>Mini</span>
-                                </div>
-                                <div class="header-backlink2-img-text">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                </div>
-                            </a>
-                        </li>
+                     @endforeach
                     </ul>
                 </div>
                 <div class="header-mm-5">
@@ -798,7 +658,7 @@
             </div>
             <div class="header-main-mobile-screen-3 mobile-sub-menu">
                 <div class="close_btn">
-                    <img src="assets/front/images/menu_cross.png" alt="img">
+                    <img src="{{asset('front/assets/images/menu_cross.png')}}" alt="img">
                 </div>
                 <div class="header-mt-btn">
                     <div class="header-mt-btn1">
@@ -829,56 +689,18 @@
                 </div>
                 <div class="header-backlink2">
                     <ul>
+                        @foreach($category as $categories)
                         <li>
                             <a href="#!" class="main_cat_item_4">
                                 <div class="header-backlink2-img">
-                                    <span>Eyes</span>
+                                    <span>{{$categories->category_name}}</span>
                                 </div>
                                 <div class="header-backlink2-img-text">
                                     <i class="fa-solid fa-chevron-right"></i>
                                 </div>
                             </a>
                         </li>
-                        <li>
-                            <a href="#!" class="main_cat_item_4">
-                                <div class="header-backlink2-img">
-                                    <span>Lips</span>
-                                </div>
-                                <div class="header-backlink2-img-text">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#!" class="main_cat_item_4">
-                                <div class="header-backlink2-img">
-                                    <span>Face</span>
-                                </div>
-                                <div class="header-backlink2-img-text">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#!" class="main_cat_item_4">
-                                <div class="header-backlink2-img">
-                                    <span>Nails</span>
-                                </div>
-                                <div class="header-backlink2-img-text">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#!" class="main_cat_item_4">
-                                <div class="header-backlink2-img">
-                                    <span>Brushes and Accessories</span>
-                                </div>
-                                <div class="header-backlink2-img-text">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                </div>
-                            </a>
-                        </li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="header-mm-5">
@@ -923,7 +745,7 @@
             </div>
             <div class="header-main-mobile-screen-4 mobile-sub-menu">
                 <div class="close_btn">
-                    <img src="assets/front/images/menu_cross.png" alt="img">
+                    <img src="{{asset('front/assets/images/menu_cross.png')}}" alt="img">
                 </div>
                 <div class="header-mt-btn">
                     <div class="header-mt-btn1">
@@ -1075,7 +897,7 @@
         </div>
         <div class="header-main-search-suggestion">
                  <div class="close_btn">
-                    <img src="assets/front/images/menu_cross.png" alt="img">
+                    <img src="{{asset('front/assets/images/menu_cross.png')}}" alt="img">
                 </div>
             <div class="header-mt-btn">
                 <div class="header-mt-btn1">
@@ -1132,10 +954,13 @@
             </div>
         </div>
         <div class="header-main-search-suggestion-after">
-                <div class="close_btn">
-                    <img src="assets/front/images/menu_cross.png" alt="img">
-                </div>
-            <h1>Laurdam lipsum</h1>
-        </div> -->
+            <div class="close_btn">
+                <img src="{{asset('front/assets/images/menu_cross.png')}}" alt="img">
+            </div>
+            <div class="suggestion-search-feild1">
+                <input type="" placeholder="Search Your Favorite Products" />
+            </div>
+        </div>
+        @endif
          
     </header>

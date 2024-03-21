@@ -377,7 +377,11 @@
     <script   src="{{asset('front/assets/js/aos.js')}}" ></script>
     <script   src="{{asset('front/assets/js/custom.js')}}" ></script>
     <script src="{{ asset('front/assets/js/share-buttons.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.0.2/js/dataTables.bootstrap5.js"></script>
 <script>
+    new DataTable('#example');
   $(document).ready(function () {
   var div1 = $("#cat_panel_2");
   var div2 = $("#cat_panel_1");
@@ -389,32 +393,11 @@
       div2.removeClass("show");
   });
 
-  navItem2List.mouseover(function () {
-      var categoryId= this.id;
-     
-      $.ajax({
-        url: "{{url('api/sub-category')}}",
-        data: { id: categoryId },
-        success: function(response) {
-            data = response;
-            console.log(data.sub_category_id);
-                    var html = '';
-                    var i;
-                    for (i = 0; i < data; i++) {
-                       html+='<li>'+data[i].sub_category_name+'</li>';
-                    }
-                    $('.subcategordata').html(html);
-                    console.log(html);
-                     div1.removeClass("show");
-                     div2.addClass("show");
-           
-           
-        },
-        error: function(xhr, status, error) {
-            console.error(status, error);
-        }
-    });
-  });
+$('.nav_item_2').mouseover(function () {
+    var categoryId = $(this).attr('id');
+    $('.megamenu-dropdown-desktop').removeClass('show');
+    $('.megamenu-dropdown-desktop.' + categoryId).addClass('show'); 
+});
 
   $("body").mouseover(function (event) {
       if (!$(event.target).closest(".menu-main-wrap").length) {

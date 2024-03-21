@@ -6,12 +6,14 @@
         <div class="header-desktop-search-icon-feild">
             <input type="text" wire:model.live="searchtext" placeholder="Search your Favorite Products">
         </div>
-    </div>
-    <ul>
         @if(count($product) > 0)
-        @foreach ($product as $products)
-            <li wire:key="{{ $products->id }}"><a href="{{url('product/'.$products->product_slug)}}">{{$products->product_name}}</a></li>
-        @endforeach
+        <div class="header-desktop-searchsuggestion">
+            <ul>
+                @foreach ($product as $products)
+                    <li wire:key="{{ $products->id }}"><a href="{{url('product/'.$products->product_slug)}}">{{$products->product_name}}</a></li>
+                @endforeach
+            </ul>
+        </div>
         @endif
-    </ul>
+    </div>
 </div>

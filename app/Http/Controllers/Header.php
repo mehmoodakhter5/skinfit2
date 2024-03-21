@@ -19,8 +19,8 @@ class Header extends Controller
         $image = $response->result;
         };
 
-        $head->header_setting_link->$request->header_setting_link;
-        $head->header_setting_image->$image->id;
+        $head->header_setting_link = $request->header_setting_link;
+        $head->header_setting_image = $image->id;
         $head->save();
         return redirect()->back()->with('success','Successfuly Updated!');
 

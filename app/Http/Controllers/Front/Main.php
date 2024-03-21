@@ -11,9 +11,10 @@ class Main extends Controller
 {
     public function index(){
         $featured = DB::table('product')->where('product_status','true')->where('product_active','true')->where('product_featured',true)->limit(100)->orderBy('id','DESC')->get();
+        $restock = DB::table('product')->where('product_status','true')->where('product_active','true')->limit(20)->get();
         $title=NULL;
         $home=DB::table('homepage')->where('homepage_id',1)->first();
-        return view('front.index',['featured'=>$featured,'title'=>$title,'home'=>$home]);
+        return view('front.index',['featured'=>$featured,'title'=>$title,'home'=>$home,'restock'=>$restock]);
     }
     public function cart(){
         $cart=\Cart::getContent();

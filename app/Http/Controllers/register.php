@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Session;
 use Carbon\Carbon;
-class register extends Controller
+class Register extends Controller
 {
     public function index(){
 

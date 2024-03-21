@@ -42,7 +42,7 @@
                                         <div class="dashboard401-2thtable">
                                             <img src="https://imagedelivery.net/V8gK1_2VVoan1sk2mbDlgA/{{$order->product_image_cloud}}/public" class="img-fluid" alt="">
                                         </div> 
-                                        <div class="dashboard401-2thtable">
+                                        <div class="dashboard401-2thtable dashboard401-2thtableimg">
                                             <div class="prodetails">
                                                 <span>{{$order->product_name}}</span>
                                             </div>

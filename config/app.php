@@ -186,7 +186,7 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Darryldecode\Cart\CartServiceProvider::class,
         Kudashevs\ShareButtons\Providers\ShareButtonsServiceProvider::class,
-        
+        Jenssegers\Agent\AgentServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -217,7 +217,8 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-        'Cart' => Darryldecode\Cart\Facades\CartFacade::class
+        'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
+        'Agent' => Jenssegers\Agent\Facades\Agent::class,
     ])->toArray(),
 
 ];
